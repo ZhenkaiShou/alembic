@@ -90,11 +90,11 @@ css_inline: true # Will insert all styles into a single <style> block in the <he
 
 # 8. Site navigation
 navigation_header:
-  Home: /
-  Elements: /elements/
-  Blog: /blog/
-  Categories: /categories/
-  Search: /search/
+  Home: /my_site/
+  Elements: /my_site/elements/
+  Blog: /my_site/blog/
+  Categories: /my_site/categories/
+  Search: /my_site/search/
   Fork Alembic: https://github.com/daviddarnes/alembic
 
 navigation_footer:
