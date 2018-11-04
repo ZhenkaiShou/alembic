@@ -58,10 +58,10 @@ timezone: Europe/London # Timezone for blog posts and alike
 collections:
   posts:
     title: Posts # Needed for Siteleaf
-    output: false
+    output: true
     description: "Recent activities" # The post list page content
     feature_text: |
-     Uncomment Line 63-64 in _config.yml to disable this feature
+     Uncomment Line 63-65 in _config.yml to disable this feature
     feature_image: "https://picsum.photos/2560/600?image=866"
 
 # 6. Jekyll collections settings
@@ -100,7 +100,7 @@ navigation_footer:
   Created by David Darnes: https://darn.es
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
-  Twitter: https://twitter.com/DavidDarnes
+  Twitter: Edit Line 103 - 108 in _config.yml # https://twitter.com/DavidDarnes
   LinkedIn: https://www.linkedin.com/in/daviddarnes
   Google+: https://plus.google.com/+DavidDarnes
   GitHub: https://github.com/daviddarnes
