@@ -77,7 +77,7 @@ encoding: utf-8 # Make sure the encoding is right
 lang: en-GB # Set the site language
 title: "My Site" # Site name or title, also used in jekyll-seo-tag
 logo: "/assets/logo.svg" # Site logo, also used in jekyll-seo-tag
-description: "Alembic is a starting point for Jekyll projects. Rather than starting from scratch, this boilerplate is designed to get the ball rolling immediately" # Site description and default description, also used in jekyll-seo-tag
+description: "Description of My Site" # Site description and default description, also used in jekyll-seo-tag
 url: "https://zhenkaishou.github.io" # Site url, also used in jekyll-seo-tag
 baseurl: ""
 repo: "https://github.com/ZhenkaiShou/zhenkaishou.github.io"
