@@ -79,7 +79,7 @@ title: "My Site" # Site name or title, also used in jekyll-seo-tag
 logo: "/assets/logo.svg" # Site logo, also used in jekyll-seo-tag
 description: "Description of My Site" # Site description and default description, also used in jekyll-seo-tag
 url: "https://zhenkaishou.github.io" # Site url, also used in jekyll-seo-tag
-baseurl: ""
+baseurl: "/rev"
 repo: "https://github.com/ZhenkaiShou/zhenkaishou.github.io"
 email: "tomshou423@hotmail.com"
 disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
