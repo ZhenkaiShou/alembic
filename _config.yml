@@ -60,9 +60,9 @@ collections:
     title: Posts # Needed for Siteleaf
     output: false
     description: "Recent activities" # The post list page content
-    #feature_text: |
-    #  Welcome to the blog
-    # feature_image: "https://picsum.photos/2560/600?image=866"
+    feature_text: |
+     Uncomment Line 63-64 in _config.yml to disable this feature
+    feature_image: "https://picsum.photos/2560/600?image=866"
 
 # 6. Jekyll collections settings
 defaults:
