@@ -31,7 +31,7 @@ Alembic is a starting point for [Jekyll](https://jekyllrb.com/) projects. Rather
 
 ## Examples
 
-Here are a few examples of Alembic out in the wild being used in a variety of ways:
+Here are a few examples of Alembic out in the wild being used in a variety of ways:a
 
 - [bitpodcast.com](https://bitpodcast.com/)
 - [joelcagedesign.com](https://joelcagedesign.com/)
