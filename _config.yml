@@ -81,8 +81,8 @@ description: "Description of My Site" # Site description and default description
 url: "https://zhenkaishou.github.io" # Site url, also used in jekyll-seo-tag
 baseurl: ""
 repo: "https://github.com/ZhenkaiShou/zhenkaishou.github.io"
-email: "me@daviddarnes.com"
-# disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
+email: "tomshou423@hotmail.com"
+disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
 avatarurl: "https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c" # Uses avatars for favicons to get multple sites, eg Gravatar, Twitter, GitHub
 # google_analytics: ''
 # service_worker: false # Will turn off the service worker if set to false
@@ -100,7 +100,7 @@ navigation_footer:
   Created by David Darnes: https://darn.es
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
-  Twitter: Edit Line 103 - 108 in _config.yml # https://twitter.com/DavidDarnes
+  Twitter: Edit_Line_103_to_108_in_config.yml # https://twitter.com/DavidDarnes
   LinkedIn: https://www.linkedin.com/in/daviddarnes
   Google+: https://plus.google.com/+DavidDarnes
   GitHub: https://github.com/daviddarnes
