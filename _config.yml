@@ -95,6 +95,7 @@ navigation_header:
   Blog: /blog/
   Categories: /categories/
   Search: /search/
+  About Us: /about_us/
 
 navigation_footer:
   Created by David Darnes: https://darn.es
