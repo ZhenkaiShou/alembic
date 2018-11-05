@@ -57,9 +57,9 @@ timezone: Europe/London # Timezone for blog posts and alike
 # 5. Collections
 collections:
   posts:
-    title: Blog # Needed for Siteleaf
+    title: Recent Posts # Needed for Siteleaf
     output: true
-    description: "Recent activities" # The post list page content
+    description: "" # The post list page content
     feature_text: |
      Comment Line 63-65 in _config.yml to disable this feature
     feature_image: "https://picsum.photos/2560/600?image=866"
