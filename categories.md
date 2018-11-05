@@ -1,6 +1,6 @@
 ---
 title: Categories
-layout: default
+layout: blog
 indexing: false
 sitemap: false
 excerpt: "Category index"
