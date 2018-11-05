@@ -6,7 +6,7 @@ feature_image: "https://picsum.photos/2560/600?image=873"
 indexing: false
 sitemap: false
 excerpt: "A demo of Markdown and HTML includes"
-aside: false
+aside: true
 ---
 
 # Heading 1
