@@ -9,5 +9,5 @@ In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learni
 
 # What is Curiosity?
 
-First of all, we need to understand what curiosity means to an agent. Let's say, a baby may explore its surroundings without specific goals. It may open a drawer, or crawl under the bed ... of course aimlessly. Then what drives it to do such meaningless things? Yes, that's the power of curiosity! A baby can be easily attracted by whatever looks new to it, until when it gets bored.
+First of all, we need to understand what curiosity means to an agent. Let's say, a baby may explore its surroundings without specific goals. It may open a drawer, or crawl under the bed ... of course aimlessly. Then what drives it to do such meaningless things? Yes, that's the power of curiosity! A baby can be easily attracted by whatever looks new to it, until when the baby gets bored of it.
 
