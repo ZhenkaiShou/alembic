@@ -7,6 +7,7 @@
 # 6. Jekyll collections settings
 # 7. Site settings
 # 8. Site navigation
+# 9. Extra
 
 # 1. Files excluded from Jekyll builds
 exclude:
@@ -119,3 +120,7 @@ sharing_links: # Appear at the bottom of single blog posts, uncomment and commen
   # Hacker News: "#ff6600"
   # Designer News: "#2D72D9"
   # Email: ""
+
+# 9. Extra
+markdown: maruku
+
