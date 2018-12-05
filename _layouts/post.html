@@ -7,21 +7,16 @@ layout: default
 <main class="main  container">
 
   <article class="article  article--post  content  typeset">
-    <head>
-      {% include mathjax_support.html %}
-    </head>
-    <body>
-      <h1>{{ page.title }}</h1>
+    <h1>{{ page.title }}</h1>
   
-      {% include post-meta.html %}
-      {{ content }}
+    {% include post-meta.html %}
+    {{ content }}
   
-      {% include nav-share.html %}
+    {% include nav-share.html %}
   
-      {% include post-comments.html %}
-    </body>
+    {% include post-comments.html %}
   </article>
-
+  {% include mathjax_support.html %}
   {% if page.aside == true %}{% include site-aside.html %}{% endif %}
 
 </main>
