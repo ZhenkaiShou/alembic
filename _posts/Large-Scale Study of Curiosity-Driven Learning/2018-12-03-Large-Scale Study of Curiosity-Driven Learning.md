@@ -39,6 +39,7 @@ where $ c_{r_{ext}} = 0 $ and $ c_{r_{int}} = 1 $ are the coefficients. Later on
 There is debate on how to learn features $ \phi $ in order to achieve good performance. Here are some possible choices (we call them auxiliary tasks):
 - **Pixels**: We let $ \phi(o_{t}) = o_{t} $ so that the feature will be the same as the observation. The auxiliary loss is set to 0.
 - **Random Features**: Parameters in $ \phi(\cdot) $ is fixed and will not be changed during training. The auxiliary loss is set to 0.
-- **Inverse Dynamics Features (IDF)**: We use an IDF network $ \hat{a}_{t} = \text{idf}(\phi(o_{t}), \phi(o_{t+1})) $ to predict the action given both the current and next features. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{idf}(\cdot) $ to minimize the action prediction loss.
+- **Inverse Dynamics Features (IDF)**: We use an IDF network $ \hat{a_{t}} = \text{idf}(\phi(o_{t}), \phi(o_{t+1})) $ to predict the action given both the current and next features. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{idf}(\cdot) $ to minimize the action prediction loss.
 - **Variational autoencoders (VAE)**: We use a decoder network $ \hat{o_{t}} = \text{decode}(\text{sampled}(\phi(o_{t}))) $ to reconstruct the original observation. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{decode}(\cdot) $ to minimize the VAE loss.
 
+Each auxiliary task has its own pros and cons. It is difficult to tell which one is better except for the **Pixels** whose performance is bad across all environments.
