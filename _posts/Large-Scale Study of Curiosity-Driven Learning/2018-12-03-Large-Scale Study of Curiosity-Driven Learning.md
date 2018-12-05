@@ -44,5 +44,5 @@ There is debate on how to learn features $ \phi $ in order to achieve good perfo
 
 Each feature learning method has its own pros and cons. It is difficult to tell which one is better except for the **Pixels** whose performance is bad across all environments.
 
-<img src="_posts/feature_learning.png" alt=""/>
+<img src="_posts/feature_learning.png" alt="1"/>
 
