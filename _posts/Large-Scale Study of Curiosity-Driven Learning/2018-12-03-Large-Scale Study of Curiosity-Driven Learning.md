@@ -16,5 +16,7 @@ First of all, we need to understand what curiosity means. Let's say, a baby may 
 What will happen if we let the agent to explore the environments purely by curiosity? This is what that paper is all about. 
 
 The extrinsic reward $ r_{ext} $, which can be sampled from the environment, is not used during training since the agent will only learn through its own curiosity. Instead, we need to define some intrinsic reward $ r_{int} $ which can reflect such kind of curiosity. Here we can define the intrinsic reward $ r_{int} $ as:
+
 $$ r_{int} = ||f(\phi(o_{t}), a_{t}) - \phi(o_{t+1})||^{2} $$
+
 where $ o_{t} $ is the observation at time step $ t $, $ a_{t} $ is the observation at time step $ t $, $ o_{t+1} $ is the next observation, $ \phi(\cdot) $ is a neural network that encodes the high dimensional observation into low dimensional feature, $ f(\cdot) $ is another neural network that predicts the next feature from the current feature and action.
