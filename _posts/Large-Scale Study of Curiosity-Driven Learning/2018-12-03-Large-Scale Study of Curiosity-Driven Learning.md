@@ -13,9 +13,9 @@ First of all, we need to understand what curiosity means. Let's say, a baby may 
 
 ### What if we apply curiosity to the agent?
 
-What will happen if we let the agent to explore the environments purely by curiosity? This is what that paper is all about. 
+How about we incorporate curiosity into reinforcement learning? This is what that paper is all about. 
 
-The extrinsic reward $ r_{ext} $, which can be sampled from the environment, is not used during training since the agent will only learn through its own curiosity. Instead, we need to define some intrinsic reward $ r_{int} $ which can reflect such kind of curiosity. Here we can define the intrinsic reward $ r_{int} $ as:
+The extrinsic reward $ r_{ext} $, which can be sampled from the environment, will not used during training since the agent will only learn through its own curiosity. Instead, we need to define some intrinsic reward $ r_{int} $ which can reflect such kind of curiosity. Here we can define the intrinsic reward $ r_{int} $ as:
 
 $$ r_{int, t} = ||f(\phi(o_{t}), a_{t}) - \phi(o_{t+1})||^{2} \label{eq: r_int} $$
 
@@ -32,4 +32,11 @@ In general, the reward $ r_{t} $ can be defined as a mixture of extrinsic and in
 
 $$ r_{t} = c_{r_{ext}} * r_{ext, t} + c_{r_{int}} * r_{int, t} \label{eq: r} $$
 
-where $ c_{r_{ext}} = 0 $ and $ c_{r_{int}} = 1 $ are the coefficients. Later on we can set $ c_{r_{ext}}, c_{r_{int}} $ to other values for other purposes.
+where $ c_{r_{ext}} = 0 $ and $ c_{r_{int}} = 1 $ are the coefficients. Later on we can set $ c_{r_{ext}} $ and $ c_{r_{int}} $ to other values for other purposes.
+
+### Auxiliary tasks
+
+There is debate on how to train the encoding network $ \phi(\cdot) $ in order to have good performance. Here are some possible choices (we call them auxiliary tasks):
+- **Random Features**: Parameters in $ \phi(\cdot) $ is fixed and will not be changed during training. The auxiliary loss is set to 0.
+- **Inverse Dynamics Features (IDF)**: We add another module $ \text{idf}(\phi(o_{t}), \phi(o_{t+1})) $ to predict the action given both the current and next features. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{idf}(\cdot) $ to minimize the IDF loss.
+- **Variational autoencoders (VAE)**:
