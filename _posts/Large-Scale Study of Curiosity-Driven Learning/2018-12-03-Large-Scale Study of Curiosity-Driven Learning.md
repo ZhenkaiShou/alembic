@@ -20,16 +20,11 @@ The extrinsic reward $ r_{ext} $, which can be sampled from the environment, is 
 $$ r_{int, t} = ||f(\phi(o_{t}), a_{t}) - \phi(o_{t+1})||^{2} \label{eq: r_int} $$
 
 where
-
-&nbsp;&nbsp; $ o_{t} $ is the observation at time step $ t $,
-
-&nbsp;&nbsp; $ a_{t} $ is the observation at time step $ t $,
-
-&nbsp;&nbsp; $ o_{t+1} $ is the next observation,
-
-&nbsp;&nbsp; $ \phi(\cdot) $ is a neural network that encodes the high dimensional observation into low dimensional feature,
-
-&nbsp;&nbsp; $ f(\cdot) $ is also a neural network that predicts the next feature given the current feature and action.
+  - $ o_{t} $ is the observation at time step $ t $,
+  - $ a_{t} $ is the observation at time step $ t $,
+  - $ o_{t+1} $ is the next observation,
+  - $ \phi(\cdot) $ is a neural network that encodes high dimensional observation into low dimensional feature,
+  - $ f(\cdot) $ is also a neural network that predicts the next feature given the current feature and action.
 
 We can see that **Equation \ref{eq: r_int}** is actually the prediction error. An agent that is trained to maximize this reward $ r_{int} $ will prefer transitions with high prediction errors. Curiosity, in this case, can be intepreted as the inability to predict future states.
 
