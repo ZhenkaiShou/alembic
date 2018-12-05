@@ -37,13 +37,13 @@ where $ c_{r_{ext}} = 0 $ and $ c_{r_{int}} = 1 $ are the coefficients. Later on
 ### Feature learning
 
 There is debate on how to learn features $ \phi $ in order to achieve good performance. Here are some possible choices:
-- **Pixels**: We let $ \phi(o_{t}) = o_{t} $ so that the feature will be the same as the observation. The auxiliary loss is set to 0.
-- **Random Features**: Parameters in $ \phi(\cdot) $ is fixed and will not be changed during training. The auxiliary loss is set to 0.
-- **Inverse Dynamics Features (IDF)**: We use an IDF network $ \hat{a_{t}} = \text{idf}(\phi(o_{t}), \phi(o_{t+1})) $ to predict the action given both the current and next features. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{idf}(\cdot) $ to minimize the action prediction loss.
+- **Pixels**: We let $ \phi(o_{t}) = o_{t} $ so that the feature will be the same as the observation. 
+- **Random Features**: Parameters in $ \phi(\cdot) $ is fixed and will not be changed during training. 
+- **Inverse Dynamics Features (IDF)**: We use a network $ \hat{a_{t}} = \text{idf}(\phi(o_{t}), \phi(o_{t+1})) $ to predict the action given both the current and next features. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{idf}(\cdot) $ to minimize the action prediction loss.
 - **Variational autoencoders (VAE)**: We use a decoder network $ \hat{o_{t}} = \text{decode}(\text{sampled}(\phi(o_{t}))) $ to reconstruct the original observation. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{decode}(\cdot) $ to minimize the VAE loss.
 
-Each feature learning method has its own pros and cons. It is difficult to tell which one is better except for the **Pixels** whose performance is bad across all environments.
+Each feature learning method has its own pros and cons. The figure below compares different feature learning methods across multiple environments. Note again that the extrinsic reward is only used for measuring the performance, not for training. It is difficult to tell which one is the best except for the **Pixels** method whose overall performance is bad.
 
 {% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/feature_learning.png" caption="Performance of different feature learning methods across multiple environments. (Source: original paper)" width="90%" %}
 
-
+### 
