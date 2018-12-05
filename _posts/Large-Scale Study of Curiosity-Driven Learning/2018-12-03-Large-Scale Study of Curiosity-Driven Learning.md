@@ -17,13 +17,24 @@ What will happen if we let the agent to explore the environments purely by curio
 
 The extrinsic reward $ r_{ext} $, which can be sampled from the environment, is not used during training since the agent will only learn through its own curiosity. Instead, we need to define some intrinsic reward $ r_{int} $ which can reflect such kind of curiosity. Here we can define the intrinsic reward $ r_{int} $ as:
 
-$$ r_{int} = ||f(\phi(o_{t}), a_{t}) - \phi(o_{t+1})||^{2} \label{eq: r_int} $$
+$$ r_{int, t} = ||f(\phi(o_{t}), a_{t}) - \phi(o_{t+1})||^{2} \label{eq: r_int} $$
 
 where
+
 &nbsp;&nbsp; $ o_{t} $ is the observation at time step $ t $,
+
 &nbsp;&nbsp; $ a_{t} $ is the observation at time step $ t $,
+
 &nbsp;&nbsp; $ o_{t+1} $ is the next observation,
+
 &nbsp;&nbsp; $ \phi(\cdot) $ is a neural network that encodes the high dimensional observation into low dimensional feature,
+
 &nbsp;&nbsp; $ f(\cdot) $ is also a neural network that predicts the next feature given the current feature and action.
 
 We can see that **Equation \ref{eq: r_int}** is actually the prediction error. An agent that is trained to maximize this reward $ r_{int} $ will prefer transitions with high prediction errors. Curiosity, in this case, can be intepreted as the inability to predict future states.
+
+In general, the reward can be defined as a mixture of extrinsic and intrinsic reward:
+
+$$ r_{t} = c_{r_{ext}} * r_{ext, t} + c_{r_{int}} * r_{int, t} \label{eq: r} $$
+
+where $ c_{r_{ext}} $ and $ c_{r_{int}} $ are the coefficients.
