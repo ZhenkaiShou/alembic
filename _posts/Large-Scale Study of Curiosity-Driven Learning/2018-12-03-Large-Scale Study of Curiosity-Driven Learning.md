@@ -9,11 +9,13 @@ In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learni
 
 ### What is curiosity?
 
-First of all, we need to understand what curiosity means. Let's say, a baby may explore its surroundings without specific goals. It may open a drawer, or crawl under the bed ... of course aimlessly. A baby can be easily attracted by whatever looks new to it, until when the baby gets bored of it. Then what drives it to do such things? Yes, that's the power of curiosity! 
+First of all, we need to understand what curiosity means. Let's say, a baby may explore its surroundings without specific goals. It may open a drawer, or even crawl under the bed ... aimlessly. A baby can be easily attracted by whatever looks new to it, until when the baby gets bored of it. Then what drives it to do such things? Yes, that's the power of curiosity! 
 
-### What if we apply curiosity to the agent?
+### What if we incorporate curiosity into reinforcement learning?
 
-How about we incorporate curiosity into reinforcement learning? This is what that paper is all about. 
+In standard reinforcement learning, an agent will receive extrinsic reward $ r_{ext} $ from the environment after taking an action. However, such extrinsic reward requires manual engineering and may not even exist in some scenarios. Furthermore, classic reinforcement learning algorithms may not work well when the rewards are sparse. 
+
+Instead of relying on extrinsic rewards, how about we incorporate curiosity into reinforcement learning? This is what [this paper](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf) is all about. 
 
 The extrinsic reward $ r_{ext} $, which can be sampled from the environment, will not used during training since the agent will only learn through its own curiosity. Instead, we need to define some intrinsic reward $ r_{int} $ which can reflect such kind of curiosity. Here we can define the intrinsic reward $ r_{int} $ as:
 
