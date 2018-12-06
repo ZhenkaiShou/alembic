@@ -49,7 +49,7 @@ There is debate on how to learn features in order to achieve good performance. H
 Each feature learning method has its own pros and cons. The figure above compares different feature learning methods across multiple environments. It is difficult to tell which one is the best except for **Pixels** whose overall performance is bad.
 
 ### Training
-[Clipped PPO algorithm](https://blog.openai.com/openai-baselines-ppo/) is applied to the policy training since it is a robost alogrithm which requires little hyperparameter tuning. For this algorithm to work, we need to create a policy network:
+OpenAI uses [Clipped PPO algorithm](https://blog.openai.com/openai-baselines-ppo/) to train the policy since it is a robost alogrithm which requires little hyperparameter tuning. For this algorithm to work, we need to create a policy network:
 
 $$ \pi, v = \text{policy}(o) \label{eq: policy} $$
 
