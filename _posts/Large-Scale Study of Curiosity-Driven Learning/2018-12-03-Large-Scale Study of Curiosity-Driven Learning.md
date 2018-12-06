@@ -17,9 +17,9 @@ In standard reinforcement learning, an agent will receive extrinsic reward from 
 
 What will happen if we do not use extrinsic reward at all and let the agent generate its own intrinsic reward (e.g. an agent learns through its own curiosity)? This is what [this paper](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf) is all about. 
 
-To train an agent driven by curiosity, the extrinsic reward $ r_{ext} $ will not be used during training. Instead, we need to define some intrinsic reward $ r_{int} $ which can reflect such kind of curiosity. Here we can define the intrinsic reward $ r_{int} $ as:
+To train an agent driven by curiosity, the extrinsic reward $ r_{\text{ext}} $ will not be used during training. Instead, we need to define some intrinsic reward $ r_{\text{int}} $ which can reflect such kind of curiosity. Here we can define the intrinsic reward $ r_{\text{int}} $ as:
 
-$$ r_{int, t} = ||f(\phi(o_{t}), a_{t}) - \phi(o_{t+1})||^{2} \label{eq: r_int} $$
+$$ r_{\text{int}, t} = ||f(\phi(o_{t}), a_{t}) - \phi(o_{t+1})||^{2} \label{eq: r_int} $$
 
 where
 - $ o_{t} $ is the observation at time step $ t $,
@@ -28,13 +28,13 @@ where
 - $ \phi(\cdot) $ is an encoding network that encodes high dimensional observation into low dimensional feature,
 - $ f(\cdot) $ is a dynamic network that predicts the next feature given the current feature and action.
 
-We can see that **Equation \ref{eq: r_int}** is actually the prediction error. An agent that is trained to maximize this reward $ r_{int} $ will prefer transitions with high prediction errors. Curiosity, in this case, can be intepreted as the inability to predict future states.
+We can see that **Equation \ref{eq: r_int}** is actually the prediction error. An agent that is trained to maximize this reward $ r_{\text{int}} $ will prefer transitions with high prediction errors. Curiosity, in this case, can be intepreted as the inability to predict future states.
 
 In general, the reward $ r_{t} $ can be defined as a mixture of extrinsic and intrinsic reward:
 
-$$ r_{t} = c_{r_{ext}} * r_{ext, t} + c_{r_{int}} * r_{int, t} \label{eq: r} $$
+$$ r_{t} = c_{r_{\text{ext}}} * r_{\text{ext}, t} + c_{r_{\text{int}}} * r_{\text{int}, t} \label{eq: r} $$
 
-where $ c_{r_{ext}} = 0 $ and $ c_{r_{int}} = 1 $ are the coefficients. Later on we can set $ c_{r_{ext}} $ and $ c_{r_{int}} $ to other values for additional purposes.
+where $ c_{r_{\text{ext}}} = 0 $ and $ c_{r_{\text{int}}} = 1 $ are the coefficients. Later on we can set $ c_{r_{\text{ext}}} $ and $ c_{r_{\text{int}}} $ to other values for additional purposes.
 
 ### Feature Learning
 
@@ -48,7 +48,7 @@ Each feature learning method has its own pros and cons. The figure below compare
 
 {% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/feature_learning.png" caption="Performance of different feature learning methods across multiple environments. (Source: original paper)" width="90%" %}
 
-### Training Algorithm
+### Training
 [Clipped PPO algorithm](https://blog.openai.com/openai-baselines-ppo/) is applied to the policy training since it is a robost alogrithm which requires little hyperparameter tuning. For this algorithm to work, we need to create a policy network:
 
 $$ \pi, v = \text{policy}(o) \label{eq: policy} $$
@@ -59,9 +59,9 @@ $$ \text{loss}_{1} = \text{loss}_{\text{pg}} + \text{loss}_{\text{vf}} + c_{\tex
 
 where $ \text{loss}\_{\text{pg}} $ is the policy gradient loss, $ \text{loss}\_{\text{vf}} $ is the value function loss, and $ \text{loss}\_{\text{entropy}} $ is a regularization term to prevent policy overfitting. For more details on PPO algorithm as well as the concrete expression of loss functions, please refer to [PPO Algorithm](https://spinningup.openai.com/en/latest/algorithms/ppo.html) and [PPO Loss Functions](https://medium.com/aureliantactics/ppo-hyperparameters-and-ranges-6fc2d29bccbe).
 
-That is how the policy network is trained. But we are not done yet! Still remember that we still have the dynamic network $ f(\cdot) $ to generate the intrinsic reward? The dynamic network is trained by minimizing the following loss:
+That is how the policy network is trained. But we are not done yet! Still remember that we have the dynamic network $ f(\cdot) $ to generate the intrinsic reward? The dynamic network is trained by minimizing the following loss:
 
 $$ \text{loss}_{2} = \text{loss}_{\text{aux}} + \text{loss}_{\text{dyna}} $$
 
-where $ \text{loss}\_{\text{aux}} $ is the auxiliary loss which is defined in [Feature Learning](#feature-learning).
+where $ \text{loss}\_{\text{aux}} $ is the auxiliary loss which depends on the chosen [feature learning method](#feature-learning), and $ \text{loss}\_{\text{dyna}} = r_{\text{int}} $ is the dynamic loss with $ r_{\text{int}} $ defined in **Equation \ref{eq: r_int}**. In case of **Pixels** and **Random Features**, the auxiliary loss is set to 0. 
 
