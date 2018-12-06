@@ -61,7 +61,7 @@ where $ \text{loss}\_{\text{pg}} $ is the policy gradient loss, $ \text{loss}\_{
 
 That is how the policy network is trained. But we are not done yet! Still remember that we still have the dynamic network $ f(\cdot) $ to generate the intrinsic reward? The dynamic network is trained by minimizing the following loss:
 
-$$ \text{loss}_{2} = \text{loss}_{\text{auxiliary}} + \text{loss}_{\text{dyna}} $$
+$$ \text{loss}_{2} = \text{loss}_{\text{aux}} + \text{loss}_{\text{dyna}} $$
 
-where $ \text{loss}\_{\text{auxiliary}} $ is the auxiliary loss which is defined in [Feature Learning](#feature-learning).
+where $ \text{loss}\_{\text{aux}} $ is the auxiliary loss which is defined in [Feature Learning](#feature-learning).
 
