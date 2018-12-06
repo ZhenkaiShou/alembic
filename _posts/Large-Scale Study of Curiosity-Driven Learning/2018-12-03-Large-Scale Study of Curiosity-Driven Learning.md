@@ -53,4 +53,9 @@ Each feature learning method has its own pros and cons. The figure below compare
 
 $$ \pi, v = \text{policy}(o) \label{eq: policy} $$
 
-where $ \pi $ is the output policy, and $ v $ is the output value.
+where $ \pi $ is the output policy, and $ v $ is the output value. The policy is trained by minimizing the following loss:
+
+$$ loss_{policy} = loss_{pg} + loss_{vf} + c_{entropy} * loss_{entropy} $$
+
+where
+* $ loss_{pg} $ is the loss for policy gradient, $ loss_{vf} $ is the loss for value function estimation, and $ loss_{entropy} $ is the negative entropy of $ \pi $ to prevent overfitting. For more details on PPO algorithm as well as the concrete expression of loss functions, please refer to [PPO Algorithm](https://spinningup.openai.com/en/latest/algorithms/ppo.html) and [PPO Loss Functions](https://medium.com/aureliantactics/ppo-hyperparameters-and-ranges-6fc2d29bccbe).
