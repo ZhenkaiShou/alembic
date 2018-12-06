@@ -55,6 +55,6 @@ $$ \pi, v = \text{policy}(o) \label{eq: policy} $$
 
 where $ \pi $ is the output policy, and $ v $ is the output value. The policy is trained by minimizing the following loss:
 
-$$ loss_{policy} = loss_{pg} + loss_{vf} + c_{entropy} * loss_{entropy} $$
+$$ \text{loss}\_{\text{policy}} = \text{loss}\_{\text{pg}} + \text{loss}\_{\text{vf}} + c_{\text{entropy}} * \text{loss}\_{\text{entropy}} $$
 
-where $ loss_{pg} $ is the policy gradient loss, $ loss_{vf} $ is the value function loss, and $ loss_{entropy} $ is a regularization term to prevent policy overfitting. For more details on PPO algorithm as well as the concrete expression of loss functions, please refer to [PPO Algorithm](https://spinningup.openai.com/en/latest/algorithms/ppo.html) and [PPO Loss Functions](https://medium.com/aureliantactics/ppo-hyperparameters-and-ranges-6fc2d29bccbe).
+where $ \text{loss}\_{\text{pg}} $ is the policy gradient loss, $ \text{loss}\_{\text{vf}} $ is the value function loss, and $ \text{loss}\_{\text{entropy}} $ is a regularization term to prevent policy overfitting. For more details on PPO algorithm as well as the concrete expression of loss functions, please refer to [PPO Algorithm](https://spinningup.openai.com/en/latest/algorithms/ppo.html) and [PPO Loss Functions](https://medium.com/aureliantactics/ppo-hyperparameters-and-ranges-6fc2d29bccbe).
