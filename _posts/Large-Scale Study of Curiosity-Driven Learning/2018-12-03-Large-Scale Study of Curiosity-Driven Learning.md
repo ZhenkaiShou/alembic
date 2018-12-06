@@ -44,9 +44,9 @@ There is debate on how to learn features in order to achieve good performance. H
 - **Inverse Dynamics Features (IDF)**: We use a network $ \hat{a_{t}} = \text{idf}(\phi(o_{t}), \phi(o_{t+1})) $ to predict the action given both the current and next features. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{idf}(\cdot) $ to minimize the action prediction loss.
 - **Variational autoencoders (VAE)**: We use a decoder network $ \hat{o_{t}} = \text{decode}(\text{sampled}(\phi(o_{t}))) $ to reconstruct the original observation. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{decode}(\cdot) $ to minimize the VAE loss.
 
-Each feature learning method has its own pros and cons. The figure below compares different feature learning methods across multiple environments. Note again that the extrinsic reward is only used for measuring the performance, not for training. It is difficult to tell which feature learning method is the best except for **Pixels** whose overall performance is bad.
-
 {% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/feature_learning.png" caption="Performance of different feature learning methods across multiple environments. (Source: original paper)" width="90%" %}
+
+Each feature learning method has its own pros and cons. The figure above compares different feature learning methods across multiple environments. It is difficult to tell which one is the best except for **Pixels** whose overall performance is bad.
 
 ### Training
 [Clipped PPO algorithm](https://blog.openai.com/openai-baselines-ppo/) is applied to the policy training since it is a robost alogrithm which requires little hyperparameter tuning. For this algorithm to work, we need to create a policy network:
@@ -57,7 +57,7 @@ where $ \pi $ is the output policy, and $ v $ is the output value. The policy is
 
 $$ \text{loss}_{1} = \text{loss}_{\text{pg}} + \text{loss}_{\text{vf}} + c_{\text{entropy}} * \text{loss}_{\text{entropy}} $$
 
-where $ \text{loss}\_{\text{pg}} $ is the policy gradient loss, $ \text{loss}\_{\text{vf}} $ is the value function loss, and $ \text{loss}\_{\text{entropy}} $ is a regularization term to prevent policy overfitting. For more details on PPO algorithm as well as the concrete expression of loss functions, please refer to [PPO Algorithm](https://spinningup.openai.com/en/latest/algorithms/ppo.html) and [PPO Loss Functions](https://medium.com/aureliantactics/ppo-hyperparameters-and-ranges-6fc2d29bccbe).
+where $ \text{loss}\_{\text{pg}} $ is the policy gradient loss, $ \text{loss}\_{\text{vf}} $ is the value function loss, and $ \text{loss}\_{\text{entropy}} $ is a regularization term to prevent policy overfitting. For more details of PPO algorithm as well as the concrete expression of loss functions, please refer to [PPO Algorithm](https://spinningup.openai.com/en/latest/algorithms/ppo.html) and [PPO Loss Functions](https://medium.com/aureliantactics/ppo-hyperparameters-and-ranges-6fc2d29bccbe).
 
 That is how the policy network is trained. But we are not done yet! Still remember that we have the dynamic network $ f(\cdot) $ to generate the intrinsic reward? The dynamic network is trained by minimizing the following loss:
 
@@ -65,6 +65,9 @@ $$ \text{loss}_{2} = \text{loss}_{\text{aux}} + \text{loss}_{\text{dyna}} $$
 
 where
 * $ \text{loss}\_{\text{aux}} $ is the auxiliary loss which depends on the chosen [feature learning method](#feature-learning),
-  * In case of **Pixels** and **Random Features**, the auxiliary loss is set to 0
-* $ \text{loss}\_{\text{dyna}} = r_{\text{int}} $ is the dynamic loss with $ r_{\text{int}} $ defined in **Equation \ref{eq: r_int}**. . 
+  * In case of **Pixels** and **Random Features**, the auxiliary loss is set to 0.
+* $ \text{loss}\_{\text{dyna}} = r_{\text{int}} $ is the dynamic loss with $ r_{\text{int}} $ defined in **Equation \ref{eq: r_int}**.
 
+For more details regarding how to collect training data, please see this section.
+
+### Large Scale = Better Performance
