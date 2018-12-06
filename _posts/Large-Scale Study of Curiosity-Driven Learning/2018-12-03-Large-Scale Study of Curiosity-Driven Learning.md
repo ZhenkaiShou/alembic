@@ -63,5 +63,8 @@ That is how the policy network is trained. But we are not done yet! Still rememb
 
 $$ \text{loss}_{2} = \text{loss}_{\text{aux}} + \text{loss}_{\text{dyna}} $$
 
-where $ \text{loss}\_{\text{aux}} $ is the auxiliary loss which depends on the chosen [feature learning method](#feature-learning), and $ \text{loss}\_{\text{dyna}} = r_{\text{int}} $ is the dynamic loss with $ r_{\text{int}} $ defined in **Equation \ref{eq: r_int}**. In case of **Pixels** and **Random Features**, the auxiliary loss is set to 0. 
+where
+* $ \text{loss}\_{\text{aux}} $ is the auxiliary loss which depends on the chosen [feature learning method](#feature-learning),
+  * In case of **Pixels** and **Random Features**, the auxiliary loss is set to 0
+* $ \text{loss}\_{\text{dyna}} = r_{\text{int}} $ is the dynamic loss with $ r_{\text{int}} $ defined in **Equation \ref{eq: r_int}**. . 
 
