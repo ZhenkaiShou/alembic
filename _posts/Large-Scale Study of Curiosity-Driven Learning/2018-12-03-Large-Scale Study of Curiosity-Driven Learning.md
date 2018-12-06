@@ -11,7 +11,7 @@ In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learni
 
 First of all, we need to understand what curiosity means. Let's say, a baby may explore its surroundings without specific goals. It may open a drawer, or even crawl under the bed ... aimlessly. A baby can be easily attracted by whatever looks new to it, until when the baby gets bored of it. Then what drives it to do such things? Yes, that's the power of curiosity! 
 
-### What if we incorporate curiosity into reinforcement learning?
+### Curiosity in reinforcement learning?
 
 In standard reinforcement learning, an agent will receive extrinsic reward from the environment after taking an action. However, such extrinsic reward requires manual engineering and may not even exist in some scenarios. Furthermore, classic reinforcement learning algorithms may not work well when the rewards are sparse. 
 
@@ -58,3 +58,5 @@ where $ \pi $ is the output policy, and $ v $ is the output value. The policy is
 $$ \text{loss}_{\text{policy}} = \text{loss}_{\text{pg}} + \text{loss}_{\text{vf}} + c_{\text{entropy}} * \text{loss}_{\text{entropy}} $$
 
 where $ \text{loss}\_{\text{pg}} $ is the policy gradient loss, $ \text{loss}\_{\text{vf}} $ is the value function loss, and $ \text{loss}\_{\text{entropy}} $ is a regularization term to prevent policy overfitting. For more details on PPO algorithm as well as the concrete expression of loss functions, please refer to [PPO Algorithm](https://spinningup.openai.com/en/latest/algorithms/ppo.html) and [PPO Loss Functions](https://medium.com/aureliantactics/ppo-hyperparameters-and-ranges-6fc2d29bccbe).
+
+
