@@ -44,7 +44,7 @@ There is debate on how to learn features in order to achieve good performance. H
 - **Inverse Dynamics Features (IDF)**: We use a network $ \hat{a_{t}} = \text{idf}(\phi(o_{t}), \phi(o_{t+1})) $ to predict the action given both the current and next features. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{idf}(\cdot) $ to minimize the action prediction loss.
 - **Variational autoencoders (VAE)**: We use a decoder network $ \hat{o_{t}} = \text{decode}(\text{sampled}(\phi(o_{t}))) $ to reconstruct the original observation. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{decode}(\cdot) $ to minimize the VAE loss.
 
-{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/feature_learning.png" caption="Performance of different feature learning methods across multiple environments. (Source: original paper)" width="90%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/feature_learning.png" caption="Performance of the agent across multiple environments with different feature learning methods. (Source: original paper)" width="90%" %}
 
 Each feature learning method has its own pros and cons. The figure above compares different feature learning methods across multiple environments. It is difficult to tell which one is the best except for **Pixels** whose overall performance is bad.
 
@@ -72,6 +72,8 @@ For more details regarding how to collect training data, please see this section
 
 ### Large Scale = Better Performance
 
-An interesting finding is that the performance improves as the batch size of environments goes up. The figure compares the performance of the agent in Mario environment with different batch sizes.
+{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="Performance of the agent in Mario with different batch sizes of environment. (Source: original paper)" width="90%" %}
+
+An interesting finding is that the performance improves as the batch size of environments goes up. The figure above compares different batch sizes of environment in Mario.
 
 ### Curiosity with Extrinsic Reward
