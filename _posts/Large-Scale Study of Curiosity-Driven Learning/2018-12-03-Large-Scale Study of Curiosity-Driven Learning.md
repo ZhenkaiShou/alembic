@@ -72,4 +72,6 @@ For more details regarding how to collect training data, please see this section
 
 ### Large Scale = Better Performance
 
+An interesting finding is that the performance improves as the batch size of environments goes up. The figure compares the performance of the agent in Mario environment with different batch sizes.
+
 ### Curiosity with Extrinsic Reward
