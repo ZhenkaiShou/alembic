@@ -7,11 +7,11 @@ categories:
 
 In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learning](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf) paper developed by OpenAI, as well as giving some tips on how to reproduce it.
 
-### What is Curiosity?
+#### What is Curiosity?
 
 First of all, we need to understand what curiosity means. Let's say, a baby may explore its surroundings without specific goals. It may open a drawer, or even crawl under the bed ... aimlessly. A baby can be easily attracted by whatever looks new to it, until when the baby gets bored of it. Then what drives it to do such things? Yes, that's the power of curiosity! 
 
-### Curiosity in Reinforcement Learning?
+#### Curiosity in Reinforcement Learning?
 
 In standard reinforcement learning, an agent will receive extrinsic reward from the environment after taking an action. However, such extrinsic reward requires manual engineering and may not even exist in some scenarios. Furthermore, classic reinforcement learning algorithms may not work well when the rewards are sparse. 
 
@@ -36,7 +36,7 @@ $$ r_{t} = c_{r_{\text{ext}}} * r_{\text{ext}, t} + c_{r_{\text{int}}} * r_{\tex
 
 where $ c_{r_{\text{ext}}} = 0 $ and $ c_{r_{\text{int}}} = 1 $ are the coefficients. Later on we can set $ c_{r_{\text{ext}}} $ and $ c_{r_{\text{int}}} $ to other values for additional purposes.
 
-### Feature Learning
+#### Feature Learning
 
 There is debate on how to learn features in order to achieve good performance. Here are some possible choices:
 - **Pixels**: We let $ \phi(o_{t}) = o_{t} $ so that the feature will be the same as the observation. 
@@ -70,13 +70,14 @@ where
 
 For more details regarding how to collect training data, please see this section.
 
-### Large Scale = Better Performance
+#### Large Scale = Better Performance
 
 {% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="Performance of the agent in Mario with different batch sizes of environment. (Source: original paper)" width="40%" %}
 
 An interesting finding is that the performance improves as the batch size of environments goes up. The figure above compares different batch sizes of environment in Mario. A large batch size results in better performance, at least in terms of extrinsic rewards. For more details regarding how to run multiple environments in parallel, please refer to this section.
 
-### Curiosity with Extrinsic Reward
+#### Curiosity with Extrinsic Reward
 
 Sometimes we want the agent to learn skills for some particular task. In that case, we can adjust the coefficient values in **Equation \ref{eq: r}**, let's say, we set $ c_{r_{\text{ext}}} = 1 $ and $ c_{r_{\text{int}}} = 0.01 $. This setting may come in handy especially when the extrinsic reward is **sparse**. For example, in navigation tasks, an agent needs to reach the target position in order to get a positive extrinsic reward.
 
+{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/curiosity_with_extrinsic_reward_.png" caption="Performance of the agent in Unity maze with combined extrinsic and intrinsic reward. (Source: original paper)" width="40%" %}
