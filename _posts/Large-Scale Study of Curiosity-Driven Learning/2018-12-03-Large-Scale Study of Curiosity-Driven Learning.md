@@ -72,8 +72,8 @@ For more details regarding how to collect training data, please see this section
 
 ### Large Scale = Better Performance
 
-{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="Performance of the agent in Mario with different batch sizes of environment. (Source: original paper)" width="90%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="Performance of the agent in Mario with different batch sizes of environment. (Source: original paper)" width="50%" %}
 
-An interesting finding is that the performance improves as the batch size of environments goes up. The figure above compares different batch sizes of environment in Mario.
+An interesting finding is that the performance improves as the batch size of environments goes up. The figure above compares different batch sizes of environment in Mario. A large batch size results in better performance, at least in terms of extrinsic rewards. For more details regarding how to run multiple environments in parallel, please refer to this section.
 
 ### Curiosity with Extrinsic Reward
