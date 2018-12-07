@@ -92,27 +92,28 @@ css_inline: true # Will insert all styles into a single <style> block in the <he
 # 8. Site navigation
 navigation_header:
   Home: /
-  Elements: /elements/
+  # Elements: /elements/
   Blog: /blog/
   Categories: /categories/
   Search: /search/
-  About Us: /about_us/
+  About Me: /about_me/
 
 navigation_footer:
   Created by David Darnes: https://darn.es
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
-  Twitter: Edit_Line_103_to_108_in_config.yml # https://twitter.com/DavidDarnes
-  LinkedIn: https://www.linkedin.com/in/daviddarnes
-  Google+: https://plus.google.com/+DavidDarnes
-  GitHub: https://github.com/daviddarnes
-  link: https://darn.es
+  #Twitter: Edit_Line_103_to_108_in_config.yml # https://twitter.com/DavidDarnes
+  facebook: https://www.facebook.com/zhenkai.shou
+  #LinkedIn: https://www.linkedin.com/in/daviddarnes
+  #Google+: https://plus.google.com/+DavidDarnes
+  GitHub: https://github.com/ZhenkaiShou/my_site
+  #link: https://darn.es
   RSS: /feed.xml
 
 sharing_links: # Appear at the bottom of single blog posts, uncomment and comment out as desired. Colours set the button colour
   Twitter: "#0d94e7"
   facebook: "#3B5998"
-  Google+: "#DC4E41"
+  # Google+: "#DC4E41"
   # Pinterest: "#BD081C"
   # LinkedIn: "#0077B5"
   # tumblr: "#36465D"
