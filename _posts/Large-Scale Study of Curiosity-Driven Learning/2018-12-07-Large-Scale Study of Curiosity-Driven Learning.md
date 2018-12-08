@@ -32,7 +32,7 @@ We can see that **Equation \ref{eq: r_int}** is actually the prediction error. A
 
 In general, the reward $ r_{t} $ can be defined as a mixture of extrinsic and intrinsic reward:
 
-$$ r_{t} = c_{r_{\text{ext}}} \dot r_{\text{ext}, t} + c_{r_{\text{int}}} \dot r_{\text{int}, t} \label{eq: r} $$
+$$ r_{t} = c_{r_{\text{ext}}} \cdot r_{\text{ext}, t} + c_{r_{\text{int}}} \cdot r_{\text{int}, t} \label{eq: r} $$
 
 where $ c_{r_{\text{ext}}} = 0 $ and $ c_{r_{\text{int}}} = 1 $ are the coefficients. Later on we can set $ c_{r_{\text{ext}}} $ and $ c_{r_{\text{int}}} $ to other values for additional purposes.
 
@@ -55,18 +55,18 @@ $$ \pi, v = \text{policy}(o) \label{eq: policy} $$
 
 where $ \pi $ is the output policy, and $ v $ is the output value. The policy is trained by minimizing the following loss:
 
-$$ \text{loss}_{1} = \text{loss}_{\text{pg}} + \text{loss}_{\text{vf}} + c_{\text{entropy}} * \text{loss}_{\text{entropy}} $$
+$$ l_{1} = l_{\text{pg}} + l_{\text{vf}} + c_{\text{ent}} \cdot l_{\text{ent}} $$
 
-where $ \text{loss}\_{\text{pg}} $ is the policy gradient loss, $ \text{loss}\_{\text{vf}} $ is the value function loss, and $ \text{loss}\_{\text{entropy}} $ is a regularization term to prevent policy overfitting. For more details of PPO algorithm as well as the concrete expression of those loss functions, please refer to [PPO Algorithm](https://spinningup.openai.com/en/latest/algorithms/ppo.html) and [PPO Loss Functions](https://medium.com/aureliantactics/ppo-hyperparameters-and-ranges-6fc2d29bccbe).
+where $ l_{\text{pg}} $ is the policy gradient loss, $ l_{\text{vf}} $ is the value function loss, and $ l_{\text{ent}} $ is a regularization term (negative entropy) to prevent policy overfitting. For more details of PPO algorithm as well as the concrete expression of those loss functions, please refer to [PPO Algorithm](https://spinningup.openai.com/en/latest/algorithms/ppo.html) and [PPO Loss Functions](https://medium.com/aureliantactics/ppo-hyperparameters-and-ranges-6fc2d29bccbe).
 
 That is how the policy network is trained. But we are not done yet! Still remember that we have the dynamic network $ f(\cdot) $ to generate the intrinsic reward? The dynamic network is trained by minimizing the following loss:
 
-$$ \text{loss}_{2} = \text{loss}_{\text{aux}} + \text{loss}_{\text{dyna}} $$
+$$ l_{2} = l_{\text{aux}} + l_{\text{dyna}} $$
 
 where
-- $ \text{loss}\_{\text{aux}} $ is the auxiliary loss which depends on the chosen [feature learning method](#feature-learning),
-  - In case of **Pixels** and **Random Features**, the auxiliary loss is set to 0.
-- $ \text{loss}\_{\text{dyna}} = r_{\text{int}} $ is the dynamic loss with $ r_{\text{int}} $ defined in **Equation \ref{eq: r_int}**.
+- $ l_{\text{aux}} $ is the auxiliary loss which depends on the chosen [feature learning method](#feature-learning),
+ - In case of **Pixels** and **Random Features**, the auxiliary loss is set to 0.
+- $ l_{\text{dyna}} = r_{\text{int}} $ is the dynamic loss with $ r_{\text{int}} $ defined in **Equation \ref{eq: r_int}**.
 
 For more details regarding how to collect training data, please refer to this section.
 
