@@ -84,17 +84,17 @@ a {
 
   // Heading level 4.
   h4, .delta {
-    @include sassline(delta, $headingtype, 1.5, 0, all);
+    @include sassline(delta, $headingtype, 1.5, 0.5, all);
   }
 
   // Heading level 5.
   h5, .epsilon {
-    @include sassline(epsilon, $headingtype, 1.5, 0, all);
+    @include sassline(epsilon, $headingtype, 1.5, 0.5, all);
   }
 
   // Heading level 6.
   h6, .zeta {
-    @include sassline(zeta, $headingtype, 1.5, 0, all);
+    @include sassline(zeta, $headingtype, 1.5, 0.5, all);
   }
 
   // Lists.
