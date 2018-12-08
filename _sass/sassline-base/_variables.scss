@@ -17,10 +17,10 @@ $breakpoints: (
 // ! Make sure to have as many sizes as breakpoints above.
 $rootsizes: (
   rootsize-0: 12,   // 1.2*12 px line-height body text
-  rootsize-1: 16,   // 1.2*16 px line-height body text
+  rootsize-1: 14,   // 1.2*14 px line-height body text
   rootsize-2: 16,   // 1.2*16 px line-height body text
-  rootsize-3: 16,   // 1.2*16 px line-height body text
-  rootsize-4: 16    // 1.2*16 px line-height body text
+  rootsize-3: 18,   // 1.2*18 px line-height body text
+  rootsize-4: 18    // 1.2*18 px line-height body text
 ) !default;
 
 // Set the optimum line-length for your text (based on typeface).
