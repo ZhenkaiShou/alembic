@@ -7,7 +7,7 @@
 # 6. Jekyll collections settings
 # 7. Site settings
 # 8. Site navigation
-# 9. Extra
+# 9. Math rendering
 
 # 1. Files excluded from Jekyll builds
 exclude:
@@ -122,6 +122,14 @@ sharing_links: # Appear at the bottom of single blog posts, uncomment and commen
   # Designer News: "#2D72D9"
   # Email: ""
 
-# 9. Extra
+# 9. Math randering
 markdown: kramdown
+kramdown:
+  input:  GFM
+  hard_wrap: false
+  footnote_nr: 1
+  toc_levels: 1..6
+  entity_output: as_char
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  syntax_highlighter: rouge
 
