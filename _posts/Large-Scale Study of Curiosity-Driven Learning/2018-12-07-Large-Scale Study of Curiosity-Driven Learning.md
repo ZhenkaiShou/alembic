@@ -55,18 +55,18 @@ $$ \pi, v = \text{policy}(o) \label{eq: policy} $$
 
 where $ \pi $ is the output policy, and $ v $ is the output value. The policy is trained by minimizing the following loss:
 
-$$ l_{1} = l_{\text{pg}} + l_{\text{vf}} + c_{\text{ent}} \cdot l_{\text{ent}} $$
+$$ L_{1} = L_{\text{pg}} + L_{\text{vf}} + c_{\text{ent}} \cdot L_{\text{ent}} $$
 
-where $ l_{\text{pg}} $ is the policy gradient loss, $ l_{\text{vf}} $ is the value function loss, and $ l_{\text{ent}} $ is a regularization term (negative entropy) to prevent policy overfitting. For more details of PPO algorithm as well as the concrete expression of those loss functions, please refer to [PPO Algorithm](https://spinningup.openai.com/en/latest/algorithms/ppo.html) and [PPO Loss Functions](https://medium.com/aureliantactics/ppo-hyperparameters-and-ranges-6fc2d29bccbe).
+where $ L_{\text{pg}} $ is the policy gradient loss, $ L_{\text{vf}} $ is the value function loss, and $ L_{\text{ent}} $ is a regularization term (negative entropy) to prevent policy overfitting. For more details of PPO algorithm as well as the concrete expression of those loss functions, please refer to [PPO Algorithm](https://spinningup.openai.com/en/latest/algorithms/ppo.html) and [PPO Loss Functions](https://medium.com/aureliantactics/ppo-hyperparameters-and-ranges-6fc2d29bccbe).
 
 That is how the policy network is trained. But we are not done yet! Still remember that we have the dynamic network $ f(\cdot) $ to generate the intrinsic reward? The dynamic network is trained by minimizing the following loss:
 
-$$ l_{2} = l_{\text{aux}} + l_{\text{dyna}} $$
+$$ L_{2} = L_{\text{aux}} + L_{\text{dyna}} $$
 
 where
-- $ l_{\text{aux}} $ is the auxiliary loss which depends on the chosen [feature learning method](#feature-learning),
+- $ L_{\text{aux}} $ is the auxiliary loss which depends on the chosen [feature learning method](#feature-learning),
  - In case of **Pixels** and **Random Features**, the auxiliary loss is set to 0.
-- $ l_{\text{dyna}} = r_{\text{int}} $ is the dynamic loss with $ r_{\text{int}} $ defined in **Equation \ref{eq: r_int}**.
+- $ L_{\text{dyna}} = r_{\text{int}} $ is the dynamic loss with $ r_{\text{int}} $ defined in **Equation \ref{eq: r_int}**.
 
 For more details regarding how to collect training data, please refer to this section.
 
