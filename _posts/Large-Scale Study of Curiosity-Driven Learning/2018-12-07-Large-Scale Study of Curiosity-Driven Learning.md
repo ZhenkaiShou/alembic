@@ -65,7 +65,7 @@ $$ L_{2} = L_{\text{aux}} + L_{\text{dyna}} $$
 
 where
 - $ L_{\text{aux}} $ is the auxiliary loss which depends on the chosen [feature learning method](#feature-learning),
- - In case of **Pixels** and **Random Features**, the auxiliary loss is set to 0.
+  - In case of **Pixels** and **Random Features**, the auxiliary loss is set to 0.
 - $ L_{\text{dyna}} = r_{\text{int}} $ is the dynamic loss with $ r_{\text{int}} $ defined in **Equation \ref{eq: r_int}**.
 
 For more details regarding how to collect training data, please refer to this section.
