@@ -16,7 +16,7 @@ body {
   font-family: unquote(map-get($bodytype, font-family));
   font-style: normal;
   font-weight: map-get($bodytype, regular);
-  line-height: 1.2rem;
+  line-height: 1.25rem;
 }
 
 // Links.
@@ -53,7 +53,7 @@ a {
 
   // Paragraphs. OpenType ligatures and oldstyle figures enabled if available.
   p {
-    @include baseline($fontsize: zeta, $font: $bodytype, $lineheight: 1.2, $below: 2, $breakpoint: all);
+    @include baseline($fontsize: zeta, $font: $bodytype, $lineheight: 1.25, $below: 1, $breakpoint: all);
 
     font-feature-settings: 'kern', 'onum', 'liga';
   }
@@ -191,7 +191,7 @@ a {
   
   // Definition lists.
   dl {
-    @include baseline(zeta, $bodytype, 2, 2, all);
+    @include baseline(zeta, $bodytype, 1.25, 1, all);
 
     dt, dd {
       font-feature-settings: 'kern', 'onum', 'liga';
@@ -254,7 +254,7 @@ a {
   }
 
   .caption {
-    @include baseline(theta, $headingtype, 2, 2, all);
+    @include baseline(theta, $headingtype, 1.25, 2, all);
 
     color: $captionColour;
   }
