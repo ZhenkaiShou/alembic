@@ -68,13 +68,15 @@ where
   - In case of **Pixels** and **Random Features**, the auxiliary loss is set to 0.
 - $ L_{\text{dyna}} = r_{\text{int}} $ is the dynamic loss with $ r_{\text{int}} $ defined in **Equation \ref{eq: r_int}**.
 
-For more details regarding how to collect training data, please refer to this section.
+For more details regarding how to collect training data, please refer to [Rollout](#rollout).
 
 ### Large Scale = Better Performance
 
 {% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="Average reward in Mario with different batch sizes of environment. (Source: original paper)" width="40%" %}
 
-One interesting finding is that the performance improves as the batch size of environments goes up. The figure above compares different batch sizes of environment in Mario. A large batch size results in better performance, at least in terms of extrinsic rewards. For more details regarding how to run multiple environments in parallel, please refer to [Parallel Environment](#parallel-environment).
+One interesting finding is that the performance improves as the batch size of environments goes up. The figure above compares different batch sizes of environment in Mario. A large batch size results in better performance. 
+
+For more details regarding how to run multiple environments in parallel, please refer to [Parallel Environment](#parallel-environment).
 
 ### Curiosity with Extrinsic Reward
 
@@ -90,3 +92,8 @@ In this section I will give some tips on the implementation. Feel free to skip t
 
 #### Parallel Environment
 
+#### Rollout
+
+#### Overall Network Architecture
+
+#### Unmentioned Things
