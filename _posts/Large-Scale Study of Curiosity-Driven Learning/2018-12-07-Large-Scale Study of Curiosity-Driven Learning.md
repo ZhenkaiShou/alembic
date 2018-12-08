@@ -32,7 +32,7 @@ We can see that **Equation \ref{eq: r_int}** is actually the prediction error. A
 
 In general, the reward $ r_{t} $ can be defined as a mixture of extrinsic and intrinsic reward:
 
-$$ r_{t} = c_{r_{\text{ext}}} * r_{\text{ext}, t} + c_{r_{\text{int}}} * r_{\text{int}, t} \label{eq: r} $$
+$$ r_{t} = c_{r_{\text{ext}}} \dot r_{\text{ext}, t} + c_{r_{\text{int}}} \dot r_{\text{int}, t} \label{eq: r} $$
 
 where $ c_{r_{\text{ext}}} = 0 $ and $ c_{r_{\text{int}}} = 1 $ are the coefficients. Later on we can set $ c_{r_{\text{ext}}} $ and $ c_{r_{\text{int}}} $ to other values for additional purposes.
 
