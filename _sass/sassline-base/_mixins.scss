@@ -222,7 +222,10 @@ $max-widths: map-values($maxwidths);
   // Type of chosen variables.
   $font-value: type-of($fontsize);
   $break-value: type-of($breakpoint);
-
+  
+  // Font family
+  font-family: unquote(map-get($font, font-family));
+  
   // Cap height
   $cap-height: map-get($font, cap-height);
 
