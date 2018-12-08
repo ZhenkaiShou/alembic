@@ -5,6 +5,8 @@
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
  */
 
+* {font-size: 80%;}
+
 html {
   font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
@@ -16,7 +18,6 @@ html {
  */
 
 body {
-  font-size: 0.875em;
   margin: 0;
 }
 
