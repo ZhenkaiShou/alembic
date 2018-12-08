@@ -74,12 +74,12 @@ a {
 
   // Heading level 2.
   h2, .beta {
-    @include sassline(beta, $headingtype, 2, 1, all);
+    @include sassline(beta, $headingtype, 2, 0.75, all);
   }
 
   // Heading level 3.
   h3, .gamma {
-    @include sassline(gamma, $headingtype, 2, 1, all);
+    @include sassline(gamma, $headingtype, 2, 0.75, all);
   }
 
   // Heading level 4.
