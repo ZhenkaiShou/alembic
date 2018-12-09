@@ -111,12 +111,15 @@ class ParallelEnvironment(object):
   
   def reset(self):
     # Reset all environments.
+    ...
   
   def step(self, action):
     # Take an action for each environment.
+    ...
   
   def close(self):
     # Close all environments.
+    ...
 ```
 A subprocess will be created for each environment in *list_env* when the **ParallelEnvironment** object is initialized. Each subprocess will invoke the same *run_environment_process* function, which can be structured in this way:
 ```
@@ -125,13 +128,15 @@ def run_environment_process(pipe, env):
     # Wait for the next command.
     cmd, data = pipe.recv()
     if cmd == "reset":
-      # Do something
+      # Do something.
     if cmd == "step":
-      # Do something
+      # Do something.
     if cmd == "close":
-      # Do something
+      # Do something.
       break
 ```
+Each subprocess follows this loop: waiting for a command, executing that command, waiting for the next command ... until when it receives the "close" command.
+
 
 #### Rollout
 
