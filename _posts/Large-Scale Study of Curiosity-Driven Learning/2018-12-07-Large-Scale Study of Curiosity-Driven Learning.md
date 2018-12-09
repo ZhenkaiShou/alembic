@@ -28,7 +28,7 @@ where
 - $ \phi(\cdot) $ is an encoding network that encodes high dimensional observation into low dimensional feature,
 - $ f(\cdot) $ is a dynamic network that predicts the next feature given the current feature and action.
 
-We can see that **Equation \ref{eq: r_int}** is actually the prediction error. An agent that is trained to maximize this reward $ r_{\text{int}} $ will prefer transitions with high prediction errors. Curiosity, in this case, can be intepreted as the inability to predict future states.
+We can see that **Equation \ref{eq: r_int}** is actually the prediction error. An agent that is trained to maximize such reward will prefer transitions with high prediction errors. **Curiosity, in this case, is the inability to predict future states. As a result, curiosity encourages exploration.**
 
 In general, the reward $ r_{t} $ can be defined as a mixture of extrinsic and intrinsic reward:
 
@@ -44,7 +44,7 @@ There is debate on how to learn features in order to achieve good performance. H
 - **Inverse Dynamics Features (IDF)**: We use a network $ \hat{a}\_{t} = \text{idf}(\phi(o_{t}), \phi(o_{t+1})) $ to predict the action given both the current and next features. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{idf}(\cdot) $ to minimize the action prediction loss.
 - **Variational autoencoders (VAE)**: We use a decoder network $ \hat{o}\_{t} = \text{decode}(\text{sampled}(\phi(o_{t}))) $ to reconstruct the original observation. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{decode}(\cdot) $ to minimize the VAE loss.
 
-{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/feature_learning.png" caption="Average reward across multiple environments with different feature learning methods. (Source: original paper)" width="90%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/feature_learning.png" caption="Average reward across multiple environments with different feature learning methods. (Source: original paper)" width="100%" %}
 
 Each feature learning method has its own pros and cons. The figure above compares different feature learning methods across multiple environments. It is difficult to tell which one is the best except for **Pixels** whose overall performance is bad.
 
@@ -72,7 +72,7 @@ For more details regarding how to collect training data, please refer to [Rollou
 
 ### Large Scale = Better Performance
 
-{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="Average reward in Mario with different batch sizes of environment. (Source: original paper)" width="40%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="Average reward in Mario with different batch sizes of environment. (Source: original paper)" width="60%" %}
 
 One interesting finding is that the performance improves as the batch size of environments goes up. The figure above compares different batch sizes of environment in Mario. A large batch size results in better performance. 
 
@@ -80,9 +80,9 @@ For more details regarding how to run multiple environments in parallel, please 
 
 ### Curiosity with Extrinsic Reward
 
-Sometimes we want an agent to learn skills for some particular task of interest. In that case, we can adjust the coefficient values in **Equation \ref{eq: r}**, let's say, we set $ c_{r_{\text{ext}}} = 1 $ and $ c_{r_{\text{int}}} = 0.01 $. This setting may come in handy especially when the extrinsic reward is **sparse**. For example, in navigation tasks, an agent needs to reach the target position in order to get a positive extrinsic reward (+1 reward for reaching the goal, 0 reward otherwise).
+Sometimes we want an agent to learn skills for some particular task of interest. In that case, we can adjust the coefficient values in **Equation \ref{eq: r}**, let's say, we set $ c_{r_{\text{ext}}} = 1 $ and $ c_{r_{\text{int}}} = 0.01 $. With this setting, the agent can focus on its primiary objective while exploring the environment. This setting may come in handy especially when the extrinsic reward is **sparse**. For example, in navigation tasks, an agent needs to reach the target position in order to get a positive extrinsic reward (+1 reward for reaching the goal, 0 reward otherwise).
 
-{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/curiosity_with_extrinsic_reward.png" caption="Average reward in Unity maze with combined extrinsic and intrinsic reward. (Source: original paper)" width="40%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/curiosity_with_extrinsic_reward.png" caption="Average reward in Unity maze with combined extrinsic and intrinsic reward. (Source: original paper)" width="60%" %}
 
 The figure above shows the average extrinsic reward obtained by the agent in a Unity maze. Training with extrinsic reward only completely fails in this environment (the curve with "extrinsic only" label, which sits constantly at zero), while training with combined extrinsic and intrinsic reward enables the agent to reach the target position.
 
@@ -139,6 +139,8 @@ Each subprocess follows this loop: waiting for a command, executing that command
 Now you can reset, step, and close all environments in parallel. For more details of those functions, please check [the code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning/parallel_environment.py).
 
 #### Rollout
+
+
 
 #### Overall Network Architecture
 
