@@ -121,7 +121,7 @@ class ParallelEnvironment(object):
     ...
 ```
 A subprocess will be created for each environment in *list_env* when the **ParallelEnvironment** object is initialized. Each subprocess will invoke the same *run_subprocess* function, which can be structured in this way:
-```
+```python
 def run_subprocess(pipe, env):
   while True:
     # Wait for the next command.
