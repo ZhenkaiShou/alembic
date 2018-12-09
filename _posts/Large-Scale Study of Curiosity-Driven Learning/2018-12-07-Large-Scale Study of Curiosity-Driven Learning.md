@@ -22,13 +22,6 @@ To train an agent driven by curiosity, the extrinsic reward $ r_{\text{ext}} $ w
 $$ r_{\text{int}, t} = ||f(\phi(o_{t}), a_{t}) - \phi(o_{t+1})||^{2} \label{eq: r_int} $$
 
 where
-<dl>
-<dt>$ o_{t} $ is the observation at time step $ t $,</dt>
-<dt>$ a_{t} $ is the observation at time step $ t $,</dt>
-<dt>$ o_{t+1} $ is the next observation,</dt>
-<dt>$ \phi(\cdot) $ is an encoding network that encodes high dimensional observation into low dimensional feature,</dt>
-<dt>$ f(\cdot) $ is a dynamic network that predicts the next feature given the current feature and action.</dt>
-</dl>
 - $ o_{t} $ is the observation at time step $ t $,
 - $ a_{t} $ is the observation at time step $ t $,
 - $ o_{t+1} $ is the next observation,
@@ -100,6 +93,9 @@ In this section I will give some tips on the implementation. Feel free to skip t
 #### Parallel Environment
 
 Running multiple environments in parallel can be achieved via multiprocessing.Pipe(). Below is a main framework:
+``` html
+{% raw %}{% test %}{% endraw %}
+```
 
 #### Rollout
 
