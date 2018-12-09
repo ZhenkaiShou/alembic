@@ -92,34 +92,45 @@ In this section I will give some tips on the implementation. Feel free to skip t
 
 #### Parallel Environment
 
-To run multiple environments in parallel, we can create a **ParallelEnvironment** class. Below is the main framework:
+To run multiple environments in parallel, we can create a **ParallelEnvironment** class. Here is the main framework:
 ```python
 import multiprocessing as mp
 
 class ParallelEnvironment(object):
-  def __init__(self, envs):
-    self.envs = envs
-    self.pipe_parents = []
+  def __init__(self, list_env):
+    self.list_env = list_env
+    self.list_pipe_parent = []
     
     # Create a subprocess for each environment.
-    for env in envs:
+    for env in list_env:
       pipe_parent, pipe_child = mp.Pipe()
       process = mp.Process(target = run_environment_process, args = (pipe_child, env))
       process.start()
       pipe_child.close()
-      self.pipe_parents.append(pipe_parent)
+      self.list_pipe_parent.append(pipe_parent)
   
   def reset(self):
     # Reset all environments.
-    ...
   
   def step(self, action):
     # Take an action for each environment.
-    ...
   
   def close(self):
     # Close all environments.
-    ...
+```
+A subprocess will be created for each environment in *list_env* when the **ParallelEnvironment** object is initialized. Each subprocess will invoke the same *run_environment_process* function, which can be structured in this way:
+```
+def run_environment_process(pipe, env):
+  while True:
+    # Wait for the next command.
+    cmd, data = pipe.recv()
+    if cmd == "reset":
+      # Do something
+    if cmd == "step":
+      # Do something
+    if cmd == "close":
+      # Do something
+      break
 ```
 
 #### Rollout
