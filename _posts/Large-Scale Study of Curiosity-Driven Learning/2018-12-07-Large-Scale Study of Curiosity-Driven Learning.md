@@ -72,7 +72,7 @@ For more details regarding how to collect training data, please refer to [Rollou
 
 ### Large Scale = Better Performance
 
-{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="Average reward in Mario with different batch sizes of environment. (Source: original paper)" width="60%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="Average reward in Mario with different batch sizes of environment. (Source: original paper)" width="50%" %}
 
 One interesting finding is that the performance improves as the batch size of environments goes up. The figure above compares different batch sizes of environment in Mario. A large batch size results in better performance. 
 
@@ -82,9 +82,9 @@ For more details regarding how to run multiple environments in parallel, please 
 
 Sometimes we want an agent to learn skills for some particular task of interest. In that case, we can adjust the coefficient values in **Equation \ref{eq: r}**, let's say, we set $ c_{r_{\text{ext}}} = 1 $ and $ c_{r_{\text{int}}} = 0.01 $. With this setting, the agent can focus on its primiary objective while exploring the environment. This setting may come in handy especially when the extrinsic reward is **sparse**. For example, in navigation tasks, an agent needs to reach the target position in order to get a positive extrinsic reward (+1 reward for reaching the goal, 0 reward otherwise).
 
-{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/curiosity_with_extrinsic_reward.png" caption="Average reward in Unity maze with combined extrinsic and intrinsic reward. (Source: original paper)" width="60%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/curiosity_with_extrinsic_reward.png" caption="Average reward in Unity maze with combined extrinsic and intrinsic reward. (Source: original paper)" width="50%" %}
 
-The figure above shows the average extrinsic reward obtained by the agent in a Unity maze. Training with extrinsic reward only completely fails in this environment (the curve with "extrinsic only" label, which sits constantly at zero), while training with combined extrinsic and intrinsic reward enables the agent to reach the target position.
+The figure above shows the average extrinsic reward obtained by the agent in a Unity maze. Training with extrinsic reward completely fails in this environment (the curve with "extrinsic only" label, which sits constantly at zero), while training with combined extrinsic and intrinsic reward enables the agent to reach the target position.
 
 ### Tips
 
@@ -100,6 +100,7 @@ class ParallelEnvironment(object):
   def __init__(self, list_env):
     self.list_env = list_env
     self.list_pipe_parent = []
+    self.last_response = None
     
     # Create a subprocess for each environment.
     for env in list_env:
@@ -107,6 +108,9 @@ class ParallelEnvironment(object):
       process = mp.Process(target = run_subprocess, args = (pipe_child, env))
       process.start()
       self.list_pipe_parent.append(pipe_parent)
+  
+  def get_last_response(self):
+    return self.last_response
   
   def reset(self):
     # Reset all environments.
@@ -138,10 +142,10 @@ Each subprocess follows this loop: waiting for a command, executing that command
 
 Now you can reset, step, and close all environments in parallel. For more details of those functions, please check [the code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning/parallel_environment.py).
 
-#### Rollout
+###### Rollout
 
 
 
-#### Overall Network Architecture
+###### Overall Network Architecture
 
-#### Unmentioned Things
+###### Unmentioned Things
