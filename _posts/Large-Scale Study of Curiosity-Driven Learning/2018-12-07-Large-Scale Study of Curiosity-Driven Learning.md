@@ -90,7 +90,7 @@ The figure above shows the average extrinsic reward obtained by the agent in a U
 
 In this section I will give some tips on the implementation. Feel free to skip this part if you are experienced in this field.
 
-#### Parallel Environment
+###### Parallel Environment
 
 To run multiple environments in parallel, we can create a **ParallelEnvironment** class. Here is the main framework:
 ```python
