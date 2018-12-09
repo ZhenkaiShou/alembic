@@ -92,9 +92,34 @@ In this section I will give some tips on the implementation. Feel free to skip t
 
 #### Parallel Environment
 
-Running multiple environments in parallel can be achieved via multiprocessing.Pipe(). Below is a main framework:
-``` html
-{% raw %}{% test %}{% endraw %}
+To run multiple environments in parallel, we can create a **ParallelEnvironment** class. Below is the main framework:
+```python
+import multiprocessing as mp
+
+class ParallelEnvironment(object):
+  def __init__(self, envs):
+    self.envs = envs
+    self.pipe_parents = []
+    
+    # Create a subprocess for each environment.
+    for env in envs:
+      pipe_parent, pipe_child = mp.Pipe()
+      process = mp.Process(target = run_environment_process, args = (pipe_child, env))
+      process.start()
+      pipe_child.close()
+      self.pipe_parents.append(pipe_parent)
+  
+  def reset(self):
+    # Reset all environments.
+    ...
+  
+  def step(self, action):
+    # Take an action for each environment.
+    ...
+  
+  def close(self):
+    # Close all environments.
+    ...
 ```
 
 #### Rollout
