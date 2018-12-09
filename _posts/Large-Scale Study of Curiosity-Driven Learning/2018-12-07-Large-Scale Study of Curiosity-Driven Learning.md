@@ -104,9 +104,8 @@ class ParallelEnvironment(object):
     # Create a subprocess for each environment.
     for env in list_env:
       pipe_parent, pipe_child = mp.Pipe()
-      process = mp.Process(target = run_environment_process, args = (pipe_child, env))
+      process = mp.Process(target = run_subprocess, args = (pipe_child, env))
       process.start()
-      pipe_child.close()
       self.list_pipe_parent.append(pipe_parent)
   
   def reset(self):
@@ -121,9 +120,9 @@ class ParallelEnvironment(object):
     # Close all environments.
     ...
 ```
-A subprocess will be created for each environment in *list_env* when the **ParallelEnvironment** object is initialized. Each subprocess will invoke the same *run_environment_process* function, which can be structured in this way:
+A subprocess will be created for each environment in *list_env* when the **ParallelEnvironment** object is initialized. Each subprocess will invoke the same *run_subprocess* function, which can be structured in this way:
 ```
-def run_environment_process(pipe, env):
+def run_subprocess(pipe, env):
   while True:
     # Wait for the next command.
     cmd, data = pipe.recv()
@@ -137,6 +136,7 @@ def run_environment_process(pipe, env):
 ```
 Each subprocess follows this loop: waiting for a command, executing that command, waiting for the next command ... until when it receives the "close" command.
 
+Now you can reset, step, and close all environments in parallel. For more details of those functions, please check [the code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning/parallel_environment.py).
 
 #### Rollout
 
