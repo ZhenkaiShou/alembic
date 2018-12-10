@@ -86,6 +86,8 @@ body {
 .footer {
   background: $headingColour;
   color: $gray;
+  position: absolute;
+  bottom: 0;
   a {
     color: $gray;
     &:hover {
