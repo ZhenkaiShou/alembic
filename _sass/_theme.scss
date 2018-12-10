@@ -87,7 +87,10 @@ body {
   background: $headingColour;
   color: $gray;
   position: absolute;
+  left: 0;
   bottom: 0;
+  width: 100%;
+  
   a {
     color: $gray;
     &:hover {
