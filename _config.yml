@@ -35,18 +35,18 @@ plugins:
 # 3. Gem settings
 paginate: 2 # jekyll-paginate > items per page
 paginate_path: blog/page:num # jekyll-paginate > blog page
-jekyll-mentions: https://twitter.com # jekyll-mentions > service used when @replying
-twitter:
-  username: DavidDarnes # jekyll-seo-tag > Owners twitter username
-author: DavidDarnes # jekyll-seo-tag > default author
-social: # jekyll-seo-tag > social overrides
-  name: David Darnes # jekyll-seo-tag > real name
-  links:  # jekyll-seo-tag > social aliases (sameAs)
-    - https://twitter.com/DavidDarnes
-    - https://www.facebook.com/daviddarnes
-    - https://www.linkedin.com/in/daviddarnes
-    - https://plus.google.com/+DavidDarnes
-    - https://github.com/daviddarnes
+#jekyll-mentions: https://twitter.com # jekyll-mentions > service used when @replying
+#twitter:
+#  username: DavidDarnes # jekyll-seo-tag > Owners twitter username
+#author: David Darnes # jekyll-seo-tag > default author
+#social: # jekyll-seo-tag > social overrides
+#  name: David Darnes # jekyll-seo-tag > real name
+#  links:  # jekyll-seo-tag > social aliases (sameAs)
+#    - https://twitter.com/DavidDarnes
+#    - https://www.facebook.com/daviddarnes
+#    - https://www.linkedin.com/in/daviddarnes
+#    - https://plus.google.com/+DavidDarnes
+#    - https://github.com/daviddarnes
 
 # 4. Jekyll settings
 sass:
