@@ -147,7 +147,7 @@ Now you can reset, step, and close all environments in parallel. For more detail
 The main training pipeline, rollout, consists of the following parts:
 - Simulate $ M $ steps for each of those $ N $ environments,
 - Store the key information (observations, actions, rewards) among those $ N\times M $ transitions into buffers,
-  - Note that "done" signals are not stored because we treat death as just another transition that needs to be avoided by the agent.
+  - Note that "done" signals are not stored because we treat death as another transition which needs to be avoided by the agent.
 - Prepare training dataset,
   - observations,
   - actions,
@@ -155,6 +155,8 @@ The main training pipeline, rollout, consists of the following parts:
   - target values (for value function loss $ L_{\text{vf}} $),
   - log probabilities of the old policy network (for policy gradient loss $ L_{\text{pg}} $).
 - Train both the policy network and dynamic network by minimizing the losses $ L_{1} $ and $ L_{2} $.
+
+For more details of rollout, please check [the code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning/training.py).
 
 ###### Overall Network Architecture
 
