@@ -144,7 +144,17 @@ Now you can reset, step, and close all environments in parallel. For more detail
 
 ###### Rollout
 
-
+The main training pipeline, rollout, consists of the following parts:
+- Simulate $ M $ steps for each of those $ N $ environments,
+- Store the key information (observations, actions, rewards) among those $ N\times M $ transitions into buffers,
+  - Note that "done" signals are not stored because we treat death as just another transition that needs to be avoided by the agent.
+- Prepare training dataset,
+  - observations,
+  - actions,
+  - advantages (for policy gradient loss $ L_{\text{pg}} $),
+  - target values (for value function loss $ L_{\text{vf}} $),
+  - log probabilities of the old policy network (for policy gradient loss $ L_{\text{pg}} $).
+- Train both the policy network and dynamic network by minimizing the losses $ L_{1} $ and $ L_{2} $.
 
 ###### Overall Network Architecture
 
