@@ -99,7 +99,7 @@ navigation_header:
   About Me: /about_me/
 
 navigation_footer:
-  Created by David Darnes: https://darn.es
+  Created by Zhenkai Shou: https://zhenkaishou.github.io/my_site/about_me/
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
   #Twitter: Edit_Line_103_to_108_in_config.yml # https://twitter.com/DavidDarnes
