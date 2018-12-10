@@ -85,9 +85,9 @@ body {
 
 .footer {
   background: $headingColour;
-  color: $footerColour;
+  color: $gray;
   a {
-    color: $footerColour;
+    color: $gray;
     &:hover {
       color: $backgroundColour;
     }
@@ -105,7 +105,7 @@ body {
 .nav--paginator {
   @include flexbox;
   @include justify-content(space-between);
-  color: $captionColour;
+  color: $gray;
   text-align: center;
 }
 
@@ -276,7 +276,7 @@ video {
   position: relative;
   &__legend {
     font-style: italic;
-    color: $captionColour;
+    color: $gray;
     position: absolute;
     overflow: hidden;
     right: 0;
@@ -365,7 +365,7 @@ input[type="color"],
 textarea,
 select {
   width: 100%;
-  border: 1px solid $captionColour;
+  border: 1px solid $gray;
   &:hover {
     border-color: $bodyColour;
   }
