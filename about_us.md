@@ -1,6 +1,6 @@
 ---
-title: About Us
-excerpt: Something about us
+title: About Me
+excerpt: Something about me
 ---
 
 Placeholder for now.
