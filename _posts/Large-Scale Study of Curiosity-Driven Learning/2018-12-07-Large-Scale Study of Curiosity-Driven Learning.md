@@ -105,7 +105,7 @@ In this section I will give some tips on the implementation. Click [here](#resou
 
 ###### Parallel Environment
 
-To run multiple environments in parallel, we can create a **ParallelEnvironment** class. Here is the main framework:
+To run multiple environments in parallel, we can create a `ParallelEnvironment` class. Here is the main framework:
 ```python
 import multiprocessing as mp
 
@@ -137,7 +137,7 @@ class ParallelEnvironment(object):
     # Close all environments.
     ...
 ```
-A subprocess will be created for each environment in *list_env* when the **ParallelEnvironment** object is initialized. Each subprocess will invoke the same *run_subprocess* function, which can be structured in this way:
+A subprocess will be created for each environment in `list_env` when the `ParallelEnvironment` object is initialized. Each subprocess will invoke the same `run_subprocess` function, which can be structured in this way:
 ```python
 def run_subprocess(pipe, env):
   while True:
@@ -151,7 +151,7 @@ def run_subprocess(pipe, env):
       # Do something.
       break
 ```
-Each subprocess follows this loop: waiting for a command, executing that command, waiting for the next command ... until when it receives the "close" command.
+Each subprocess follows this loop: waiting for a command, executing that command, waiting for the next command ... until when it receives the `close` command.
 
 Now you can reset, step, and close all environments in parallel. For more details of those functions, please check [the code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning/parallel_environment.py).
 
