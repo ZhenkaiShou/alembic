@@ -8,11 +8,11 @@ categories:
 In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learning](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf) paper developed by OpenAI, as well as giving some tips on how to implement it.
 ### Contents
 
-- [What is Curiosity?](#what-is-curiosity?)
+- [What is Curiosity?](#what-is-curiosity)
 - [Curiosity in Reinforcement Learning](#curiosity-in-reinforcement-learning)
 - [Feature Learning](#feature-learning)
 - [Training](#training)
-- [Large Scale = Better Performance](#large-scale-=-better-performance)
+- [Large Scale = Better Performance](#large-scale--better-performance)
 - [Curiosity with Extrinsic Reward](#curiosity-with-extrinsic-reward)
 - [Tips](#tips)
   - [Parallel Environment](#parallel-environment)
