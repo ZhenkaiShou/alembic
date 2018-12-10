@@ -156,7 +156,7 @@ The main training pipeline, rollout, consists of the following parts:
   - log probabilities of the old policy network (for policy gradient loss $ L_{\text{pg}} $).
 - Train both the policy network and dynamic network by minimizing the losses $ L_{1} $ and $ L_{2} $.
 
-For more details of rollout, please check [the code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning/training.py).
+For more details of rollout, please check [the code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning/training.py#L95).
 
 ###### Overall Network Architecture
 
