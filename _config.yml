@@ -84,7 +84,7 @@ baseurl: "/my_site" # Same as repository name
 repo: "https://github.com/ZhenkaiShou/my_site"
 email: "tomshou423@hotmail.com"
 # disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
-avatarurl: "https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c" # Uses avatars for favicons to get multple sites, eg Gravatar, Twitter, GitHub
+avatarurl: #"https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c" # Uses avatars for favicons to get multple sites, eg Gravatar, Twitter, GitHub
 # google_analytics: ''
 # service_worker: false # Will turn off the service worker if set to false
 css_inline: true # Will insert all styles into a single <style> block in the <head> element and remove the style <link> reference
@@ -99,7 +99,7 @@ navigation_header:
   About Me: /about_me/
 
 navigation_footer:
-  Created by Zhenkai Shou: https://zhenkaishou.github.io/my_site/about_me/
+  Zhenkai Shou: https://zhenkaishou.github.io/my_site/about_me/
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
   #Twitter: Edit_Line_103_to_108_in_config.yml # https://twitter.com/DavidDarnes
