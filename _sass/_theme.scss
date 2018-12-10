@@ -86,10 +86,9 @@ body {
 .footer {
   background: $headingColour;
   color: $gray;
-  position: relative;
+  position: absolute;
   left: 0;
   bottom: 0;
-  height: 4rem;
   width: 100%;
   overflow: hidden;
   a {
