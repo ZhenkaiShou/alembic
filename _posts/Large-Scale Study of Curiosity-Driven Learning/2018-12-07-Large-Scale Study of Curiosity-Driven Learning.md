@@ -5,13 +5,26 @@ categories:
 - Reinforcement Learning
 ---
 
-In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learning](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf) paper developed by OpenAI, as well as giving some [tips](#tips) on how to implement it.
+In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learning](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf) paper developed by OpenAI, as well as giving some tips on how to implement it.
+### Contents
+
+- [What is Curiosity?](#what-is-curiosity?)
+- [Curiosity in Reinforcement Learning](#curiosity-in-reinforcement-learning)
+- [Feature Learning](#feature-learning)
+- [Training](#training)
+- [Large Scale = Better Performance](#large-scale-=-better-performance)
+- [Curiosity with Extrinsic Reward](#curiosity-with-extrinsic-reward)
+- [Tips](#tips)
+  - [Parallel Environment](#parallel-environment)
+  - [Rollout](#rollout)
+  - [Things yet to be Covered](#things-yet-to-be-covered)
+- [Resources](#resources)
 
 ### What is Curiosity?
 
 First of all, we need to understand what curiosity means. Let's say, a baby may explore its surroundings without specific goals. It may open a drawer, or even crawl under the bed ... aimlessly. A baby can be easily attracted by whatever looks new to it, until when the baby gets bored of it. Then what drives it to do such things? Yes, that's the power of curiosity! 
 
-### Curiosity in Reinforcement Learning?
+### Curiosity in Reinforcement Learning
 
 In standard reinforcement learning, an agent will receive extrinsic reward from the environment after taking an action. However, such extrinsic reward requires manual engineering and may not even exist in some scenarios. Furthermore, classic reinforcement learning algorithms may not work well when the rewards are sparse. 
 
@@ -88,7 +101,7 @@ The figure above shows the average extrinsic reward obtained by the agent in a U
 
 ### Tips
 
-In this section I will give some tips on the implementation. Feel free to skip this part if you are experienced in this field.
+In this section I will give some tips on the implementation. Click [here](#resources) to skip this section.
 
 ###### Parallel Environment
 
@@ -147,7 +160,7 @@ Now you can reset, step, and close all environments in parallel. For more detail
 The main training pipeline, rollout, consists of the following parts:
 - Simulate $ M $ steps for each of those $ N $ environments,
 - Store the key information (observations, actions, rewards) among those $ N\times M $ transitions into buffers,
-  - Note that "done" signals are not stored because we treat death as another transition which needs to be avoided by the agent.
+  - Note that "done" signals are not stored because death is considered as just another transition which needs to be avoided by the agent.
 - Prepare training dataset,
   - observations,
   - actions,
@@ -158,6 +171,17 @@ The main training pipeline, rollout, consists of the following parts:
 
 For more details of rollout, please check [the code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning/training.py#L95).
 
-###### Overall Network Architecture
+###### Things yet to be Covered
 
-###### Unmentioned Things
+There are a lot of implementation details that are not covered in this blog. They are in general not critical to understanding the main concept.
+
+Here is a list of those unmentioned things:
+- Environment wrappers (input observation preprocessing),
+- Network architectures,
+- Data normalizations (observation/reward/advantage normalization),
+- Hyperparameters.
+
+Please read [the original paper](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf) to have a better understanding of those details.
+
+### Resources
+
