@@ -23,20 +23,6 @@
 
     <link rel="manifest" href="{{ "/manifest.json" | relative_url }}">
     <meta name="theme-color" content="{{ site.manifest.theme_color | default: '#242e2b' }}"/>
-    
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({ 
-        TeX: {
-          equationNumbers: { autoNumber: "all" } 
-        },
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-          displayMath: [ ['$$','$$'] ],
-          processEscapes: true
-        }
-      });
-    </script>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
     {% if site.css_inline == true %}
       {% include site-styles.html %}
@@ -47,6 +33,8 @@
     {% if site.avatarurl %}{% include site-favicons.html %}{% endif %}
 
     {% if site.google_analytics %}{% include site-analytics.html %}{% endif %}
+
+    {% include site-before-start.html %}
   </head>
 
   <body class="layout-{{ page.layout }}{% if page.title %}  {{ page.title | slugify }}{% endif %}">
@@ -55,6 +43,8 @@
     {{ content }}
 
     {% if site.service_worker != false %}{% include site-sw.html %}{% endif %}
+
+    {% include site-before-end.html %}
   </body>
 
 </html>
