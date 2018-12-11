@@ -177,7 +177,7 @@ For more details of rollout, please check [the code](https://github.com/ZhenkaiS
 
 There are a lot of implementation details that are not covered in this blog. They are in general not critical to understanding the main concept.
 
-Here is a list of those unmentioned things:
+Those unmentioned details includes:
 - Environment wrappers (input observation preprocessing),
 - Network architectures,
 - Data normalizations (observation/reward/advantage normalization),
@@ -187,3 +187,12 @@ Please read [the original paper](https://pathak22.github.io/large-scale-curiosit
 
 ### Resources
 
+Here is the collection of resources for this blog:
+- Paper:
+  - [Large-Scale Study of Curiosity-Driven Learning](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf)
+- Codes:
+  - [The official code](https://github.com/openai/large-scale-curiosity)
+    - Well structured
+    - Provides many options (atari, Mario, Mujuco, ...)
+    - May seem too complicated for beginners
+  - [My code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning)
