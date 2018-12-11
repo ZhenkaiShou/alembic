@@ -156,7 +156,7 @@ def run_subprocess(pipe, env):
 ```
 Each subprocess follows this loop: waiting for a command, executing that command, waiting for the next command ... until when it receives the `close` command.
 
-Now you can reset, step, and close all environments in parallel. For more details of those functions, please check [the code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning/parallel_environment.py).
+Now you can reset, step, and close all environments in parallel. For more details of those functions, please check [the code](https://github.com/ZhenkaiShou/project/tree/master/paper%20reproduction/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/parallel_environment.py).
 
 ###### Rollout
 
@@ -172,7 +172,7 @@ The main training pipeline, rollout, consists of the following parts:
   - log probabilities of the old policy network (for policy gradient loss $ L_{\text{pg}} $).
 - Train both the policy network and dynamic network by minimizing the losses $ L_{1} $ and $ L_{2} $.
 
-For more details of rollout, please check [the code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning/training.py#L95).
+For more details of rollout, please check [the code](https://github.com/ZhenkaiShou/project/tree/master/paper%20reproduction/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/training.py#L95).
 
 ###### Things yet to be Covered
 
@@ -197,7 +197,7 @@ Codes:
   - Well-structured and systematic,
   - Provides many options (Atari, Mario, Mujuco, ...; All feature learning methods),
   - May seem too complicated for beginners.
-- [My code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning)
+- [My code](https://github.com/ZhenkaiShou/project/tree/master/paper%20reproduction/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning)
   - Simple and clear,
   - Provides limited options (Only Atari; Only **Random Features** and **IDF**),
   - Easy to follow.
