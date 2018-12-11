@@ -100,7 +100,8 @@ a {
   // Lists.
   ul, ol {
     @include baseline(zeta, $bodytype, 1.3, 1, all);
-
+    margin-left: 1rem;
+    
     li {
       font-feature-settings: 'kern', 'onum', 'liga';
       margin-left: 1rem;
