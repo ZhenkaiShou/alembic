@@ -1,7 +1,6 @@
 ---
 title: Large-Scale Study of Curiosity-Driven Learning
 categories:
-- Machine Learning
 - Reinforcement Learning
 ---
 
