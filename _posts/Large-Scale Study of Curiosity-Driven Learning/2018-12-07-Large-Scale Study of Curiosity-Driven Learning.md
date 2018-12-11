@@ -187,12 +187,16 @@ Please read [the original paper](https://pathak22.github.io/large-scale-curiosit
 
 ### Resources
 
-Here is the collection of resources for this blog:
-- Paper:
-  - [Large-Scale Study of Curiosity-Driven Learning](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf)
-- Codes:
-  - [The official code](https://github.com/openai/large-scale-curiosity)
-    - Well structured
-    - Provides many options (atari, Mario, Mujuco, ...)
-    - May seem too complicated for beginners
-  - [My code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning)
+Paper:
+- [Large-Scale Study of Curiosity-Driven Learning](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf)
+
+Codes:
+- [The official code](https://github.com/openai/large-scale-curiosity)
+  - Well-structured and systematic,
+  - Provides many options (Atari, Mario, Mujuco, ...; All feature learning methods),
+  - May seem too complicated for beginners.
+- [My code](https://github.com/ZhenkaiShou/project/blob/master/paper%20reproduction/Large%20Scale%20Curiosity-Driven%20Learning)
+  - Simple and clear,
+  - Provides limited options (Only Atari; Only **Random Features** and **IDF**),
+  - Easy to follow.
+- **Note**: If you find the official code difficult to understand, you can always check my code.
