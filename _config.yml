@@ -96,7 +96,7 @@ navigation_header:
   Blog: /blog/
   Categories: /categories/
   Search: /search/
-  About Me: /about_me/
+  Resume: /pdf/resume.pdf
 
 navigation_footer:
   Zhenkai Shou: https://zhenkaishou.github.io/my_site/about_me/
