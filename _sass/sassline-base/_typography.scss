@@ -307,14 +307,22 @@ a {
 
   // Horizontal rule.
   hr {
-    background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,$captionColour 50%);
+    //display: block;
+    //margin-top: 0.0em;
+    //margin-bottom: 0.0em;
+    border-style: inset;
+    //border-color: $gray;
+    //color: $gray;
+    border-width: 1px;
+    
+    background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,$gray 50%);
     background-position: 0 50%;
     background-repeat: repeat-x;
     background-size: 100% 0.15rem;
-    border: 0;
+    //border: 0;
     margin: 0;
-    padding-bottom: 3rem;
-    padding-top: 3rem;
+    //padding-bottom: 3rem;
+    //padding-top: 3rem;
   }
 
   // Code block.
@@ -362,13 +370,3 @@ a {
     font-feature-settings: 'onum', 'kern';
   }
 }
-
-hr {
-    display: block;
-    margin-top: 0.0em;
-    margin-bottom: 0.0em;
-    border-style: inset;
-    border-color: $gray;
-    color: $gray;
-    border-width: 1px;
-  }
