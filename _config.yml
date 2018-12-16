@@ -98,7 +98,7 @@ navigation_header:
   Resume: /assets/resume.pdf
 
 navigation_footer:
-  Zhenkai Shou: https://zhenkaishou.github.io/my_site/about_me/
+  Zhenkai Shou: https://zhenkaishou.github.io/my_site/
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
   #Twitter: Edit_Line_103_to_108_in_config.yml # https://twitter.com/DavidDarnes
