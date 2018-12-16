@@ -2,9 +2,8 @@
 feature_text: 
 feature_image: 
 ---
-body {border-up: 2px solid gray}
 <div class="panel panel-default">
-  <div class="panel-body" style="border: 2px solid gray;">
+  <div width=100% style="border: 2px solid gray;">
     <p style="font-size: 14px;">
       I am 
     </p>
