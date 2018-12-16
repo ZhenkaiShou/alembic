@@ -435,6 +435,13 @@ pre code {
   }
   hr {
     width: 100%;
+    display: block;
+    margin-top: 0.0em;
+    margin-bottom: 0.0em;
+    border-style: inset;
+    border-color: $gray;
+    color: $gray;
+    border-width: 1px;
   }
   li {
     > p {
@@ -453,14 +460,3 @@ pre code {
     overflow-x: scroll;
   }
 }
-
-// Horizontal rules.
-hr { 
-  display: block;
-  margin-top: 0.0em;
-  margin-bottom: 0.0em;
-  border-style: inset;
-  border-color: $gray;
-  color: $gray;
-  border-width: 1px;
-} 
