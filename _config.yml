@@ -76,7 +76,7 @@ defaults:
 encoding: utf-8 # Make sure the encoding is right
 lang: en-GB # Set the site language
 title: "" # Site name or title, also used in jekyll-seo-tag
-#logo: "/assets/logo.svg" # Site logo, also used in jekyll-seo-tag
+logo: "" # Site logo, also used in jekyll-seo-tag
 description: "Description of My Site" # Site description and default description, also used in jekyll-seo-tag
 url: "https://zhenkaishou.github.io" # Site url, also used in jekyll-seo-tag
 baseurl: "/my_site" # Same as repository name
