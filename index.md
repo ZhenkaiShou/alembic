@@ -10,7 +10,6 @@ feature_image:
       </p>
     </div>
   </div>
-</div>
 
 ## Timeline
 - 2018
