@@ -11,6 +11,7 @@ feature_image:
     </div>
   </div>
 </div>
+
 ## Timeline
 - 2018
   - Graduated from University of Stuttgart, Master degree.
