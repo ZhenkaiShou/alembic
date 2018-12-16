@@ -1,7 +1,9 @@
 ---
-title: Activities
-feature_text: My website
-feature_image: "https://picsum.photos/1300/400?image=989"
-
+title: 
+feature_text: 
+feature_image: 
 ---
 
+## Timeline
+- 2018
+  - Graduated from University of Stuttgart, Master degree.
