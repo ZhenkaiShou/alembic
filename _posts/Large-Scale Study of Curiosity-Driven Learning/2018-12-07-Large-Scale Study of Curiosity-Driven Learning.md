@@ -12,6 +12,7 @@ In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learni
 
 ### Contents
 <hr>
+
 - [What is Curiosity?](#what-is-curiosity)
 - [Curiosity in Reinforcement Learning](#curiosity-in-reinforcement-learning)
 - [Feature Learning](#feature-learning)
