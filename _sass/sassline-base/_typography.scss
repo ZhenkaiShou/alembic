@@ -362,3 +362,13 @@ a {
     font-feature-settings: 'onum', 'kern';
   }
 }
+
+hr {
+    display: block;
+    margin-top: 0.0em;
+    margin-bottom: 0.0em;
+    border-style: inset;
+    border-color: $gray;
+    color: $gray;
+    border-width: 1px;
+  }
