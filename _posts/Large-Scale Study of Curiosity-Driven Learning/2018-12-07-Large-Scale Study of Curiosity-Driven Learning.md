@@ -26,10 +26,12 @@ In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learni
 - [Resources](#resources)
 
 ### What is Curiosity?
+<hr>
 
 First of all, we need to understand what curiosity means. Let's say, a baby may explore its surroundings without specific goals. It may open a drawer, or even crawl under the bed ... aimlessly. A baby can be easily attracted by whatever looks new to it, until when the baby gets bored of it. Then what drives it to do such things? Yes, that's the power of curiosity! 
 
 ### Curiosity in Reinforcement Learning
+<hr>
 
 In standard reinforcement learning, an agent will receive extrinsic reward from the environment after taking an action. However, such extrinsic reward requires manual engineering and may not even exist in some scenarios. Furthermore, classic reinforcement learning algorithms may not work well when the rewards are sparse. 
 
@@ -55,6 +57,7 @@ $$ r_{t} = c_{r_{\text{ext}}} \cdot r_{\text{ext}, t} + c_{r_{\text{int}}} \cdot
 where $ c_{r_{\text{ext}}} = 0 $ and $ c_{r_{\text{int}}} = 1 $ are the coefficients. Later on we can set $ c_{r_{\text{ext}}} $ and $ c_{r_{\text{int}}} $ to other values for additional purposes.
 
 ### Feature Learning
+<hr>
 
 There is debate on how to learn features in order to achieve good performance. Here are some possible choices:
 - **Pixels**: We let $ \phi(o_{t}) = o_{t} $ so that the feature will be the same as the observation. 
@@ -67,6 +70,8 @@ There is debate on how to learn features in order to achieve good performance. H
 Each feature learning method has its own pros and cons. The figure above compares different feature learning methods across multiple environments. It is difficult to tell which one is the best except for **Pixels** whose overall performance is bad.
 
 ### Training
+<hr>
+
 OpenAI uses [Clipped PPO algorithm](https://blog.openai.com/openai-baselines-ppo/) to train the policy since it is a robost alogrithm which requires little hyperparameter tuning. For this algorithm to work, we need to create a policy network:
 
 $$ \pi, v = \text{policy}(o) \label{eq: policy} $$
@@ -89,6 +94,7 @@ where
 For more details regarding how to collect training data, please refer to [Rollout](#rollout).
 
 ### Large Scale = Better Performance
+<hr>
 
 {% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="Average reward in Mario with different batch sizes of environment. (Source: original paper)" width="50%" %}
 
@@ -105,6 +111,7 @@ Sometimes we want an agent to learn skills for some particular task of interest.
 The figure above shows the average extrinsic reward obtained by the agent in a Unity maze. Training with extrinsic reward completely fails in this environment (the curve with "extrinsic only" label, which sits constantly at zero), while training with combined extrinsic and intrinsic reward enables the agent to reach the target position.
 
 ### Tips
+<hr>
 
 In this section I will give some tips on the implementation. Click [here](#resources) to skip this section.
 
@@ -189,6 +196,7 @@ Those unmentioned details includes:
 Please read [the original paper](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf) to have a better understanding of those details.
 
 ### Resources
+<hr>
 
 Original Paper:
 - [Large-Scale Study of Curiosity-Driven Learning](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf)
