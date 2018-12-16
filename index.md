@@ -1,5 +1,4 @@
 ---
-title: 
 feature_text: 
 feature_image: 
 ---
