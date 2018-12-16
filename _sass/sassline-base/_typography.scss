@@ -322,7 +322,6 @@ a {
     background-color: $codeBackgroundColour;
     font-family: unquote(map-get($monospacetype, font-family));
   }
-
   pre {
     display: block;
     margin-bottom: 2rem;
@@ -363,12 +362,3 @@ a {
     font-feature-settings: 'onum', 'kern';
   }
 }
-
-// Horizontal rules.
-hr { 
-  display: block;
-  margin-top: 0.0em;
-  margin-bottom: 0.0em;
-  border-style: inset;
-  border-width: 1px;
-} 
