@@ -55,7 +55,7 @@ There is debate on how to learn features in order to achieve good performance. H
 - **Pixels**: We let $ \phi(o_{t}) = o_{t} $ so that the feature will be the same as the observation. 
 - **Random Features**: Parameters in $ \phi(\cdot) $ is fixed and will not be changed during training. 
 - **Inverse Dynamics Features (IDF)**: We use a network $ \hat{a}\_{t} = \text{idf}(\phi(o_{t}), \phi(o_{t+1})) $ to predict the action given both the current and next features. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{idf}(\cdot) $ to minimize the action prediction loss.
-- **Variational autoencoders (VAE)**: We use a decoder network $ \hat{o}\_{t} = \text{decode}(\text{sampled}(\phi(o_{t}))) $ to reconstruct the original observation. Parameters in $ \phi(\cdot) $ will be trained along with $ \text{decode}(\cdot) $ to minimize the VAE loss.
+- **Variational autoencoders (VAE)**: We use a decoder network $ \hat{o}\_{t} = d(\text{sampled}(\phi(o_{t}))) $ to reconstruct the original observation. Parameters in $ \phi(\cdot) $ will be trained along with $ d(\cdot) $ to minimize the VAE loss.
 
 {% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/feature_learning.png" caption="Average reward across multiple environments with different feature learning methods. (Source: original paper)" width="100%" %}
 
