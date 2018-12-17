@@ -8,6 +8,8 @@ In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learni
 
 <!-- more -->
 
+<a name="gif"></a>
+
 {% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/gameplay.gif" caption="An agent plays Breakout with pure curiosity." width="40%" %}
 
 ## Contents
@@ -15,6 +17,7 @@ In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learni
 - [Curiosity in Reinforcement Learning](#curiosity-in-reinforcement-learning)
 - [Feature Learning](#feature-learning)
 - [Training](#training)
+- [How does this Algorithm Work?](#how-does-this-algorithm-work)
 - [Large Scale = Better Performance](#large-scale--better-performance)
 - [Curiosity with Extrinsic Reward](#curiosity-with-extrinsic-reward)
 - [Tips](#tips)
@@ -82,6 +85,11 @@ where
 - $ L_{\text{dyna}} = r_{\text{int}} $ is the dynamic loss with $ r_{\text{int}} $ defined in **Equation \ref{eq: r_int}**.
 
 For more details regarding how to collect training data, please refer to [Rollout](#rollout).
+
+## How does this Algorithm Work?
+Maybe you are still wondering how this algorithm even works. For example, an agent trained purely by curiosity can get a fairly high score in Breakout (see [the gif at the beginning of this blog](#gif)), even though the agent does not have access to the scores at all. How does the agent learn to get a high score when it does not even know its exsitance?
+
+Actually, this is indeed a coincidence that the game becomes more complicated as the agent gets higher score. Remember that a curiosity-driven agent is only interested in new things, that is, states with high prediction errors. When the agent has lost all its lives, it will be immediately transported back to the beginning of the game, a state which it has seen many times. Therefore, the agent will learn to avoid death while exploring more complicated areas. As for getting a high score, this is a mere bi-product of the agent's curiosity.
 
 ## Large Scale = Better Performance
 
