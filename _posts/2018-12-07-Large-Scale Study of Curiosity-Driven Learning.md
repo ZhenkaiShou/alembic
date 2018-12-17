@@ -89,7 +89,7 @@ For more details regarding how to collect training data, please refer to [Rollou
 ## How does this Algorithm Work?
 Maybe you are still wondering how this algorithm even works. For example, an agent trained purely by curiosity can get a fairly high score in Breakout (see [the gif at the beginning of this blog](#gif)), even though the agent does not have access to the scores at all. How does the agent learn to get a high score when it does not even know its exsitance?
 
-Actually, this is indeed a coincidence that the game becomes more complicated as the agent gets higher score. Remember that a curiosity-driven agent is only interested in new things, that is, states with high prediction errors. When the agent has lost all its lives, it will be immediately transported back to the beginning of the game, a state which it has seen many times. Therefore, the agent will learn to avoid death while exploring more complicated areas. As for getting a high score, this is a mere bi-product of the agent's curiosity.
+Actually, this is indeed a coincidence that the game becomes more complicated as the agent gets higher score. Remember that a curiosity-driven agent is only interested in new things, that is, states with high prediction errors. When the agent has lost all its lives, it will be immediately teleported back to the beginning of the game, a state which it has seen many times. Therefore, the agent will learn to avoid death while exploring more complicated areas. As for getting a high score, this is a mere bi-product of the agent's curiosity.
 
 ## Large Scale = Better Performance
 
