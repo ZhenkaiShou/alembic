@@ -10,7 +10,7 @@ In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learni
 
 {% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/gameplay.gif" caption="An agent plays Breakout with pure curiosity." width="40%" %}
 
-### Contents
+## Contents
 - [What is Curiosity?](#what-is-curiosity)
 - [Curiosity in Reinforcement Learning](#curiosity-in-reinforcement-learning)
 - [Feature Learning](#feature-learning)
@@ -23,10 +23,10 @@ In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learni
   - [Things yet to be Covered](#things-yet-to-be-covered)
 - [Resources](#resources)
 
-### What is Curiosity?
+## What is Curiosity?
 First of all, we need to understand what curiosity means. Let's say, a baby may explore its surroundings without specific goals. It may open a drawer, or even crawl under the bed ... aimlessly. A baby can be easily attracted by whatever looks new to it, until when the baby gets bored of it. Then what drives it to do such things? Yes, that's the power of curiosity! 
 
-### Curiosity in Reinforcement Learning
+## Curiosity in Reinforcement Learning
 In standard reinforcement learning, an agent will receive extrinsic reward from the environment after taking an action. However, such extrinsic reward requires manual engineering and may not even exist in some scenarios. Furthermore, classic reinforcement learning algorithms may not work well when the rewards are sparse. 
 
 What will happen if we do not use extrinsic reward at all and let the agent generate its own intrinsic reward (e.g. an agent learns through its own curiosity)? This is what [this paper](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf) is all about. 
@@ -50,7 +50,7 @@ $$ r_{t} = c_{r_{\text{ext}}} \cdot r_{\text{ext}, t} + c_{r_{\text{int}}} \cdot
 
 where $ c_{r_{\text{ext}}} = 0 $ and $ c_{r_{\text{int}}} = 1 $ are the coefficients. Later on we can set $ c_{r_{\text{ext}}} $ and $ c_{r_{\text{int}}} $ to other values for additional purposes.
 
-### Feature Learning
+## Feature Learning
 There is debate on how to learn features in order to achieve good performance. Here are some possible choices:
 - **Pixels**: We let $ \phi(o_{t}) = o_{t} $ so that the feature will be the same as the observation. 
 - **Random Features**: Parameters in $ \phi(\cdot) $ is fixed and will not be changed during training. 
@@ -83,7 +83,7 @@ where
 
 For more details regarding how to collect training data, please refer to [Rollout](#rollout).
 
-### Large Scale = Better Performance
+## Large Scale = Better Performance
 
 {% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="Average reward in Mario with different batch sizes of environment. (Source: original paper)" width="50%" %}
 
@@ -91,14 +91,14 @@ One interesting finding is that the performance improves as the batch size of en
 
 For more details regarding how to run multiple environments in parallel, please refer to [Parallel Environment](#parallel-environment).
 
-### Curiosity with Extrinsic Reward
+## Curiosity with Extrinsic Reward
 Sometimes we want an agent to learn skills for some particular task of interest. In that case, we can adjust the coefficient values in **Equation \ref{eq: r}**, let's say, we set $ c_{r_{\text{ext}}} = 1 $ and $ c_{r_{\text{int}}} = 0.01 $. With this setting, the agent can focus on its primiary objective while exploring the environment. This setting may come in handy especially when the extrinsic reward is **sparse**. For example, in navigation tasks, an agent needs to reach the target position in order to get a positive extrinsic reward (+1 reward for reaching the goal, 0 reward otherwise).
 
 {% include figure.html image="https://zhenkaishou.github.io/my_site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/curiosity_with_extrinsic_reward.png" caption="Average reward in Unity maze with combined extrinsic and intrinsic reward. (Source: original paper)" width="50%" %}
 
 The figure above shows the average extrinsic reward obtained by the agent in a Unity maze. Training with extrinsic reward completely fails in this environment (the curve with "extrinsic only" label, which sits constantly at zero), while training with combined extrinsic and intrinsic reward enables the agent to reach the target position.
 
-### Tips
+## Tips
 In this section I will give some tips on the implementation. Click [here](#resources) to skip this section.
 
 ###### Parallel Environment
@@ -181,7 +181,7 @@ Those unmentioned details includes:
 
 Please read [the original paper](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf) to have a better understanding of those details.
 
-### Resources
+## Resources
 Original Paper:
 - [Large-Scale Study of Curiosity-Driven Learning](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf)
 - [Official webpage](https://pathak22.github.io/large-scale-curiosity/)
