@@ -8,7 +8,7 @@ This post serves as a code collection of different algorithms, which range from 
 
 <!-- more -->
 
-### Content
+## Content
 - [General Algorithms](#general-algorithms)
   - [Deep Deterministic Policy Gradient](#deep-deterministic-policy-gradient)
   - [Mixture Density Networks](#mixture-density-networks)
@@ -18,7 +18,7 @@ This post serves as a code collection of different algorithms, which range from 
   - [Large-Scale Study of Curiosity-Driven Learning](#large-scale-study-of-curiosity-driven-learning)
   - [World Models](#world-models)
 
-### General Algorithms
+## General Algorithms
 This category contains stand alone implementation of general machine learning algorithms.
 
 ###### Deep Deterministic Policy Gradient
@@ -41,7 +41,7 @@ This category contains stand alone implementation of general machine learning al
 - Generative model that learns useful features for image reconstruction while restricting the features close to normal distribution.
 - Repository: [VAE](https://github.com/ZhenkaiShou/project/tree/master/stand%20alone%20implementation/VAE)
 
-### Paper Algorithms
+## Paper Algorithms
 This category contains implementation of specific algorithms proposed in some papers.
 
 ###### Large-Scale Study of Curiosity-Driven Learning
