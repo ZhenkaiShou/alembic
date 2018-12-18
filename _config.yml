@@ -78,7 +78,7 @@ lang: en-GB # Set the site language
 title: "" # Site name or title, also used in jekyll-seo-tag
 logo: Zhenkai Shou # Site logo, also used in jekyll-seo-tag
 description: "" # Site description and default description, also used in jekyll-seo-tag
-url: "https://" # Site url, also used in jekyll-seo-tag
+url: "https://zhenkaishou.github.io" # Site url, also used in jekyll-seo-tag
 baseurl: "/my-site" # Same as repository name
 repo: "https://github.com/ZhenkaiShou/my-site"
 email: "tomshou423@hotmail.com"
