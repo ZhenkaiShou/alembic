@@ -75,13 +75,13 @@ defaults:
 # 7. Site settings
 encoding: utf-8 # Make sure the encoding is right
 lang: en-GB # Set the site language
-title: "Alembic" # Site name or title, also used in jekyll-seo-tag
-logo: "/assets/logo.svg" # Site logo, also used in jekyll-seo-tag
-description: "Alembic is a starting point for Jekyll projects. Rather than starting from scratch, this boilerplate is designed to get the ball rolling immediately" # Site description and default description, also used in jekyll-seo-tag
-url: "https://alembic.darn.es" # Site url, also used in jekyll-seo-tag
-baseurl: ""
-repo: "https://github.com/daviddarnes/alembic"
-email: "me@daviddarnes.com"
+title: "" # Site name or title, also used in jekyll-seo-tag
+logo: Zhenkai Shou # Site logo, also used in jekyll-seo-tag
+description: "" # Site description and default description, also used in jekyll-seo-tag
+url: "https://" # Site url, also used in jekyll-seo-tag
+baseurl: "/my-site" # Same as repository name
+repo: "https://github.com/ZhenkaiShou/my-site"
+email: "tomshou423@hotmail.com"
 # disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
 avatarurl: "https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c" # Uses avatars for favicons to get multple sites, eg Gravatar, Twitter, GitHub
 # google_analytics: ''
@@ -91,21 +91,21 @@ css_inline: true # Will insert all styles into a single <style> block in the <he
 # 8. Site navigation
 navigation_header:
   Home: /
-  Elements: /elements/
   Blog: /blog/
   Categories: /categories/
   Search: /search/
-  Fork Alembic: https://github.com/daviddarnes/alembic
+  Resume: /assets/resume.pdf
 
 navigation_footer:
-  Created by David Darnes: https://darn.es
+  Zhenkai Shou: https://zhenkaishou.github.io/my-site/
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
-  Twitter: https://twitter.com/DavidDarnes
-  LinkedIn: https://www.linkedin.com/in/daviddarnes
-  Google+: https://plus.google.com/+DavidDarnes
-  GitHub: https://github.com/daviddarnes
-  link: https://darn.es
+  #Twitter: Edit_Line_103_to_108_in_config.yml # https://twitter.com/DavidDarnes
+  facebook: https://www.facebook.com/zhenkai.shou
+  #LinkedIn: https://www.linkedin.com/in/daviddarnes
+  #Google+: https://plus.google.com/+DavidDarnes
+  GitHub: https://github.com/ZhenkaiShou/my-site
+  #link: https://darn.es
   RSS: /feed.xml
 
 sharing_links: # Appear at the bottom of single blog posts, uncomment and comment out as desired. Colours set the button colour
