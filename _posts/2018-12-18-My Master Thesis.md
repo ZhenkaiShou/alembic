@@ -1,6 +1,6 @@
 ---
 title: My Master Thesis
-category:
+categories:
 - Misc
 ---
 
