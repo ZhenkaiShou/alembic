@@ -4,7 +4,7 @@ categories:
 - Misc
 ---
 
-I will write a post about my master thesis: **Learning to Plan in Large Domains with Deep Neural Networks**, in case someone is interested.
+In this post I will make a brief summary about my master thesis: **Learning to Plan in Large Domains with Deep Neural Networks**, in case someone is interested.
 
 <!-- more -->
 
