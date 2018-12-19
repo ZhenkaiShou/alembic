@@ -15,7 +15,7 @@ In this blog I will make a brief summary about my master thesis: **Learning to P
 ## Before We Start
 Before we start, I would like to give you some insight on my master thesis. In short, my thesis is basically an extension of [AlphaZero](https://arxiv.org/abs/1712.01815) inspired by [Imagination-Augmented Agents](https://arxiv.org/abs/1707.06203).
 
-If you have already read the above two papers, you will find my thesis quite easy to follow. If not, well, I cannot guarantee anything. In the following I assume you have a rough understanding of how Alpha(Go) Zero works, e.g:
+If you have already read the above two papers, you will find my thesis quite easy to follow. If not, well, I cannot guarantee anything. In the following sections I assume you have a general understanding of how Alpha(Go) Zero works, e.g.:
 - A neural network with a policy head and a value head,
 - Monte-Carlo tree search (MCTS) to find the best action,
 - How neural network estimation is combined with MCTS in Alpha(Go) Zero,
@@ -32,5 +32,7 @@ On the other hand, learning to plan, where an agent applies the knowledge learne
 Recent advances in deep learning widen the access to better learning techniques. Combining traditional planning algorithms with modern learning techniques in a proper way enables an agent to extract useful knowledge and thus show good performance in large domains. For instance, Alpha(Go)Zero achieved its success by combining a deep neural network with MCTS.
 
 However, in the above example, the neural network does not fully leverage the local planner:
-- Only
-since some valuable information of the local planner (e.g. the principal variation in MCTS) is not informed to the network. Hereby we raise the following question: can we design a neural network that can fully leverage the local planner to further improve the effectiveness and efficiency of planning?
+- Only the final output of the local planner (e.g. the searching probability distribution) is relevant to the agent's training.
+- Some other valuable information of the local planner (e.g. the trajectory with the most visit counts) is nowhere to be used. 
+
+Hereby we raise the following question: is it possible to design a neural network that can fully leverage the local planner to further improve the effectiveness and efficiency of planning?
