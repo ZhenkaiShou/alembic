@@ -49,4 +49,4 @@ The neural network in AlphaGo Zero can be formed as:
 
 $$ V, P = f(s) $$
 
-where $ s $ is the input state, $ V $ is output value, and $ P $ is the output policy. The figure above provides a more detailed description. The state $ s $ is first encoded into some feature $ x $, and then the network is split into two heads: the value head to predict value $ V $ and the policy head to predict the policy $ P $.
+where $ s $ is the input state, $ V $ is output value, and $ P $ is the output policy. The figure above provides a more detailed description. The state $ s $ is first encoded into some feature $ x $, and then the network is split into two heads: the value head to estimate the value $ V $ and the policy head to estimate the policy $ P $.
