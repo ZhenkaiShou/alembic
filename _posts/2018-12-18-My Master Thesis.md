@@ -13,6 +13,7 @@ In this blog I will make a summary about my master thesis: **Learning to Plan in
 - [Motivation](#motivation)
 - [Revisit of AlphaGo Zero](#revisit-of-alphago-zero)
   - [Neural Network Architecture](#neural-network-architecture)
+  - [Principal Variation in MCTS](#principal-variation-in-mcts)
 
 ## Before We Start
 Before we start, I would like to give you some insight on my master thesis. In short, my thesis is basically an extension of [AlphaGo Zero](https://arxiv.org/abs/1712.01815) inspired by [Imagination-Augmented Agents](https://arxiv.org/abs/1707.06203).
@@ -49,4 +50,6 @@ The neural network in AlphaGo Zero can be formed as:
 
 $$ V, P = f(s) $$
 
-where $ s $ is the input state, $ V $ is output value, and $ P $ is the output policy. The figure above provides a more detailed description. The state $ s $ is first encoded into some feature $ x $, and then the network is split into two heads: the value head to estimate the value $ V $ and the policy head to estimate the policy $ P $.
+where $ s $ is the input state, $ V $ is output value, and $ P $ is the output policy. The figure above provides a more detailed description. The state $ s $ is first encoded into some feature $ x $, and then the network is split into two heads: a value head to estimate the value $ V $ and a policy head to estimate the policy $ P $.
+
+###### Principal Variation in MCTS
