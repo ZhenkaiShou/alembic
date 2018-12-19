@@ -24,6 +24,7 @@ In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learni
   - [Parallel Environment](#parallel-environment)
   - [Rollout](#rollout)
   - [Things yet to be Covered](#things-yet-to-be-covered)
+- [Conclusion](#conclusion)
 - [Resources](#resources)
 
 ## What is Curiosity?
@@ -107,7 +108,7 @@ Sometimes we want an agent to learn skills for some particular task of interest.
 The figure above shows the average extrinsic reward obtained by the agent in a Unity maze. Training with extrinsic reward completely fails in this environment (the curve with "extrinsic only" label, which sits constantly at zero), while training with combined extrinsic and intrinsic reward enables the agent to reach the target position.
 
 ## Tips
-In this section I will give some tips on the implementation. Click [here](#resources) to skip this section.
+In this section I will give some tips on the implementation. Click [here](#conclusion) to skip this section.
 
 ###### Parallel Environment
 
@@ -162,7 +163,6 @@ Each subprocess follows this loop: waiting for a command, executing that command
 Now you can reset, step, and close all environments in parallel. For more details of those functions, please check [the code](https://github.com/ZhenkaiShou/project/tree/master/paper%20reproduction/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/parallel_environment.py).
 
 ###### Rollout
-
 The main training pipeline, rollout, consists of the following parts:
 - Simulate $ M $ steps for each of those $ N $ environments,
 - Store the key information (observations, actions, rewards) among those $ N\times M $ transitions into buffers,
@@ -178,7 +178,6 @@ The main training pipeline, rollout, consists of the following parts:
 For more details of rollout, please check [the code](https://github.com/ZhenkaiShou/project/tree/master/paper%20reproduction/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/training.py#L95).
 
 ###### Things yet to be Covered
-
 There are a lot of implementation details that are not covered in this blog. They are in general not critical to understanding the main concept.
 
 Those unmentioned details includes:
@@ -188,6 +187,9 @@ Those unmentioned details includes:
 - Hyperparameters.
 
 Please read [the original paper](https://pathak22.github.io/large-scale-curiosity/resources/largeScaleCuriosity2018.pdf) to have a better understanding of those details.
+
+## Conclusion
+In this blog, I showed you how far a curiosity-driven agent can achieve. The core idea is to replace the extrinsic reward (game score) by the intrinsic reward (curiosity). Such agent is able to get fairly high scores in some games where the environment complexity aligns well with the game score, even though the agent does not have access to the extrinsic reward at all. In my opinion, curiosity-driven learning has huge potential for further study.
 
 ## Resources
 Original Paper:
