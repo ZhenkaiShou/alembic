@@ -43,7 +43,7 @@ Hereby we raise the following question: is it possible to design a neural networ
 Let's first revist some key parts of AlphaGo Zero.
 
 ###### Neural Network Architecture
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis%20/Neural_Network_1.png" caption="Neural Network Architecture of AlphaGo Zero." width="60%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Neural_Network_1.png" caption="Neural Network Architecture of AlphaGo Zero." width="60%" %}
 
 The neural network in AlphaGo Zero can be formed as:
 
