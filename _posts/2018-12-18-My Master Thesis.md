@@ -4,23 +4,25 @@ categories:
 - Misc
 ---
 
-In this blog I will make a brief summary about my master thesis: **Learning to Plan in Large Domains with Deep Neural Networks**, in case someone is interested.
+In this blog I will make a summary about my master thesis: **Learning to Plan in Large Domains with Deep Neural Networks**, in case someone is interested.
 
 <!-- more -->
 
 ## Contents
 - [Before We Start](#before-we-start)
 - [Motivation](#motivation)
+- [Revisit of AlphaGo Zero](#revisit-of-alphago-zero)
+  - [Network Architecture](#network-architecture)
 
 ## Before We Start
-Before we start, I would like to give you some insight on my master thesis. In short, my thesis is basically an extension of [AlphaZero](https://arxiv.org/abs/1712.01815) inspired by [Imagination-Augmented Agents](https://arxiv.org/abs/1707.06203).
+Before we start, I would like to give you some insight on my master thesis. In short, my thesis is basically an extension of [AlphaGo Zero](https://arxiv.org/abs/1712.01815) inspired by [Imagination-Augmented Agents](https://arxiv.org/abs/1707.06203).
 
-If you have already read the above two papers, you will find my thesis quite easy to follow. If not, well, I cannot guarantee anything. In the following sections I assume you have a general understanding of how Alpha(Go) Zero works, e.g.:
+If you have already read the above two papers, you will find my thesis quite easy to follow. If not, well, I cannot guarantee anything. In the following sections I assume you have a general understanding of how AlphaGo Zero works, e.g.:
 - A neural network with a policy head and a value head,
 - Monte-Carlo tree search (MCTS) to find the best action,
-- How neural network estimation is combined with MCTS in Alpha(Go) Zero,
+- How neural network estimation is combined with MCTS in AlphaGo Zero,
 - Selfplay to sample training data,
-- Loss function in Alpha(Go) Zero and its optimization.
+- Loss function in AlphaGo Zero and its optimization.
 
 ## Motivation
 In the domain of artifcial intelligence, effective and efficient planning is a key factor to developing an adaptive agent which can solve tasks in complex environments. However, traditional planning algorithms only work properly in small domains:
@@ -29,10 +31,15 @@ In the domain of artifcial intelligence, effective and efficient planning is a k
 
 On the other hand, learning to plan, where an agent applies the knowledge learned from the past experience to planning, can scale up planning effectiveness in large domains.
 
-Recent advances in deep learning widen the access to better learning techniques. Combining traditional planning algorithms with modern learning techniques in a proper way enables an agent to extract useful knowledge and thus show good performance in large domains. For instance, Alpha(Go)Zero achieved its success by combining a deep neural network with MCTS.
+Recent advances in deep learning widen the access to better learning techniques. Combining traditional planning algorithms with modern learning techniques in a proper way enables an agent to extract useful knowledge and thus show good performance in large domains. For instance, AlphaGo Zero achieved its success by combining a deep neural network with MCTS.
 
 However, in the above example, the neural network does not fully leverage the local planner:
 - Only the final output of the local planner (e.g. the searching probability distribution) is relevant to the agent's training.
 - Some other valuable information of the local planner (e.g. the trajectory with the most visit counts) is nowhere to be used. 
 
 Hereby we raise the following question: is it possible to design a neural network that can fully leverage the local planner to further improve the effectiveness and efficiency of planning?
+
+## Revisit of AlphaGo Zero
+Let's first revist some key parts of AlphaGo Zero.
+
+###### Network Architecture
