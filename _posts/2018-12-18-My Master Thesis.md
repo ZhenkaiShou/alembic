@@ -12,7 +12,7 @@ In this blog I will make a summary about my master thesis: **Learning to Plan in
 - [Before We Start](#before-we-start)
 - [Motivation](#motivation)
 - [Revisit of AlphaGo Zero](#revisit-of-alphago-zero)
-  - [Network Architecture](#network-architecture)
+  - [Neural Network Architecture](#neural-network-architecture)
 
 ## Before We Start
 Before we start, I would like to give you some insight on my master thesis. In short, my thesis is basically an extension of [AlphaGo Zero](https://arxiv.org/abs/1712.01815) inspired by [Imagination-Augmented Agents](https://arxiv.org/abs/1707.06203).
@@ -42,4 +42,11 @@ Hereby we raise the following question: is it possible to design a neural networ
 ## Revisit of AlphaGo Zero
 Let's first revist some key parts of AlphaGo Zero.
 
-###### Network Architecture
+###### Neural Network Architecture
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis%20/Neural_Network_1.png" caption="Neural Network Architecture of AlphaGo Zero." width="60%" %}
+
+The neural network in AlphaGo Zero can be formed as:
+
+$$ V, P = f(s) $$
+
+where $ s $ is the input state, $ V $ is output value, and $ P $ is the output policy. The figure above provides a more detailed description. The state $ s $ is first encoded into some feature $ x $, and then the network is split into two heads: the value head to predict value $ V $ and the policy head to predict the policy $ P $.
