@@ -73,7 +73,7 @@ $$ L = (V - z)^{2} - \pi\log{P} + c||\theta||^{2} $$
 
 where
 - $ V, P $ are the output value and policy of the network $ f $ in Equation \ref{eq: network_alphago_zero},
-- $ z\in\{-1, 0, +1\} $ is the game result from the perspective of the current player,
+- $ z\in\\{-1, 0, +1\\} $ is the game result from the perspective of the current player,
 - $ \pi $ is the output probability distribution of the tree search,
 - $ \theta $ is the parameters in the network $ f $,
 - $ c $ is a L2 normalization constant.
