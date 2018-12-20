@@ -18,7 +18,7 @@ In this blog I will make a summary about my master thesis: **Learning to Plan in
 - [Neural Networks that Learn from Planning](#neural-networks-that-learn-from-planning)
 
 ## Before We Start
-Before we start, I would like to give you some insight on my master thesis. In short, my thesis is basically an extension of [AlphaGo Zero](https://arxiv.org/abs/1712.01815) inspired by [Imagination-Augmented Agents](https://arxiv.org/abs/1707.06203).
+Before we start, I would like to give you some insight on my master thesis. In short, my thesis is basically an extension of [AlphaGo Zero](https://deepmind.com/research/publications/mastering-game-go-without-human-knowledge/) inspired by [Imagination-Augmented Agents](https://arxiv.org/abs/1707.06203).
 
 If you have already read the above two papers, you will find my thesis quite easy to follow. If not, well, I cannot guarantee anything. In the following sections I assume you have a general understanding of how AlphaGo Zero works, e.g.:
 - A neural network with a policy head and a value head,
@@ -91,10 +91,10 @@ We modify the original [AlphaGo Zero network](#nerual-network-architecture) so t
 
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network.png" caption="Modified neural network that takes both the current state and future predictions as input." width="100%" %}
 
-Principal variation $ s_{\text{seq}} $ can be collected from MCTS for each move in selfplay games. During training, principal variation $ s_{\text{seq}} $ is first encoded into a list of features $ x_{\text{seq}} $ before being fed into the neural network. Afterwards, we extract some contexture feature $ \phi $ from $ x_{\text{seq}} $ via a Long-Short Term Memory network (LSTM). Now we have both the state feature $ x $ and contextual feature $ \phi $. We simply concatenate them together and use them to calibrate the original policy and value estimation, which results in the calibrated policy and value estimation $ p', v' $.
+Principal variation $ s_{\text{seq}} $ can be collected from MCTS for each move in selfplay games. During training, principal variation $ s_{\text{seq}} $ is first encoded into a list of features $ x_{\text{seq}} $ before being fed into the neural network. Afterwards, we extract some contextual feature $ \phi $ from $ x_{\text{seq}} $ via a Long-Short Term Memory network (LSTM). Now we have both the state feature $ x $ and contextual feature $ \phi $. We simply concatenate them together and use them to calibrate the original policy and value estimation, which results in the calibrated policy and value estimation $ p', v' $.
 
-To optimize those additional parameters $ \theta_{2} $ in the newly expanded network (shown as the green edges), we can define a new loss in a similar way as $ L_{1} $:
+To optimize those additional parameters $ \theta_{2} $ in the newly expanded network (shown as the green edges), we define a new loss similar to $ L_{1} $:
 
 $$ L_{2} = (z-v')^{2} - \pi\log{p'} + c||\theta_{2}||^{2} $$
 
-Will this modification work? Well, it might work during training, 
+Will this modification work? Well, it might work at first galance. However, it is not hard to see that the contextual feature $ \phi $ can only be obtained after MCTS. As a result, this modified network cannot be used to evaluate tree nodes during MCTS.
