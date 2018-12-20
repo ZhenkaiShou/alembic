@@ -38,7 +38,7 @@ Recent advances in deep learning widen the access to better learning techniques.
 
 However, in the above example, the neural network does not fully leverage the local planner:
 - Only the final output of the local planner (e.g. the searching probability distribution) is relevant to the agent's training.
-- Some other valuable information of the local planner (e.g. the trajectory with the most visit counts) is nowhere to be used. 
+- Some other valuable information of the local planner (e.g. the trajectory with the most visit count) is nowhere to be used. 
 
 Hereby we raise the following question: is it possible to design a neural network that can fully leverage the local planner to further improve the effectiveness and efficiency of planning?
 
@@ -70,7 +70,7 @@ Here we define the principal variation to be the trajectory with the most visit 
 - each edge is a legal action of the parent state, 
 - the number around each edge means the visit count of taking that action,
 - the search depth $ k = 10 $,
-- the principal variation is highlighed in red.
+- the principal variation is $ \[s, s_{1}, s_{2}, s_{3}, s_{4}\] $.
 
 ###### Training
 AlphaGo Zero is trained by minimizing the following loss:
@@ -80,8 +80,9 @@ $$ L = (v - z)^{2} - \pi\log{p} + c||\theta||^{2} $$
 where
 - $ p, v $ are the output policy and value of the network $ f $ in Equation \ref{eq: network_alphago_zero},
 - $ z\in\\{-1, 0, +1\\} $ is the game result from the perspective of the current player,
-- $ \pi $ is the output probability distribution of the tree search,
+- $ \pi $ is the probability distribution of the tree search,
 - $ \theta $ is all parameters in the network $ f $,
 - $ c $ is a L2 normalization constant.
 
 ## Neural Networks that Learn from Planning
+Now we want to leverage not only the probability distribution $ \pi $, but also some other valuable information of MCTS to benefit the agent. The question is: what kind of information is considered as valuable? A good choice would be the [principal variation in MCTS](#principal-variation-in-mcts) since it tells us the most promising future state if the agent follows its current policy.
