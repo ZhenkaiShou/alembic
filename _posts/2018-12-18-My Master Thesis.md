@@ -14,6 +14,7 @@ In this blog I will make a summary about my master thesis: **Learning to Plan in
 - [Revisit of AlphaGo Zero](#revisit-of-alphago-zero)
   - [Neural Network Architecture](#neural-network-architecture)
   - [Principal Variation in MCTS](#principal-variation-in-mcts)
+  - [Training](#training)
 
 ## Before We Start
 Before we start, I would like to give you some insight on my master thesis. In short, my thesis is basically an extension of [AlphaGo Zero](https://arxiv.org/abs/1712.01815) inspired by [Imagination-Augmented Agents](https://arxiv.org/abs/1707.06203).
@@ -64,3 +65,15 @@ Here we define the principal variation to be the trajectory with the most visit 
 - the number around each edge means the visit count of taking that action,
 - the search depth $ k = 10 $,
 - the principal variation is highlighed in red.
+
+###### Training
+AlphaGo Zero is trained by minimizing the following loss:
+
+$$ L = (V - z)^{2} - P\log{P} + c||\theta||^{2} $$
+
+where
+- $ V, P $ are the output value and policy of the network $ f $ in Equation \ref{eq: network_alphago_zero},
+- $ z\in{-1, 0, +1} $ is the game result from the perspective of the current player,
+- $ \pi $ is the output probability distribution of the tree search,
+- $ \theta $ is the parameters in the network $ f $,
+- $ c $ is a L2 normalization constant.
