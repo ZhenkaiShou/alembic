@@ -15,7 +15,7 @@ In this blog I will make a summary about my master thesis: **Learning to Plan in
   - [Neural Network Architecture](#neural-network-architecture)
   - [Principal Variation in MCTS](#principal-variation-in-mcts)
   - [Training](#training)
-- [Neural Networks that Learns from Planning](#neural-networks-that-learns-from-planning)
+- [Neural Networks that Learn from Planning](#neural-networks-that-learn-from-planning)
 
 ## Before We Start
 Before we start, I would like to give you some insight on my master thesis. In short, my thesis is basically an extension of [AlphaGo Zero](https://arxiv.org/abs/1712.01815) inspired by [Imagination-Augmented Agents](https://arxiv.org/abs/1707.06203).
@@ -81,7 +81,7 @@ where
 - $ p, v $ are the output policy and value of the network $ f $ in Equation \ref{eq: network_alphago_zero},
 - $ z\in\\{-1, 0, +1\\} $ is the game result from the perspective of the current player,
 - $ \pi $ is the output probability distribution of the tree search,
-- $ \theta $ is the parameters in the network $ f $,
+- $ \theta $ is all parameters in the network $ f $,
 - $ c $ is a L2 normalization constant.
 
-## Neural Networks that Learns from Planning
+## Neural Networks that Learn from Planning
