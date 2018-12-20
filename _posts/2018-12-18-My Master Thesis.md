@@ -54,7 +54,7 @@ where
 - $ p $ is the output policy,
 - $ v $ is output value.
 
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Neural_Network_1.png" caption="Neural Network Architecture of AlphaGo Zero." width="90%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Network_AlphaGo_Zero.png" caption="Neural Network Architecture of AlphaGo Zero." width="90%" %}
 
 The figure above provides a more detailed description. The state $ s $ is first encoded into some feature $ x $, and then the network is split into two heads: a policy head to estimate the policy $ p $ and a value head to estimate the value $ v $.
 
