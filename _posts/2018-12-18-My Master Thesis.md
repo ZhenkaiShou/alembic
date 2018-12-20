@@ -97,4 +97,4 @@ To optimize those additional parameters $ \theta_{2} $ in the newly expanded net
 
 $$ L_{2} = (z-v')^{2} - \pi\log{p'} + c||\theta_{2}||^{2} $$
 
-Will this modification work? Well, it might work at first galance. However, it is not hard to see that the contextual feature $ \phi $ can only be obtained after MCTS. As a result, this modified network cannot be used to evaluate tree nodes during MCTS.
+Will this modification work? Well, it might work at first galance. However, it is not hard to see that the contextual feature $ \phi $ can **only be obtained after MCTS**. As a result, this modified network cannot be used to evaluate tree nodes during MCTS.
