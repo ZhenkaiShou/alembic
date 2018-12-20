@@ -55,7 +55,7 @@ where
 - $ p $ is the output policy,
 - $ v $ is output value.
 
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Network_AlphaGo_Zero.png" caption="Neural Network Architecture of AlphaGo Zero." width="90%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Network_AlphaGo_Zero.png" caption="Neural Network Architecture of AlphaGo Zero." width="100%" %}
 
 The figure above provides a more detailed description. The state $ s $ is first encoded into some feature $ x $, and then the network is split into two heads: a policy head to estimate the policy $ p $ and a value head to estimate the value $ v $.
 
@@ -64,13 +64,13 @@ AlphaGo Zero relies on MCTS to find the best action of the current state. In Alp
 
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Principal_Variation_in_MCTS.png" caption="Principal Variation in MCTS." width="75%" %}
 
-Here we define the principal variation to be the trajectory with the most visit count in the search tree. The figure above shows an example of principal variation in MCTS. In that figure, 
+Here we define the principal variation $ s_{\text{seq}} $ to be the trajectory with the most visit count in the search tree. The figure above shows an example of principal variation in MCTS. In that figure, 
 - each node is a game state,
 - a parent node is connected to a child node via an edge,
 - each edge is a legal action of the parent state, 
 - the number around each edge means the visit count of taking that action,
 - the search depth $ k = 10 $,
-- the principal variation is $ \[s, s_{1}, s_{2}, s_{3}, s_{4}\] $.
+- the principal variation is $ s_{\text{seq}} = \[s, s_{1}, s_{2}, s_{3}, s_{4}\] $.
 
 ###### Training
 AlphaGo Zero is trained by minimizing the following loss:
@@ -85,9 +85,10 @@ where
 - $ c $ is a L2 normalization constant.
 
 ## Neural Networks that Learn from Planning
-Now we want to leverage not only the probability distribution $ \pi $, but also some other valuable information of MCTS to benefit the agent. The question is: what kind of information is considered as valuable? A good choice would be the [principal variation in MCTS](#principal-variation-in-mcts) since it predicts the most promising future state.
+Now we want to leverage not only the probability distribution $ \pi $, but also some other valuable information from MCTS to benefit the agent. The question is: what kind of information is considered as valuable? A good choice would be the [principal variation in MCTS](#principal-variation-in-mcts) since it predicts the most promising future state.
 
-We modify the original [AlphaGo Zero network](#nerual_network_architecture) so that the agent can learn from both the current state $ s $ and future predictions.
+We modify the original [AlphaGo Zero network](#nerual_network_architecture) so that the agent can learn from both the current state $ s $ and future predictions, see the figure below.
 
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network.png" caption="Modified neural network that takes both state $ s $ and future predictions as input." width="90%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network.png" caption="Modified neural network that takes both the current state and future predictions as input." width="100%" %}
 
+Principal variation $ s_{\text{seq}} $ can be collected from MCTS for each move in selfplay games. During training, principal variation $ s_{\text{seq}} $ is first encoded into a list of features $ x_{\text{seq}} $ before being fed into the neural network. Afterwards, we extract some contextrue feature $ \phi $ from $ x_{\text{seq}} $ via a Long-Short Term Memory network (LSTM). Now we have both the state feature $ x $ and contextual feature $ \phi $. We simply concatenate them together and use them to calibrate the original policy and value estimation.
