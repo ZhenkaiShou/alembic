@@ -85,4 +85,9 @@ where
 - $ c $ is a L2 normalization constant.
 
 ## Neural Networks that Learn from Planning
-Now we want to leverage not only the probability distribution $ \pi $, but also some other valuable information of MCTS to benefit the agent. The question is: what kind of information is considered as valuable? A good choice would be the [principal variation in MCTS](#principal-variation-in-mcts) since it tells us the most promising future state if the agent follows its current policy.
+Now we want to leverage not only the probability distribution $ \pi $, but also some other valuable information of MCTS to benefit the agent. The question is: what kind of information is considered as valuable? A good choice would be the [principal variation in MCTS](#principal-variation-in-mcts) since it predicts the most promising future state.
+
+We modify the original [AlphaGo Zero network](#nerual_network_architecture) so that the agent can learn from both the current state $ s $ and future predictions.
+
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network.png" caption="Modified neural network that takes both state $ s $ and future predictions as input." width="90%" %}
+
