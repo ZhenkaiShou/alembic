@@ -69,7 +69,7 @@ Here we define the principal variation to be the trajectory with the most visit 
 ###### Training
 AlphaGo Zero is trained by minimizing the following loss:
 
-$$ L = (V - z)^{2} - P\log{P} + c||\theta||^{2} $$
+$$ L = (V - z)^{2} - \pi\log{P} + c||\theta||^{2} $$
 
 where
 - $ V, P $ are the output value and policy of the network $ f $ in Equation \ref{eq: network_alphago_zero},
