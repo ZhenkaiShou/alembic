@@ -45,16 +45,21 @@ Hereby we raise the following question: is it possible to design a neural networ
 Let's first revist some key parts of AlphaGo Zero.
 
 ###### Neural Network Architecture
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Neural_Network_1.png" caption="Neural Network Architecture of AlphaGo Zero." width="90%" %}
-
 The neural network in AlphaGo Zero can be formed as:
 
-$$ V, P = f(s) \label{eq: network_alphago_zero} $$
+$$ p, v = f(s) \label{eq: network_alphago_zero} $$
 
-where $ s $ is the input state, $ V $ is output value, and $ P $ is the output policy. The figure above provides a more detailed description. The state $ s $ is first encoded into some feature $ x $, and then the network is split into two heads: a value head to estimate the value $ V $ and a policy head to estimate the policy $ P $.
+where
+- $ s $ is the input state,
+- $ p $ is the output policy,
+- $ v $ is output value.
+
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Neural_Network_1.png" caption="Neural Network Architecture of AlphaGo Zero." width="90%" %}
+
+The figure above provides a more detailed description. The state $ s $ is first encoded into some feature $ x $, and then the network is split into two heads: a policy head to estimate the policy $ p $ and a value head to estimate the value $ v $.
 
 ###### Principal Variation in MCTS
-AlphaGo Zero relies on MCTS to find the best action of the current state. In AlphaGo Zero, tree searches prefer action with a low visit count $ N $ and a high prior porbability $ P $, which is a tradeoff between exploration and exploitation. The action with the highest visit count will be selected after the tree search reaches a pre-defined depth $ k $. 
+AlphaGo Zero relies on MCTS to find the best action of the current state. In AlphaGo Zero, tree searches prefer action with a low visit count $ N $ and a high prior porbability $ p $, which is a tradeoff between exploration and exploitation. The action with the highest visit count will be selected after the tree search reaches a pre-defined depth $ k $. 
 
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Principal_Variation_in_MCTS.png" caption="Principal Variation in MCTS." width="75%" %}
 
@@ -69,10 +74,10 @@ Here we define the principal variation to be the trajectory with the most visit 
 ###### Training
 AlphaGo Zero is trained by minimizing the following loss:
 
-$$ L = (V - z)^{2} - \pi\log{P} + c||\theta||^{2} $$
+$$ L = (v - z)^{2} - \pi\log{p} + c||\theta||^{2} $$
 
 where
-- $ V, P $ are the output value and policy of the network $ f $ in Equation \ref{eq: network_alphago_zero},
+- $ p, v $ are the output policy and value of the network $ f $ in Equation \ref{eq: network_alphago_zero},
 - $ z\in\\{-1, 0, +1\\} $ is the game result from the perspective of the current player,
 - $ \pi $ is the output probability distribution of the tree search,
 - $ \theta $ is the parameters in the network $ f $,
