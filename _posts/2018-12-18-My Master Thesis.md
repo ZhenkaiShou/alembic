@@ -44,7 +44,7 @@ Hereby we raise the following question: is it possible to design a neural networ
 Let's first revist some key parts of AlphaGo Zero.
 
 ###### Neural Network Architecture
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Neural_Network_1.png" caption="Neural Network Architecture of AlphaGo Zero." width="100%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Neural_Network_1.png" caption="Neural Network Architecture of AlphaGo Zero." width="90%" %}
 
 The neural network in AlphaGo Zero can be formed as:
 
@@ -55,7 +55,7 @@ where $ s $ is the input state, $ V $ is output value, and $ P $ is the output p
 ###### Principal Variation in MCTS
 AlphaGo Zero relies on MCTS to find the best action of the current state. In AlphaGo Zero, tree searches prefer action with a low visit count $ N $ and a high prior porbability $ P $, which is a tradeoff between exploration and exploitation. The action with the highest visit count will be selected after the tree search reaches a pre-defined depth $ k $. 
 
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Principal_Variation_in_MCTS.png" caption="Principal Variation in MCTS." width="100%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Principal_Variation_in_MCTS.png" caption="Principal Variation in MCTS." width="75%" %}
 
 Here we define the principal variation to be the trajectory with the most visit count in the search tree. The figure above shows an example of principal variation in MCTS. In that figure, 
 - each node is a game state,
