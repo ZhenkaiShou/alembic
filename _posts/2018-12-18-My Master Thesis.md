@@ -75,20 +75,26 @@ Here we define the principal variation $ s_{\text{seq}} $ to be the trajectory w
 ###### Training
 AlphaGo Zero is trained by minimizing the following loss:
 
-$$ L = (v - z)^{2} - \pi\log{p} + c||\theta||^{2} $$
+$$ L_{1} = (v - z)^{2} - \pi\log{p} + c||\theta_{1}||^{2} \label{eq: loss1} $$
 
 where
-- $ p, v $ are the output policy and value of the network $ f $ in Equation \ref{eq: network_alphago_zero},
+- $ p, v $ are the output policy and value of the network $ f $ (see \textbf{Equation \ref{eq: network_alphago_zero}}),
 - $ z\in\\{-1, 0, +1\\} $ is the game result from the perspective of the current player,
 - $ \pi $ is the probability distribution of the tree search,
-- $ \theta $ is all parameters in the network $ f $,
+- $ \theta_{1} $ is all parameters in the network $ f $,
 - $ c $ is a L2 normalization constant.
 
 ## Neural Networks that Learn from Planning
 Now we want to leverage not only the probability distribution $ \pi $, but also some other valuable information from MCTS to benefit the agent. The question is: what kind of information is considered as valuable? A good choice would be the [principal variation in MCTS](#principal-variation-in-mcts) since it predicts the most promising future state.
 
-We modify the original [AlphaGo Zero network](#nerual_network_architecture) so that the agent can learn from both the current state $ s $ and future predictions, see the figure below.
+We modify the original [AlphaGo Zero network](#nerual-network-architecture) so that the agent can learn from both the current state $ s $ and future predictions, see the figure below.
 
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network.png" caption="Modified neural network that takes both the current state and future predictions as input." width="100%" %}
 
-Principal variation $ s_{\text{seq}} $ can be collected from MCTS for each move in selfplay games. During training, principal variation $ s_{\text{seq}} $ is first encoded into a list of features $ x_{\text{seq}} $ before being fed into the neural network. Afterwards, we extract some contexture feature $ \phi $ from $ x_{\text{seq}} $ via a Long-Short Term Memory network (LSTM). Now we have both the state feature $ x $ and contextual feature $ \phi $. We simply concatenate them together and use them to calibrate the original policy and value estimation, which results in calibrated policy and value estimation $ p', v' $.
+Principal variation $ s_{\text{seq}} $ can be collected from MCTS for each move in selfplay games. During training, principal variation $ s_{\text{seq}} $ is first encoded into a list of features $ x_{\text{seq}} $ before being fed into the neural network. Afterwards, we extract some contexture feature $ \phi $ from $ x_{\text{seq}} $ via a Long-Short Term Memory network (LSTM). Now we have both the state feature $ x $ and contextual feature $ \phi $. We simply concatenate them together and use them to calibrate the original policy and value estimation, which results in the calibrated policy and value estimation $ p', v' $.
+
+To optimize those additional parameters $ \theta_{2} $ in the newly expanded network (shown as green edges), we define a new loss similar to the original loss $ L_{1} $ (see \textbf{Equation \ref{eq: loss1}}):
+
+$$ L_{2} = (z-v')^{2} - \pi\log{p'} + c||\theta_{2}||^{2} $$
+
+Will this modification work? Well, it might work during training, 
