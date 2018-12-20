@@ -61,6 +61,6 @@ Here we define the principal variation to be the trajectory with the most visit 
 - each node is a game state,
 - a parent node is connected to a child node via an edge,
 - each edge is a legal action of the parent state, 
-- the search depth $ k = 10 $,
 - the number around each edge means the visit count of taking that action,
+- the search depth $ k = 10 $,
 - the principal variation is highlighed in red.
