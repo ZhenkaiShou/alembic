@@ -48,8 +48,19 @@ Let's first revist some key parts of AlphaGo Zero.
 
 The neural network in AlphaGo Zero can be formed as:
 
-$$ V, P = f(s) $$
+$$ V, P = f(s) \label{eq: network_alphago_zero} $$
 
 where $ s $ is the input state, $ V $ is output value, and $ P $ is the output policy. The figure above provides a more detailed description. The state $ s $ is first encoded into some feature $ x $, and then the network is split into two heads: a value head to estimate the value $ V $ and a policy head to estimate the policy $ P $.
 
 ###### Principal Variation in MCTS
+AlphaGo Zero relies on MCTS to find the best action of the current state. In AlphaGo Zero, tree searches prefer action with a low visit count $ N $ and a high prior porbability $ P $, which is a tradeoff between exploration and exploitation. The action with the highest visit count will be selected after the tree search reaches a pre-defined depth $ k $. 
+
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Principal_Variation_in_MCTS.png" caption="Principal Variation in MCTS." width="100%" %}
+
+Here we define the principal variation to be the trajectory with the most visit count in the search tree. The figure above shows an example of principal variation in MCTS. In that figure, 
+- each node is a game state,
+- a parent node is connected to a child node via an edge,
+- each edge is a legal action of the parent state, 
+- the search depth $ k = 10 $,
+- the number around each edge means the visit count of taking that action,
+- the principal variation is highlighed in red.
