@@ -91,7 +91,7 @@ We modify the original [AlphaGo Zero network](#nerual-network-architecture) so t
 
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network.png" caption="Modified neural network that takes both the current state and future predictions as input." width="100%" %}
 
-Principal variation $ s_{\text{seq}} $ can be collected from MCTS for each move in selfplay games. During training, principal variation $ s_{\text{seq}} $ is first encoded into a list of features $ x_{\text{seq}} $ before being fed into the neural network. Afterwards, we extract some contextual feature $ \phi $ from $ x_{\text{seq}} $ via a Long-Short Term Memory network (LSTM). Now we have both the state feature $ x $ and contextual feature $ \phi $. We simply concatenate them together and use them to calibrate the original policy and value estimation, which results in an improved policy and value estimation $ p', v' $.
+Principal variation $ s_{\text{seq}} $ can be collected from MCTS for each move in selfplay games. During training, principal variation $ s_{\text{seq}} $ is first encoded into a list of features $ x_{\text{seq}} $ before being fed into the neural network. Afterwards, we extract some contextual feature $ \phi $ from $ x_{\text{seq}} $ via a Long-Short Term Memory network (LSTM). Now we have both feature $ x $ and contextual feature $ \phi $. We simply concatenate them together and use them to calibrate the original policy and value estimation, which results in an improved policy and value estimation $ p', v' $.
 
 To optimize those additional parameters $ \theta_{2} $ in the newly expanded network (shown as the green edges), we define a new loss similar to $ L_{1} $:
 
@@ -99,7 +99,9 @@ $$ L_{2} = (z-v')^{2} - \pi\log{p'} + c||\theta_{2}||^{2} $$
 
 Will this modification work? Well, it might work at first galance. However, it is not hard to see that the contextual feature $ \phi $ can **only be obtained after MCTS**. In other words, this modified network cannot be directly used to evaluate tree nodes during MCTS.
 
-To overcome this issue, we further modify the network so that the agent can imitate such contextual feature without executing tree searches, see the figure below.
+To compensate for this shortcoming, we further modify the network so that the agent can generate its own contextual feature $ \hat\phi $ without the help of MCTS, see the figure below.
 
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network_2.png" caption="Further modified neural network that is able to generate contextural features without executing tree searches." width="100%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network_2.png" caption="Further modified neural network that is able to generate contextural features without the help of MCTS." width="100%" %}
+
+We let the agent generate its own contextual feature $ \hat\phi $ directly from feature $ x $, under the condition that $ \hat\phi $ should be close to $ \phi $. In other words, $ \hat\phi $ functions as an imitation of $ \phi $. With both feature $ x $ and self-generated contextural feature $ \hat\phi $ at hand, we can calibrate the policy and value estimation in the same way.
 
