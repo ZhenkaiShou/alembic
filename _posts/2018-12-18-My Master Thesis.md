@@ -18,6 +18,7 @@ In this blog I will make a summary about my master thesis: **Learning to Plan in
 - [Neural Networks that Learn from Planning](#neural-networks-that-learn-from-planning)
 - [Experiments](#experiments)
   - [General Statistics](#general-statistics)
+  - [Gameplay Performance](#gameplay-performance)
 
 ## Before We Start
 Before we start, I would like to give you some insight on my master thesis. In short, my thesis is basically an extension of [AlphaGo Zero](https://deepmind.com/research/publications/mastering-game-go-without-human-knowledge/) inspired by [Imagination-Augmented Agents](https://arxiv.org/abs/1707.06203).
@@ -115,7 +116,7 @@ $$ L_{3} = ||\hat\phi - \phi||^{2} + (\hat v' - z)^{2} - \pi\log{\hat p'} + c||\
 With this modification, now the agent can provide a better estimation $ \hat p', \hat v' $ to evaluate tree nodes during MCTS, without having access to the actual principal variation $ s_{\text{seq}} $.
 
 ## Experiments
-Due to the very limited resources available and time limit for Master thesis, experiments have to be stopped at early stage. All experiments are conducted in $ 8\times 8 $ Othello.
+Due to the very limited resources available and time limit for Master thesis, experiments have to be cut off half way. All experiments are conducted in $ 8\times 8 $ Othello.
 
 ###### General Statistics
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Training_Loss.png" caption="Average loss over the whole training process." width="75%" %}
@@ -126,3 +127,5 @@ We plot the average training loss in the figure above. Colors in this figure cor
 - the self-generated calibration $ \hat p', \hat v' $ (the blue curves) lies in the middle, closer to the basic estimation.
 
 This result implies that combining feature $ x $ and contextual feature $ \phi $ together can **significantly** lower the prediction error. However, combinig feature $ x $ and imitation $ \hat\phi $ together only leads to a small improvement. This is probably because it is rather difficult for the network to learn a non-static (continuously changing; not one-to-one mapping) contextural feature $ \phi $.
+
+###### Gameplay Performance
