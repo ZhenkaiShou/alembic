@@ -67,13 +67,13 @@ AlphaGo Zero relies on MCTS to find the best action of the current state. In Alp
 
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Principal_Variation_in_MCTS.png" caption="Principal Variation in MCTS." width="75%" %}
 
-Here we define the principal variation $ s_{\text{seq}} $ to be the trajectory with the most visit count in the search tree. The figure above shows an example of principal variation in MCTS. In that figure, 
+Here we define the principal variation $ s_{\text{seq}} $ to be the trajectory with the most visit count in the search tree. The figure above shows an example of principal variation in MCTS. In this figure, 
 - each node is a game state,
 - a parent node is connected to a child node via an edge,
 - each edge is a legal action of the parent state, 
 - the number around each edge means the visit count of taking that action,
 - the search depth $ k = 10 $,
-- the principal variation is $ s_{\text{seq}} = \[s, s_{1}, s_{2}, s_{3}, s_{4}\] $.
+- the principal variation $ s_{\text{seq}} = \[s, s_{1}, s_{2}, s_{3}, s_{4}\] $.
 
 ###### Training
 AlphaGo Zero is trained by minimizing the following loss:
