@@ -103,6 +103,7 @@ Will this modification work? Well, it might work at first galance. However, it i
 
 To compensate for this shortcoming, we further modify the network so that the agent can generate its own contextual feature $ \hat\phi $ without the help of MCTS, see the figure below.
 
+<a name = "modified-network-2"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network_2.png" caption="Further modified neural network that is able to generate contextural features without the help of MCTS." width="100%" %}
 
 We let the agent generate its own contextual feature $ \hat\phi $ directly from feature $ x $, under the condition that $ \hat\phi $ should be close to $ \phi $. In other words, $ \hat\phi $ functions as an imitation of $ \phi $. With both feature $ x $ and self-generated contextural feature $ \hat\phi $ at hand, we can calibrate the policy and value estimation in the same way as before, which yields an improved policy and value estimation $ \hat p', \hat v' $.
@@ -114,7 +115,12 @@ $$ L_{3} = ||\hat\phi - \phi||^{2} + (\hat v' - z)^{2} - \pi\log{\hat p'} + c||\
 With this modification, now the agent can provide a better estimation $ \hat p', \hat v' $ to evaluate tree nodes during MCTS, without having access to the actual principal variation $ s_{\text{seq}} $.
 
 ## Experiments
-Due to the very limited resources available and time limit for Master thesis, I was able to conduct only a few experiments, each of which has to be stopped at early stage. All experiments are conducted in $ 8\times 8 $ Othello.
+Due to the very limited resources available and time limit for Master thesis, experiments have to be stopped at early stage. All experiments are conducted in $ 8\times 8 $ Othello.
 
 ###### General Statistics
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Training_Loss.png" caption="Average loss over the whole training process." width="75%" %}
+
+We plot the average training loss in the figure above. Colors in this figure corresponds to the ones in [the network architecture figure](#modified-network-2). As we can see, 
+- the basic estimation $ p, v $ (the red curves) has the highest error,
+- the calibrated estimation $ p', v' $ (the green curves) has much lower error,
+- the calibrated estimation $ \hat p', \hat v' $ (the blue curves) lies in the middle, closer to the red curves.
