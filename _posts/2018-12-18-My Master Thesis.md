@@ -16,6 +16,7 @@ In this blog I will make a summary about my master thesis: **Learning to Plan in
   - [Principal Variation in MCTS](#principal-variation-in-mcts)
   - [Training](#training)
 - [Neural Networks that Learn from Planning](#neural-networks-that-learn-from-planning)
+- [Performance](#performance)
 
 ## Before We Start
 Before we start, I would like to give you some insight on my master thesis. In short, my thesis is basically an extension of [AlphaGo Zero](https://deepmind.com/research/publications/mastering-game-go-without-human-knowledge/) inspired by [Imagination-Augmented Agents](https://arxiv.org/abs/1707.06203).
@@ -103,8 +104,12 @@ To compensate for this shortcoming, we further modify the network so that the ag
 
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network_2.png" caption="Further modified neural network that is able to generate contextural features without the help of MCTS." width="100%" %}
 
-We let the agent generate its own contextual feature $ \hat\phi $ directly from feature $ x $, under the condition that $ \hat\phi $ should be close to $ \phi $. In other words, $ \hat\phi $ functions as an imitation of $ \phi $. With both feature $ x $ and self-generated contextural feature $ \hat\phi $ at hand, we can calibrate the policy and value estimation in the same way.
+We let the agent generate its own contextual feature $ \hat\phi $ directly from feature $ x $, under the condition that $ \hat\phi $ should be close to $ \phi $. In other words, $ \hat\phi $ functions as an imitation of $ \phi $. With both feature $ x $ and self-generated contextural feature $ \hat\phi $ at hand, we can calibrate the policy and value estimation in the same way as before, which yields an improved policy and value estimation $ \hat p', \hat v' $.
 
 To optimize those additional parameters $ \theta_{3} $ in the latest expanded network (shown as blue edges in the above figure), we define a new loss $ L_{3} $:
 
 $$ L_{3} = ||\hat\phi - \phi||^{2} + (\hat v' - z)^{2} - \pi\log{\hat p'} + c||\theta_{3}||^{2} $$
+
+With this modification, now the agent can provide a better estimation $ \hat p', \hat v' $ to evaluate tree nodes during MCTS, without even having access to the actual principal variation $ s_{\text{seq}} $.
+
+## Performance
