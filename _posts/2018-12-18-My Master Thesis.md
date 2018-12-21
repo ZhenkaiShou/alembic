@@ -111,9 +111,10 @@ To optimize those additional parameters $ \theta_{3} $ in the latest expanded ne
 
 $$ L_{3} = ||\hat\phi - \phi||^{2} + (\hat v' - z)^{2} - \pi\log{\hat p'} + c||\theta_{3}||^{2} $$
 
-With this modification, now the agent can provide a better estimation $ \hat p', \hat v' $ to evaluate tree nodes during MCTS, without even having access to the actual principal variation $ s_{\text{seq}} $.
+With this modification, now the agent can provide a better estimation $ \hat p', \hat v' $ to evaluate tree nodes during MCTS, without having access to the actual principal variation $ s_{\text{seq}} $.
 
 ## Experiments
 Due to the very limited resources available and time limit for Master thesis, I was able to conduct only a few experiments, each of which has to be stopped at early stage. All experiments are conducted in $ 8\times 8 $ Othello.
 
 ###### General Statistics
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Training_Loss.png" caption="Average loss over the whole training process." width="75%" %}
