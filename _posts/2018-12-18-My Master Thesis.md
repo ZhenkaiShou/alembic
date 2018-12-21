@@ -120,7 +120,7 @@ Due to the very limited resources available and time limit for Master thesis, ex
 ###### General Statistics
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Training_Loss.png" caption="Average loss over the whole training process." width="75%" %}
 
-We plot the average training loss in the figure above. Colors in this figure corresponds to the ones in [the network architecture figure](#modified-network-2). As we can see, 
+We plot the average training loss in the figure above. Colors in this figure corresponds to colors in [the network architecture figure](#modified-network-2). As we can see, 
 - the basic estimation $ p, v $ (the red curves) has the highest error,
-- the calibrated estimation $ p', v' $ (the green curves) has much lower error,
-- the calibrated estimation $ \hat p', \hat v' $ (the blue curves) lies in the middle, closer to the red curves.
+- the MCTS-based calibration $ p', v' $ (the green curves) has much lower error,
+- the self-generated calibration $ \hat p', \hat v' $ (the blue curves) lies in the middle, closer to the basic estimation.
