@@ -99,5 +99,7 @@ $$ L_{2} = (z-v')^{2} - \pi\log{p'} + c||\theta_{2}||^{2} $$
 
 Will this modification work? Well, it might work at first galance. However, it is not hard to see that the contextual feature $ \phi $ can **only be obtained after MCTS**. As a result, this modified network cannot be directly used to evaluate tree nodes during MCTS.
 
-To overcome this issue, we further modify the network so that the agent can generate such contextual feature without performing tree searches, see the figure below.
+To overcome this issue, we further modify the network so that the agent can imitate such contextual feature without executing tree searches, see the figure below.
+
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network_2.png" caption="Further modified neural network that is able to generate contextural features without executing tree searches." width="100%" %}
 
