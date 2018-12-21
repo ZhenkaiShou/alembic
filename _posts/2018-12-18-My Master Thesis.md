@@ -114,6 +114,6 @@ $$ L_{3} = ||\hat\phi - \phi||^{2} + (\hat v' - z)^{2} - \pi\log{\hat p'} + c||\
 With this modification, now the agent can provide a better estimation $ \hat p', \hat v' $ to evaluate tree nodes during MCTS, without even having access to the actual principal variation $ s_{\text{seq}} $.
 
 ## Experiments
-Due to the very limited resources available and time limit for Master thesis, I was able to conduct only a few experiments, each of which has to be stopped at early stage.
+Due to the very limited resources available and time limit for Master thesis, I was able to conduct only a few experiments, each of which has to be stopped at early stage. All experiments are conducted in $ 8\times 8 $ Othello.
 
 ###### General Statistics
