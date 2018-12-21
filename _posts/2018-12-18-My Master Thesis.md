@@ -107,4 +107,4 @@ We let the agent generate its own contextual feature $ \hat\phi $ directly from 
 
 To optimize those additional parameters $ \theta_{3} $ in the latest expanded network (shown as blue edges in the above figure), we define a new loss $ L_{3} $:
 
-$$ L_{3} = ||\hat\phi - \hat ||^{2} + (\hat v' - z)^{2} - \pi\log{\hat p'} + c||\theta_{3}||^{2} $$
+$$ L_{3} = ||\hat\phi - \phi||^{2} + (\hat v' - z)^{2} - \pi\log{\hat p'} + c||\theta_{3}||^{2} $$
