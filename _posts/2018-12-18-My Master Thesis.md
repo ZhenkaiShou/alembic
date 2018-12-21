@@ -126,6 +126,6 @@ We plot the average training loss in the figure above. Colors in this figure cor
 - the MCTS-based calibration $ p', v' $ (the green curves) has much lower error,
 - the self-generated calibration $ \hat p', \hat v' $ (the blue curves) lies in the middle, closer to the basic estimation.
 
-This result implies that combining feature $ x $ and contextual feature $ \phi $ together can **significantly** lower the prediction error. However, combinig feature $ x $ and imitation $ \hat\phi $ together only leads to a small improvement. This is probably because it is rather difficult for the network to learn a non-static (continuously changing; not one-to-one mapping) contextural feature $ \phi $.
+This result implies that combining feature $ x $ and contextual feature $ \phi $ together can **significantly** lower the prediction error. However, combinig feature $ x $ and imitation $ \hat\phi $ together only leads to a small improvement. This is probably because it is rather difficult for the network to imitate the non-static (continuously changing; not one-to-one mapping) contextural feature $ \phi $.
 
 ###### Gameplay Performance
