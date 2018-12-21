@@ -85,7 +85,7 @@ where
 - $ z\in\\{-1, 0, +1\\} $ is the game result from the perspective of the current player,
 - $ \pi $ is the probability distribution of the tree search,
 - $ \theta_{1} $ is all parameters in the network $ f $,
-- $ c $ is a L2 normalization constant.
+- $ c $ is a L2 regularization constant.
 
 ## Neural Networks that Learn from Planning
 Now we want to leverage not only the probability distribution $ \pi $, but also some other valuable information from MCTS to benefit the agent. The question is: what kind of information is considered as valuable? A good choice would be the [principal variation in MCTS](#principal-variation-in-mcts) since it predicts the most promising future state.
