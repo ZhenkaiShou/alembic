@@ -129,5 +129,16 @@ We plot the average training loss in the figure above. Colors in this figure cor
 This result implies that combining feature $ x $ and contextual feature $ \phi $ together can **significantly** lower the prediction error. However, combinig feature $ x $ and imitation $ \hat\phi $ together only leads to a small improvement. This is probably because it is rather difficult for the network to imitate the non-static (continuously changing; not one-to-one mapping) contextural feature $ \phi $.
 
 ###### Gameplay Performance
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Winning_Rate.png" caption="Average winning rate of our model against AlphaGo Zero model." width="50%" %}
+We further measure the gameplay performance of the modified network in a couple of tournament games. We trained two different players for this purpose:
+- challenger $ \alpha_{\theta_{n}} $ 
+  - based on the modified network
+  - evaluate the tree nodes in MCTS with $ \hat p', \hat v' $
+  - search depth may vary 
+- baseline player $ \beta_{\theta_{n}} $
+  - based on the AlphaGo Zero network
+  - evaluate the tree nodes in MCTS with $ p, v $
+  - search depth is fixed to 100
 
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Winning_Rate.png" caption="Average winning rate of the challenger against baseline player." width="50%" %}
+
+- 
