@@ -144,7 +144,7 @@ In those tournament games, challenger $ \alpha_{n} $ plays against baseline play
 
 The figure below records the average winning rate of the challenger $ \alpha_{30} $ against the baseline player $ \beta_{30} $ under different search depth. Note that both the `Average Winning Rate` and `Search Depth` are from the perspective of the challenger $ \alpha_{30} $.
 
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Winning_Rate.png" caption="Average winning rate of the challenger against baseline player." width="50%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Winning_Rate.png" caption="Average winning rate of the challenger against baseline player." width="40%" %}
 
 We can see that the challenger $ \alpha_{30} $ wins about 56% of tournament games when both sides share the same search depth of 100. Equal playing strength is reached when the challenger only uses a search depth of 80. This result implies that the modified network can indeed improve the play strength.
 
