@@ -139,7 +139,7 @@ We further measure the gameplay performance of the modified network in a couple 
   - evaluate the tree nodes with $ p, v $,
   - search depth is fixed to 100.
 
-In those tournament games, challenger $ \alpha_{n} $ plays against baseline player $ \beta_{n} $, with $ n $ being the number of training iterations. For a fair competition, we choose players with the same number of training iterations. The figure below records the average winning rate of the challenger $ \alpha_{30} $ against the baseline player $ \beta_{30} $ under different configurations. Note that both the *average winning rate* and *search depth* are from the perspective of the challenger $ \alpha_{30} $.
+In those tournament games, challenger $ \alpha_{n} $ plays against baseline player $ \beta_{n} $, with $ n $ being the number of training iterations. For a fair competition, we choose players with the same number of training iterations. The figure below records the average winning rate of the challenger $ \alpha_{30} $ against the baseline player $ \beta_{30} $ under different configurations. Note that both the `Average Winning Rate` and `Search Depth` are from the perspective of the challenger $ \alpha_{30} $.
 
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Winning_Rate.png" caption="Average winning rate of the challenger against baseline player." width="50%" %}
 
