@@ -19,6 +19,7 @@ In this blog I will make a summary about my master thesis: **Learning to Plan in
 - [Experiments](#experiments)
   - [General Statistics](#general-statistics)
   - [Gameplay Performance](#gameplay-performance)
+- [Conclusion](#conclusion)
 
 ## Before We Start
 Before we start, I would like to give you some insight on my master thesis. In short, my thesis is basically an extension of [AlphaGo Zero](https://deepmind.com/research/publications/mastering-game-go-without-human-knowledge/) inspired by [Imagination-Augmented Agents](https://arxiv.org/abs/1707.06203).
@@ -145,4 +146,6 @@ The figure below records the average winning rate of the challenger $ \alpha_{30
 
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Winning_Rate.png" caption="Average winning rate of the challenger against baseline player." width="50%" %}
 
+We can see that the challenger $ \alpha_{30} $ wins about 56% of tournament games when both sides share the same search depth of 100. Equal playing strength is reached when the challenger only uses a search depth of 80. This result implies that the modified network can indeed improve the play strength.
 
+## Conclusion
