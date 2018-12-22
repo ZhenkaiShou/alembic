@@ -4,7 +4,7 @@ categories:
 - Misc
 ---
 
-In this blog I will make a summary about my master thesis: **Learning to Plan in Large Domains with Deep Neural Networks**, in case someone is interested.
+In this blog I will make a summary about my Master thesis: **Learning to Plan in Large Domains with Deep Neural Networks**, in case someone is interested.
 
 <!-- more -->
 
@@ -149,3 +149,6 @@ The figure below records the average winning rate of the challenger $ \alpha_{30
 We can see that the challenger $ \alpha_{30} $ wins about 56% of tournament games when both sides share the same search depth of 100. Equal playing strength is reached when the challenger only uses a search depth of 80. This result implies that the modified network can indeed improve the play strength.
 
 ## Conclusion
+I explored network architectures that can take advantage of future predictions from a local planner, which in return further helps planning. Experiment results show that the contextual feature $ \phi $ can significantly lower the prediction errors. However, the actual improvement is limited by the performance of $ \hat\phi $. Extracting better contextual feature $ \phi $, as well as learning better imitation $ \hat\phi $, should be an interesting topic for future work.
+
+Anyway, this is just my Master thesis. Please do not take it too seriously.
