@@ -100,13 +100,13 @@ navigation_footer:
   Zhenkai Shou: https://zhenkaishou.github.io/my-site/
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
-  #Twitter: Edit_Line_103_to_108_in_config.yml # https://twitter.com/DavidDarnes
+  #Twitter: 
   facebook: https://www.facebook.com/zhenkai.shou
-  #LinkedIn: https://www.linkedin.com/in/daviddarnes
-  #Google+: https://plus.google.com/+DavidDarnes
-  GitHub: https://github.com/ZhenkaiShou/my-site
-  #link: https://darn.es
-  RSS: /feed.xml
+  #LinkedIn: 
+  #Google+: 
+  GitHub: https://github.com/ZhenkaiShou
+  #link: 
+  #RSS: /feed.xml
 
 sharing_links: # Appear at the bottom of single blog posts, uncomment and comment out as desired. Colours set the button colour
   Twitter: "#0d94e7"
