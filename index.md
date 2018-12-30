@@ -9,3 +9,7 @@ feature_image:
 ## Timeline
 - 2018
   - Graduated from University of Stuttgart with Master degree.
+
+## Social Links
+
+<% include nav-social.html %> 
