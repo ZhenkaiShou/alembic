@@ -11,5 +11,4 @@ feature_image:
   - Graduated from University of Stuttgart with Master degree.
 
 ## Social Links
-
-<% include nav-social.html %> 
+{% include nav-social.html %}
