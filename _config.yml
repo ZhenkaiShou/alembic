@@ -82,7 +82,7 @@ url: "https://zhenkaishou.github.io" # Site url, also used in jekyll-seo-tag
 baseurl: "/my-site" # Same as repository name
 repo: "https://github.com/ZhenkaiShou/my-site"
 email: "tomshou423@hotmail.com"
-disqus: "zhenkaishou" # Blog post comments, uncomment the option and set the site ID from your Disqus account
+disqus: "zhenkai-shou" # Blog post comments, uncomment the option and set the site ID from your Disqus account
 avatarurl: "https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c" # Uses avatars for favicons to get multple sites, eg Gravatar, Twitter, GitHub
 # google_analytics: ''
 # service_worker: false # Will turn off the service worker if set to false
