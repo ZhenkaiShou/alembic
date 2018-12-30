@@ -9,14 +9,3 @@ feature_image:
 ## Timeline
 - 2018
   - Graduated from University of Stuttgart with Master degree.
-
-## Links
-
-<nav class="nav  nav--social">
-  {% for link in site.social_links %}
-    {% assign id = link[0] | downcase %}
-    <a href="{{ link[1] }}">
-      {% include icon.html id=id title=id %}
-    </a>
-  {% endfor %}
-</nav>
