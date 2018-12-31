@@ -4,7 +4,7 @@ categories:
 - Misc
 ---
 
-In this blog I will make a summary about my Master thesis: **Learning to Plan in Large Domains with Deep Neural Networks**, in case someone is interested.
+In this blog I will make a summary about my Master thesis: **Learning to Plan in Large Domains with Deep Neural Networks** ([pdf](https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/thesis.pdf)), in case someone is interested.
 
 <!-- more -->
 
