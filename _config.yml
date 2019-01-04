@@ -102,7 +102,7 @@ navigation_footer:
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
   #Twitter: 
   facebook: https://www.facebook.com/zhenkai.shou
-  #LinkedIn: 
+  LinkedIn: https://www.linkedin.com/in/zhenkai-shou-a3a09a178/
   #Google+: 
   GitHub: https://github.com/ZhenkaiShou
   #link: 
