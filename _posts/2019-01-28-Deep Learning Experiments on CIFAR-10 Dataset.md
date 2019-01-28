@@ -80,3 +80,5 @@ c_l2 = 0.0                         # L2 regularization, also known as weight dec
 batch_norm = True                  # Whether batch normalization is applied
 global_average_pool = True         # Whether global average pooling is applied
 ```
+
+**Fig. 1** shows the performance of the network with default settings.
