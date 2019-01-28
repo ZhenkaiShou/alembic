@@ -9,7 +9,7 @@ In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learni
 <!-- more -->
 
 <a name="fig-1"></a>
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/gameplay.gif" caption="**Fig. 1** An agent plays Breakout with pure curiosity." width="40%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/gameplay.gif" caption="<b>Fig. 1</b> An agent plays Breakout with pure curiosity." width="40%" %}
 
 ## Contents
 - [What is Curiosity?](#what-is-curiosity)
