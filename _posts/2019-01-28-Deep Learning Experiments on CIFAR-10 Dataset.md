@@ -92,3 +92,8 @@ To compare different network structures, I trained the following variants:
   - `network_type = "Conv8"`
 - `simple network`: the 4 residual blocks are removed from the graph
   - `network_type = "None"`
+
+From [**Fig. 2**](#fig-2) we can see that both `res4` and `conv8` have similar performance, outperforming `simple network` by a large margin. This result implies that convolutional network is on par with its residual counterpart when the network is relatively shallow. Residual network only shines when the network goes deeper.
+
+<a name="fig-2"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Network%20Type%20Comparison.png" caption="<b>Fig. 2:</b> Comparison of different network types." width="100%" %}
