@@ -11,6 +11,7 @@ In this blog I will share my experience of playing with [CIFAR-10](https://en.wi
 ## Contents
 - [Motivation](#motivation)
 - [Neural Network Architecture](#neural-network-architecture)
+- [Experiments](#experiments)
 
 ## Motivation
 I have been studying deep learning / reinforcement learning for quite some time now. I have always been eager to know how each component can influence the performance of a neural network. However, I never get the chance to have a systematic study of this topic. That is why this time I decide to spend some time (and money) to run these experiments and write this blog.
@@ -56,3 +57,4 @@ Below lists the output dimension of each layer:
 |       Dense Layer      |     (None, 10)     |
 |         Softmax        |     (None, 10)     |
 
+## Experiments
