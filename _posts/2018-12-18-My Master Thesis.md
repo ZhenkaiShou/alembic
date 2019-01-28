@@ -59,16 +59,18 @@ where
 - $ p $ is the output policy,
 - $ v $ is output value.
 
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Network_AlphaGo_Zero.png" caption="Neural Network Architecture of AlphaGo Zero." width="100%" %}
+<a name="fig-1"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Network_AlphaGo_Zero.png" caption="<b>Fig. 1:</b> Neural Network Architecture of AlphaGo Zero." width="100%" %}
 
-The figure above provides a more detailed description. The state $ s $ is first encoded into some feature $ x $, and then the network is split into two heads: a policy head to estimate the policy $ p $ and a value head to estimate the value $ v $.
+[**Fig. 1**](#fig-1) provides a more detailed description. The state $ s $ is first encoded into some feature $ x $, and then the network is split into two heads: a policy head to estimate the policy $ p $ and a value head to estimate the value $ v $.
 
 ###### Principal Variation in MCTS
 AlphaGo Zero relies on MCTS to find the best action of the current state. In AlphaGo Zero, tree searches prefer action with a low visit count $ N $ and a high prior porbability $ p $, which is a tradeoff between exploration and exploitation. The action with the highest visit count will be selected after the tree search reaches a pre-defined depth $ k $. 
 
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Principal_Variation_in_MCTS.png" caption="Principal Variation in MCTS." width="75%" %}
+<a name="fig-2"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Principal_Variation_in_MCTS.png" caption="<b>Fig. 2:</b> Principal Variation in MCTS." width="75%" %}
 
-Here we define the principal variation $ s_{\text{seq}} $ to be the trajectory with the most visit count in the search tree. The figure above shows an example of principal variation in MCTS. In this figure, 
+Here we define the principal variation $ s_{\text{seq}} $ to be the trajectory with the most visit count in the search tree. [**Fig. 2**](#fig-2) shows an example of principal variation in MCTS. In this figure, 
 - each node is a game state,
 - a parent node is connected to a child node via an edge,
 - each edge is a legal action of the parent state, 
@@ -91,9 +93,10 @@ where
 ## Neural Networks that Learn from Planning
 Now we want to leverage not only the probability distribution $ \pi $, but also some other valuable information from MCTS to benefit the agent. The question is: what kind of information is considered as valuable? A good choice would be the [principal variation in MCTS](#principal-variation-in-mcts) since it predicts the most promising future state.
 
-We modify the original [AlphaGo Zero network](#nerual-network-architecture) so that the agent can learn from both the current state $ s $ and future predictions, see the figure below.
+We modify the original [AlphaGo Zero network](#nerual-network-architecture) so that the agent can learn from both the current state $ s $ and future predictions, see [**Fig. 3**](#fig-3).
 
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network.png" caption="Modified neural network that takes both the current state and future predictions as input." width="100%" %}
+<a name="fig-3"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network.png" caption="<b>Fig. 3:</b> Modified neural network that takes both the current state and future predictions as input." width="100%" %}
 
 Principal variation $ s_{\text{seq}} $ can be collected from MCTS for each move in selfplay games. During training, principal variation $ s_{\text{seq}} $ is first encoded into a list of features $ x_{\text{seq}} $ before being fed into the neural network. Afterwards, we extract some contextual feature $ \phi $ from $ x_{\text{seq}} $ via a Long-Short Term Memory network (LSTM). Now we have both feature $ x $ and contextual feature $ \phi $. We simply concatenate them together and use them to calibrate the original policy and value estimation, which results in an improved policy and value estimation $ p', v' $.
 
@@ -103,10 +106,10 @@ $$ L_{2} = (v' - z)^{2} - \pi\log{p'} + c||\theta_{2}||^{2} $$
 
 Will this modification work? Well, it might work at first galance. However, it is not hard to see that the contextual feature $ \phi $ can **only be obtained after MCTS**. In other words, this modified network cannot be directly used to evaluate tree nodes during MCTS.
 
-To compensate for this shortcoming, we further modify the network so that the agent can generate its own contextual feature $ \hat\phi $ without the help of MCTS, see the figure below.
+To compensate for this shortcoming, we further modify the network so that the agent can generate its own contextual feature $ \hat\phi $ without the help of MCTS, see [**Fig. 4**](#fig-4).
 
-<a name = "modified-network-2"></a>
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network_2.png" caption="Further modified neural network that is able to generate contextural features without the help of MCTS." width="100%" %}
+<a name = "fig-4"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Modified_Network_2.png" caption="<b>Fig. 4:</b> Further modified neural network that is able to generate contextural features without the help of MCTS." width="100%" %}
 
 We let the agent generate its own contextual feature $ \hat\phi $ directly from feature $ x $, under the condition that $ \hat\phi $ should be close to $ \phi $. In other words, $ \hat\phi $ functions as an imitation of $ \phi $. With both feature $ x $ and self-generated contextural feature $ \hat\phi $ at hand, we can calibrate the policy and value estimation in the same way as before, which yields an improved policy and value estimation $ \hat p', \hat v' $.
 
@@ -120,14 +123,15 @@ With this modification, now the agent can provide a better estimation $ \hat p',
 Due to the very limited resources available and time limit for Master thesis, experiments have to be cut off half way. All experiments are conducted in $ 8\times 8 $ Othello.
 
 ###### General Statistics
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Training_Loss.png" caption="Average loss over the whole training process." width="75%" %}
+<a name="fig-5"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Training_Loss.png" caption="<b>Fig. 5:</b> Average loss over the whole training process." width="75%" %}
 
-We plot the average training loss in the figure above. Colors in this figure corresponds to colors in [the network architecture figure](#modified-network-2). As we can see, 
+[**Fig. 5**](#fig-5) shows the average training loss. Note that colors in [**Fig. 5**](#fig-5) corresponds to colors in [**Fig. 4**](#fig-4). As we can see, 
 - the basic estimation $ p, v $ (the red curves) has the highest error,
 - the MCTS-based calibration $ p', v' $ (the green curves) has much lower error,
 - the self-generated calibration $ \hat p', \hat v' $ (the blue curves) lies in the middle, closer to the basic estimation.
 
-This result implies that combining feature $ x $ and contextual feature $ \phi $ together can **significantly** lower the prediction error. However, combinig feature $ x $ and imitation $ \hat\phi $ together only leads to a small improvement. This is probably because it is rather difficult for the network to imitate the non-static (continuously changing; not one-to-one mapping) contextural feature $ \phi $.
+This result implies that combining feature $ x $ and contextual feature $ \phi $ together can **significantly lower** the prediction error. However, combinig feature $ x $ and imitation $ \hat\phi $ together only leads to a small improvement. This is probably because it is rather difficult for the network to imitate the non-static (continuously changing; not one-to-one mapping) contextural feature $ \phi $.
 
 ###### Gameplay Performance
 We further measure the gameplay performance of the modified network in a couple of tournament games. We trained two different players for this purpose:
@@ -142,9 +146,10 @@ We further measure the gameplay performance of the modified network in a couple 
 
 In those tournament games, challenger $ \alpha_{n} $ plays against baseline player $ \beta_{n} $, with $ n $ being the number of training iterations. For a fair competition, we choose players with the same number of training iterations. 
 
-The figure below records the average winning rate of the challenger $ \alpha_{30} $ against the baseline player $ \beta_{30} $ under different search depth. Note that both the `Average Winning Rate` and `Search Depth` are from the perspective of the challenger $ \alpha_{30} $.
+[**Fig. 6**](#fig-6) records the average winning rate of the challenger $ \alpha_{30} $ against the baseline player $ \beta_{30} $ under different search depth. Note that both the `Average Winning Rate` and `Search Depth` are from the perspective of the challenger $ \alpha_{30} $.
 
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Winning_Rate.png" caption="Average winning rate of the challenger against baseline player." width="40%" %}
+<a name="fig-6"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/My%20Master%20Thesis/Winning_Rate.png" caption="<b>Fig. 6:</b> Average winning rate of the challenger against baseline player." width="40%" %}
 
 We can see that the challenger $ \alpha_{30} $ wins about 56% of tournament games when both sides share the same search depth of 100. Equal playing strength is reached when the challenger only uses a search depth of 80. This result implies that the modified network can indeed improve the play strength.
 
