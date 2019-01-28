@@ -61,7 +61,7 @@ There is debate on how to learn features in order to achieve good performance. H
 - **Variational autoencoders (VAE)**: We use a decoder network $ \hat{o}\_{t} = d(\text{sampled}(\phi(o_{t}))) $ to reconstruct the original observation. Parameters in $ \phi(\cdot) $ will be trained along with $ d(\cdot) $ to minimize the VAE loss.
 
 <a name="fig-2"></a>
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/feature_learning.png" caption="**Fig. 2** Average reward across multiple environments with different feature learning methods. (Source: original paper)" width="100%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/feature_learning.png" caption="<b>Fig. 2</b> Average reward across multiple environments with different feature learning methods. (Source: original paper)" width="100%" %}
 
 Each feature learning method has its own pros and cons. [**Fig. 2**](#fig-2) compares different feature learning methods across multiple environments. It is difficult to tell which one is the best except for **Pixels** whose overall performance is bad.
 
@@ -94,7 +94,7 @@ Actually, this is indeed a coincidence that the game becomes more complicated as
 
 ## Large Scale = Better Performance
 <a name="fig-3"></a>
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="**Fig. 3** Average reward in Mario with different batch sizes of environment. (Source: original paper)" width="50%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="<b>Fig. 3</b> Average reward in Mario with different batch sizes of environment. (Source: original paper)" width="50%" %}
 
 One interesting finding is that the performance improves as the batch size of environments goes up. [**Fig. 3**](#fig-3) compares different batch sizes of environment in Mario. A large batch size results in better performance. 
 
