@@ -81,7 +81,7 @@ batch_norm = True                  # Whether batch normalization is applied
 global_average_pool = True         # Whether global average pooling is applied
 ```
 
-[**Fig. 1**](#fig-1) shows the performance of the network with default settings. For convenience, this version will be denoted as `res4`and later on it will be comapred with other variants.
+[**Fig. 1**](#fig-1) shows the performance of the network with default settings. For convenience, this version will be denoted as `res4` and later on it will be comapred to other variants.
 
 <a name="fig-1"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Res4.png" caption="<b>Fig. 1:</b> Performance of the network with default settings." width="100%" %}
