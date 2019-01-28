@@ -220,13 +220,14 @@ a {
     font-style: normal;
     font-weight: map-get($headingtype, regular);
     width: 100%;
-    border:2px solid #ff0000;
+    border:2px solid #000000;
     
     thead {
 
       th {
         @include sassline(zeta, $headingtype, 2, 0, all);
         padding-bottom: 1px;
+        border:2px solid #000000;
       }
     }
   }
