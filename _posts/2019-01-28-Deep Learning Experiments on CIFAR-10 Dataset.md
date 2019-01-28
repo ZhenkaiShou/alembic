@@ -45,7 +45,7 @@ Each residual block contains:
 
 Below lists the output dimension of each layer:
 
-|          Layer         |  Output Dimension  |
+|        **Layer**       |**Output Dimension**|
 |:----------------------:|:------------------:|
 |       Input Image      |  (None, 32, 32, 3) |
 |   Convolutional Block  | (None, 32, 32, 32) |
@@ -56,5 +56,7 @@ Below lists the output dimension of each layer:
 | Global Average Pooling |  (None, 1, 1, 256) |
 |       Dense Layer      |     (None, 10)     |
 |         Softmax        |     (None, 10)     |
+
+<br>
 
 ## Experiments
