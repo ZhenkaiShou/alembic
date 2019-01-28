@@ -225,7 +225,7 @@ a {
 
       th {
         @include sassline(zeta, $headingtype, 2, 0, all);
-        border:2px solid #000000;
+        border:1px solid #000000;
       }
     }
     
