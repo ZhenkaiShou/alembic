@@ -12,6 +12,7 @@ In this blog I will share my experience of playing with [CIFAR-10](https://en.wi
 - [Motivation](#motivation)
 - [Neural Network Architecture](#neural-network-architecture)
 - [Experiments](#experiments)
+  - [Network Type](#network-type)
 
 ## Motivation
 I have been studying deep learning / reinforcement learning for quite some time now. I have always been eager to know how each component can influence the performance of a neural network. However, I never get the chance to have a systematic study of this topic. That is why this time I decide to spend some time (and money) to run these experiments and write this blog.
@@ -60,3 +61,22 @@ Below lists the output dimension of each layer:
 <br>
 
 ## Experiments
+Unless otherwise mentioned, all the experiments are conducted under the following settings:
+```python
+epoch = 120                        # Number of epochs
+batch_size = 100                   # Minibatch size
+
+optimizer = "Adam"                 # Available optimizer, choose between ("Momentum" | "Adam")
+learning_rate = [1e-3, 1e-4, 1e-5] # Learning rate for each phase
+lr_schedule = [60, 90]             # Total number of epochs required until reaching next learning rate phase
+
+normalize_data = False             # Whether input images are normalized
+flip_data = False                  # Whether input images might be flipped
+crop_data = False                  # Whether input images are zero-padded and then randomly cropped
+
+network_type = "Res4"              # Network type, choose between ("Res4" | "Conv8" | "None")
+dropout_rate = 0.2                 # Dropout rate, value of 0 means no dropout
+c_l2 = 0.0                         # L2 regularization, also known as weight decay
+batch_norm = True                  # Whether batch normalization is applied
+global_average_pool = True         # Whether global average pooling is applied before dense layer
+```
