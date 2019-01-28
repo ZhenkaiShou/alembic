@@ -44,6 +44,7 @@ Each residual block contains:
 
 Below lists the output dimension of each layer:
 <center>
+
 |          Layer         |  Output Dimension  |
 |:----------------------:|:------------------:|
 |       Input Image      |  (None, 32, 32, 3) |
@@ -55,4 +56,5 @@ Below lists the output dimension of each layer:
 | Global Average Pooling |  (None, 1, 1, 256) |
 |       Dense Layer      |     (None, 10)     |
 |         Softmax        |     (None, 10)     |
+
 </center>
