@@ -61,22 +61,22 @@ Below lists the output dimension of each layer:
 <br>
 
 ## Experiments
-Unless otherwise mentioned, all the experiments are conducted under the following settings:
+Unless otherwise mentioned, the followings are the default settings for all experiments:
 ```python
 epoch = 120                        # Number of epochs
 batch_size = 100                   # Minibatch size
 
 optimizer = "Adam"                 # Available optimizer, choose between ("Momentum" | "Adam")
 learning_rate = [1e-3, 1e-4, 1e-5] # Learning rate for each phase
-lr_schedule = [60, 90]             # Total number of epochs required until reaching next learning rate phase
+lr_schedule = [60, 90]             # Epochs required to reach the next learning rate phase
 
 normalize_data = False             # Whether input images are normalized
 flip_data = False                  # Whether input images might be flipped
-crop_data = False                  # Whether input images are zero-padded and then randomly cropped
+crop_data = False                  # Whether input images are zero-padded and randomly cropped
 
 network_type = "Res4"              # Network type, choose between ("Res4" | "Conv8" | "None")
 dropout_rate = 0.2                 # Dropout rate, value of 0 means no dropout
 c_l2 = 0.0                         # L2 regularization, also known as weight decay
 batch_norm = True                  # Whether batch normalization is applied
-global_average_pool = True         # Whether global average pooling is applied before dense layer
+global_average_pool = True         # Whether global average pooling is applied
 ```
