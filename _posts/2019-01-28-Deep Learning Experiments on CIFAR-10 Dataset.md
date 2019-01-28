@@ -43,7 +43,6 @@ Each residual block contains:
 - ReLU operation.
 
 Below lists the output dimension of each layer:
-<center>
 
 |          Layer         |  Output Dimension  |
 |:----------------------:|:------------------:|
@@ -57,4 +56,3 @@ Below lists the output dimension of each layer:
 |       Dense Layer      |     (None, 10)     |
 |         Softmax        |     (None, 10)     |
 
-</center>
