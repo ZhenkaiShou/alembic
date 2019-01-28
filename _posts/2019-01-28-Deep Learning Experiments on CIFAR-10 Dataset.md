@@ -41,3 +41,16 @@ Each residual block contains:
 - batch normalization,
 - skip connection,
 - ReLU operation.
+
+Below lists the output dimension of each layer:
+|       Components       |  Output Dimensions |
+|:----------------------:|:------------------:|
+|       Input Image      |  (None, 32, 32, 3) |
+|   Convolutional Block  | (None, 32, 32, 32) |
+|    Residual Block 1    | (None, 32, 32, 32) |
+|    Residual Block 2    | (None, 16, 16, 64) |
+|    Residual Block 3    |  (None, 8, 8, 128) |
+|    Residual Block 4    |  (None, 4, 4, 256) |
+| Global Average Pooling |  (None, 1, 1, 256) |
+|       Dense Layer      |     (None, 10)     |
+|         Softmax        |     (None, 10)     |
