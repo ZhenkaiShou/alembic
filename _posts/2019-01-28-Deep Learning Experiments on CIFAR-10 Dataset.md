@@ -86,3 +86,9 @@ global_average_pool = True         # Whether global average pooling is applied
 <a name="fig-1"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Res4.png" caption="<b>Fig. 1:</b> Performance of the network with default settings." width="100%" %}
 
+###### Network Type
+To compare different network structures, I trained the following variants:
+- `conv8`: the 4 residual blocks are replaced by 8 convolutional blocks
+  - `network_type = "Conv8"`
+- `simple network`: the 4 residual blocks are removed from the graph
+  - `network_type = "None"`
