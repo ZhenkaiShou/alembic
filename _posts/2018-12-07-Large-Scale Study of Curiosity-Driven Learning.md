@@ -9,7 +9,7 @@ In this blog I will talk about the [Large-Scale Study of Curiosity-Driven Learni
 <!-- more -->
 
 <a name="fig-1"></a>
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/gameplay.gif" caption="<b>Fig. 1</b> An agent plays Breakout with pure curiosity." width="40%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/gameplay.gif" caption="<b>Fig. 1:</b> An agent plays Breakout with pure curiosity." width="40%" %}
 
 ## Contents
 - [What is Curiosity?](#what-is-curiosity)
@@ -61,7 +61,7 @@ There is debate on how to learn features in order to achieve good performance. H
 - **Variational autoencoders (VAE)**: We use a decoder network $ \hat{o}\_{t} = d(\text{sampled}(\phi(o_{t}))) $ to reconstruct the original observation. Parameters in $ \phi(\cdot) $ will be trained along with $ d(\cdot) $ to minimize the VAE loss.
 
 <a name="fig-2"></a>
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/feature_learning.png" caption="<b>Fig. 2</b> Average reward across multiple environments with different feature learning methods. (Source: original paper)" width="100%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/feature_learning.png" caption="<b>Fig. 2:</b> Average reward across multiple environments with different feature learning methods. (Source: original paper)" width="100%" %}
 
 Each feature learning method has its own pros and cons. [**Fig. 2**](#fig-2) compares different feature learning methods across multiple environments. It is difficult to tell which one is the best except for **Pixels** whose overall performance is bad.
 
@@ -94,7 +94,7 @@ Actually, this is indeed a coincidence that the game becomes more complicated as
 
 ## Large Scale = Better Performance
 <a name="fig-3"></a>
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="<b>Fig. 3</b> Average reward in Mario with different batch sizes of environment. (Source: original paper)" width="50%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/batch_size.png" caption="<b>Fig. 3:</b> Average reward in Mario with different batch sizes of environment. (Source: original paper)" width="50%" %}
 
 One interesting finding is that the performance improves as the batch size of environments goes up. [**Fig. 3**](#fig-3) compares different batch sizes of environment in Mario. A large batch size results in better performance. 
 
@@ -104,7 +104,7 @@ For more details regarding how to run multiple environments in parallel, please 
 Sometimes we want an agent to learn skills for some particular task of interest. In that case, we can adjust the coefficient values in **Equation \ref{eq: r}**, let's say, we set $ c_{r_{\text{ext}}} = 1 $ and $ c_{r_{\text{int}}} = 0.01 $. With this setting, the agent can focus on its primiary objective while exploring the environment. This setting may come in handy especially when the extrinsic reward is **sparse**. For example, in navigation tasks, an agent needs to reach the target position in order to get a positive extrinsic reward (+1 reward for reaching the goal, 0 reward otherwise).
 
 <a name="fig-4"></a>
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/curiosity_with_extrinsic_reward.png" caption="**Fig. 4** Average reward in Unity maze with combined extrinsic and intrinsic reward. (Source: original paper)" width="50%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning/curiosity_with_extrinsic_reward.png" caption="**Fig. 4:** Average reward in Unity maze with combined extrinsic and intrinsic reward. (Source: original paper)" width="50%" %}
 
 [**Fig. 4**](#fig-4) shows the average extrinsic reward obtained by the agent in a Unity maze. Training with extrinsic reward completely fails in this environment (the curve with "extrinsic only" label, which sits constantly at zero), while training with combined extrinsic and intrinsic reward enables the agent to reach the target position.
 
