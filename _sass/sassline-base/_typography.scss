@@ -220,7 +220,8 @@ a {
     font-style: normal;
     font-weight: map-get($headingtype, regular);
     width: 100%;
-
+    border:2px solid #ff0000;
+    
     thead {
 
       th {
