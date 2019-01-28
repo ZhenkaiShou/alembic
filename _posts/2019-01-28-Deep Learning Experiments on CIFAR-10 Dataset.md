@@ -61,7 +61,7 @@ Below lists the output dimension of each layer:
 <br>
 
 ## Experiments
-Unless otherwise mentioned, the followings are the default settings for all experiments:
+Unless otherwise mentioned, all experiments use the default settings below:
 ```python
 epoch = 120                        # Number of epochs
 batch_size = 100                   # Minibatch size
