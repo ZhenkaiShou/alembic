@@ -43,6 +43,7 @@ Each residual block contains:
 - ReLU operation.
 
 Below lists the output dimension of each layer:
+
 |       Components       |  Output Dimensions |
 |:----------------------:|:------------------:|
 |       Input Image      |  (None, 32, 32, 3) |
