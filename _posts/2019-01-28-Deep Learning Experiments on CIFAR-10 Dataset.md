@@ -13,6 +13,7 @@ In this blog I will share my experience of playing with [CIFAR-10](https://en.wi
 - [Neural Network Architecture](#neural-network-architecture)
 - [Experiments](#experiments)
   - [Network Type](#network-type)
+  - [Regularizations](#regularizations)
 
 ## Motivation
 I have been studying deep learning and reinforcement learning for quite some time now. I have always been eager to know how each component can influence the performance of a neural network. However, I never get the chance to have a systematic study of this topic. That is why this time I decide to spend some time (and money) to run these experiments and write this blog.
@@ -97,3 +98,12 @@ From [**Fig. 2**](#fig-2) we can see that both `res4` and `conv8` have similar p
 
 <a name="fig-2"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Network%20Type%20Comparison.png" caption="<b>Fig. 2:</b> Comparison of different network types." width="100%" %}
+
+###### Regularizations
+To compare general regularization methods (dropout and L2 regularization), I trained the following variants:
+- `res4, no dropout`: remove dropout at training phase
+  - `dropout_rate = 0.0`
+- `res4, L2`: add L2 regularization to the total loss (dropout still remains)
+  - `c_l2 = 1e-4`
+- `res4, L2, no dropout`: add L2 regularization to the total loss, and remove dropout at training phase
+  - `dropout_rate = 0.0, c_l2 = 1e-4`
