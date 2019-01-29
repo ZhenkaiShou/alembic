@@ -131,5 +131,10 @@ To see the impact of batch normalization, I trained the following variant:
 - `res4, no batch norm`: remove batch normalization
   - `batch_norm = False`
 
+From [**Fig. 4**](#fig-4) we can see that
+- Batch normalization reduces both training and test loss (and error) by a large margin.
+This result implies that
+- Batch normalization can improve the overall performance of a network since it makes learning of each layer more independently.
+
 <a name="fig-4"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Batch%20Norm%20Comparison.png" caption="<b>Fig. 4:</b> Impact of batch normalization." width="100%" %}
