@@ -17,6 +17,7 @@ In this blog I will share my experience of playing with [CIFAR-10](https://en.wi
   - [Batch Normalization](#batch-normalization)
   - [Global Average Pooling](#global-average-pooling)
   - [Data Normalization](#data-normalization)
+  - [Data Augmentation](#data-augmentation)
 
 ## Motivation
 I have been studying deep learning and reinforcement learning for quite some time now. I have always been eager to know how each component can influence the performance of a neural network. However, I never get the chance to have a systematic study of this topic. That is why this time I decide to spend some time (and money) to run these experiments and write this blog.
@@ -75,7 +76,7 @@ learning_rate = [1e-3, 1e-4, 1e-5] # Learning rate for each phase
 lr_schedule = [60, 90]             # Epochs required to reach the next learning rate phase
 
 normalize_data = False             # Whether input images are normalized
-flip_data = False                  # Whether input images might be flipped
+flip_data = False                  # Whether input images are flipped with 50% chance
 crop_data = False                  # Whether input images are zero-padded and randomly cropped
 
 network_type = "Res4"              # Network type, choose between ("Res4" | "Conv8" | "None")
@@ -168,4 +169,16 @@ This result implies that
 - Data normalization does not seem to be helpful, which is probably because the output of each layer has already been normalized by batch normalization.
 
 <a name="fig-6"></a>
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Normalize%20Data%20Comparison.png" caption="<b>Fig. :</b> Impact of data normalization." width="100%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Normalize%20Data%20Comparison.png" caption="<b>Fig. 6:</b> Impact of data normalization." width="100%" %}
+
+###### Data Augmentation
+To see the impact of data augmentation, I trained the following variants:
+- `res4, flip data`: image data are horizontally flipped with 50% chance
+  - `flip_data = True`
+- `res4, crop data`: image data are first padded with zeros on each side and then randomly cropped
+  - `crop_data = True`
+- `res4, augment data`: combination of the above two variants
+  - `flip_data = True, crop_data = True`
+
+<a name="fig-7"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Augment%20Data%20Comparison.png" caption="<b>Fig. 7:</b> Impact of data augmentation." width="100%" %}
