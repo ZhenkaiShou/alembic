@@ -16,6 +16,7 @@ In this blog I will share my experience of playing with [CIFAR-10](https://en.wi
   - [Regularizations](#regularizations)
   - [Batch Normalization](#batch-normalization)
   - [Global Average Pooling](#global-average-pooling)
+  - [Data Normalization](#data-normalization)
 
 ## Motivation
 I have been studying deep learning and reinforcement learning for quite some time now. I have always been eager to know how each component can influence the performance of a neural network. However, I never get the chance to have a systematic study of this topic. That is why this time I decide to spend some time (and money) to run these experiments and write this blog.
@@ -154,3 +155,17 @@ This result implies that
 
 <a name="fig-5"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Global%20Pool%20Comparison.png" caption="<b>Fig. 5:</b> Impact of global average pooling." width="100%" %}
+
+###### Data Normalization
+To see the impact of data normalization, I trained the following variant:
+- `res4, normalize data`: normalize the image data by substracting the per-pixel mean
+  - `normalize_data = True`
+
+From [**Fig. 6**](#fig-6) we can see that
+- Data normalization has almost no impact on the performance.
+
+This result implies that
+- Data normalization does not seem to be helpful, which is probably because the output of each layer has already been normalized by batch normalization.
+
+<a name="fig-6"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Normalize%20Data%20Comparison.png" caption="<b>Fig. :</b> Impact of data normalization." width="100%" %}
