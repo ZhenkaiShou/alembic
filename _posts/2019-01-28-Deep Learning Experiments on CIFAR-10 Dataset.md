@@ -117,7 +117,7 @@ To compare different regularization methods, I trained the following variants:
   - `dropout_rate = 0.0, c_l2 = 1e-4`
 
 From [**Fig. 3**](#fig-3) we can see that
-- Without dropout, networks tend to have lower training loss (and error) but much higher test loss (and error);
+- Dropout increases training training loss (and error) but reduces test loss (and error);
 - L2 regularization can reduce the test loss by a large margin, but has limited impact on the test error.
 
 This result implies that
@@ -142,3 +142,15 @@ This result implies that
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Batch%20Norm%20Comparison.png" caption="<b>Fig. 4:</b> Impact of batch normalization." width="100%" %}
 
 ###### Global Average Pooling
+To see the impact of gloal average pooling, I trained the following variant:
+- `res4, no global pool`: remove global average pooling
+  - `global_average_pool = False`
+
+From [**Fig. 5**](#fig-5) we can see that
+- Global average pooling reduces test loss (and error) by a large margin.
+
+This result implies that
+- Global average pooling can reduce overfitting by greatly reducing the number of parameters in the next dense layer.
+
+<a name="fig-5"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Global%20Pool%20Comparison.png" caption="<b>Fig. 5:</b> Impact of global average pooling." width="100%" %}
