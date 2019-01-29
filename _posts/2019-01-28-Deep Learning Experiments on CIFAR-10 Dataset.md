@@ -100,10 +100,13 @@ From [**Fig. 2**](#fig-2) we can see that both `res4` and `conv8` have similar p
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Network%20Type%20Comparison.png" caption="<b>Fig. 2:</b> Comparison of different network types." width="100%" %}
 
 ###### Regularizations
-To compare general regularization methods (dropout and L2 regularization), I trained the following variants:
-- `res4, no dropout`: remove dropout at training phase
+To compare the impact of different regularization methods, I trained the following variants:
+- `res4, no dropout`: remove dropout
   - `dropout_rate = 0.0`
-- `res4, L2`: add L2 regularization to the total loss (dropout still remains)
+- `res4, L2`: add L2 regularization to the total loss (dropout still applies)
   - `c_l2 = 1e-4`
-- `res4, L2, no dropout`: add L2 regularization to the total loss, and remove dropout at training phase
+- `res4, L2, no dropout`: add L2 regularization to the total loss, and remove dropout
   - `dropout_rate = 0.0, c_l2 = 1e-4`
+
+<a name="fig-3"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Regularization%20Comparison.png" caption="<b>Fig. 3:</b> Comparison of different regularization methods." width="100%" %}
