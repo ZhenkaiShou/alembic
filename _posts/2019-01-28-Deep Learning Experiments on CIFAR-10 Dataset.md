@@ -18,6 +18,7 @@ In this blog I will share my experience of playing with [CIFAR-10](https://en.wi
   - [Global Average Pooling](#global-average-pooling)
   - [Data Normalization](#data-normalization)
   - [Data Augmentation](#data-augmentation)
+  - [Optimizer](#optimizer)
 
 ## Motivation
 I have been studying deep learning and reinforcement learning for quite some time now. I have always been eager to know how each component can influence the performance of a neural network. However, I never get the chance to have a systematic study of this topic. That is why this time I decide to spend some time (and money) to run these experiments and write this blog.
@@ -177,7 +178,7 @@ To see the impact of data augmentation, I trained the following variants:
   - `flip_data = True`
 - `res4, crop data`: image data are first padded with zeros on each side and then randomly cropped
   - `crop_data = True`
-- `res4, augment data`: combination of the above two variants
+- `res4, augment data`: a combination of the above two variants
   - `flip_data = True, crop_data = True`
 
 From [**Fig. 7**](#fig-7) we can see that
@@ -185,7 +186,9 @@ From [**Fig. 7**](#fig-7) we can see that
 - A combination of both provides even better performance.
 
 This result implies that
-- Data augmentation can significantly reduce overfitting since we can generate much more data from a fixed dataset.
+- Data augmentation can significantly reduce overfitting since more data can be generated from a fixed dataset.
 
 <a name="fig-7"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Augment%20Data%20Comparison.png" caption="<b>Fig. 7:</b> Impact of data augmentation." width="100%" %}
+
+###### Optimizer
