@@ -180,5 +180,12 @@ To see the impact of data augmentation, I trained the following variants:
 - `res4, augment data`: combination of the above two variants
   - `flip_data = True, crop_data = True`
 
+From [**Fig. 7**](#fig-7) we can see that
+- Both flipping data and cropping data increase training loss (and error), but reduce test loss (and error) by a large margin;
+- A combination of both provides even better performance.
+
+This result implies that
+- Data augmentation can significantly reduce overfitting since we can generate much more data from a fixed dataset.
+
 <a name="fig-7"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Augment%20Data%20Comparison.png" caption="<b>Fig. 7:</b> Impact of data augmentation." width="100%" %}
