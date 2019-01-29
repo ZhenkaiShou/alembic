@@ -14,6 +14,7 @@ In this blog I will share my experience of playing with [CIFAR-10](https://en.wi
 - [Experiments](#experiments)
   - [Network Type](#network-type)
   - [Regularizations](#regularizations)
+  - [Batch Normalization](#batch-normalization)
 
 ## Motivation
 I have been studying deep learning and reinforcement learning for quite some time now. I have always been eager to know how each component can influence the performance of a neural network. However, I never get the chance to have a systematic study of this topic. That is why this time I decide to spend some time (and money) to run these experiments and write this blog.
@@ -82,7 +83,7 @@ batch_norm = True                  # Whether batch normalization is applied
 global_average_pool = True         # Whether global average pooling is applied
 ```
 
-[**Fig. 1**](#fig-1) shows the performance of the network with default settings. Bold lines represent the test loss (and error), while thin lines represent the training loss (and error). For convenience, the default network is denoted as `res4` and later on it will be comapred to other variants.
+[**Fig. 1**](#fig-1) shows the performance of the network with default settings. **Bold lines** represent the test loss (and error), while thin lines represent the training loss (and error). For convenience, the default network is denoted as `res4` and later on it will be comapred to other variants.
 
 <a name="fig-1"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Res4.png" caption="<b>Fig. 1:</b> Performance of the network with default settings." width="100%" %}
@@ -124,3 +125,5 @@ This result implies that
 
 <a name="fig-3"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Regularization%20Comparison.png" caption="<b>Fig. 3:</b> Comparison of different regularization methods." width="100%" %}
+
+###### Batch Normalization
