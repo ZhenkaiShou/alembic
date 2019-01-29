@@ -94,19 +94,33 @@ To compare different network structures, I trained the following variants:
 - `simple network`: the 4 residual blocks are removed from the graph
   - `network_type = "None"`
 
-From [**Fig. 2**](#fig-2) we can see that both `res4` and `conv8` have similar performance, outperforming `simple network` by a large margin. This result implies that convolutional network is on par with its residual counterpart when the network is relatively shallow. Residual network only shines when the network goes deeper.
+From [**Fig. 2**](#fig-2) we can see that
+- Both `res4` and `conv8` have similar performance; 
+- Both `res4` and `conv8` outperform `simple network` by a large margin. 
+
+This result implies that
+- Convolutional network is on par with its residual counterpart when the network is relatively shallow;
+- Residual network only shines when the network goes much deeper.
 
 <a name="fig-2"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Network%20Type%20Comparison.png" caption="<b>Fig. 2:</b> Comparison of different network types." width="100%" %}
 
 ###### Regularizations
-To compare the impact of different regularization methods, I trained the following variants:
+To compare different regularization methods, I trained the following variants:
 - `res4, no dropout`: remove dropout
   - `dropout_rate = 0.0`
 - `res4, L2`: add L2 regularization to the total loss (dropout still applies)
   - `c_l2 = 1e-4`
 - `res4, L2, no dropout`: add L2 regularization to the total loss, and remove dropout
   - `dropout_rate = 0.0, c_l2 = 1e-4`
+
+From [**Fig. 3**](#fig-3) we can see that
+- Without dropout, networks tend to have lower training loss (and error) but much higher test loss (and error);
+- L2 regularization can reduce the test loss by a large margin, but has limited impact on the test error.
+
+This result implies that
+- Dropout is in general a good regularization method since it adds robustness to the network to reduce overfitting;
+- L2 regularization can only reduce overfitting to some extent since it directly manipulates the loss function. 
 
 <a name="fig-3"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Regularization%20Comparison.png" caption="<b>Fig. 3:</b> Comparison of different regularization methods." width="100%" %}
