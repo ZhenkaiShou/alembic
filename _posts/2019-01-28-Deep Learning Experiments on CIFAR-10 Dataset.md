@@ -15,6 +15,7 @@ In this blog I will share my experience of playing with [CIFAR-10](https://en.wi
   - [Network Type](#network-type)
   - [Regularizations](#regularizations)
   - [Batch Normalization](#batch-normalization)
+  - [Global Average Pooling](#global-average-pooling)
 
 ## Motivation
 I have been studying deep learning and reinforcement learning for quite some time now. I have always been eager to know how each component can influence the performance of a neural network. However, I never get the chance to have a systematic study of this topic. That is why this time I decide to spend some time (and money) to run these experiments and write this blog.
@@ -133,8 +134,11 @@ To see the impact of batch normalization, I trained the following variant:
 
 From [**Fig. 4**](#fig-4) we can see that
 - Batch normalization reduces both training and test loss (and error) by a large margin.
+
 This result implies that
 - Batch normalization can improve the overall performance of a network since it makes learning of each layer more independently.
 
 <a name="fig-4"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Batch%20Norm%20Comparison.png" caption="<b>Fig. 4:</b> Impact of batch normalization." width="100%" %}
+
+###### Global Average Pooling
