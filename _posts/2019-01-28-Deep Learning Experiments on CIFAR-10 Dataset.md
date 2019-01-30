@@ -192,3 +192,16 @@ This result implies that
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Augment%20Data%20Comparison.png" caption="<b>Fig. 7:</b> Impact of data augmentation." width="100%" %}
 
 ###### Optimizer
+To compare different optimizers, I trained the following variant:
+- `res4, momentum optimizer`: use stochastic gradient descent with momentum to minimize the loss
+  - `optimizer = "Momentum", learning_rate = [1e-1, 1e-2, 1e-3]`
+
+From [**Fig. 8**](#fig-8) we can see that
+- Adam optimizer achieves slightly lower test loss (and error).
+
+This result implies that
+- The choice of optimizer may influence the final performance to some degree.
+- There is no universal answer to which optimizer is better.
+
+<a name="fig-8"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Optimizer%20Comparison.png" caption="<b>Fig. 8:</b> Comparison of different optimizers." width="100%" %}
