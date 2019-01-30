@@ -208,36 +208,13 @@ This result implies that
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Momentum%20vs%20Adam%20Optimizer.png" caption="<b>Fig. 8:</b> Comparison of different optimizers." width="100%" %}
 
 ## Conclusion
-In this blog I showed you how different techniques can influence the performance of a neural network. Below I will sort those techniques according to their impact on the performance:
-- [Deeper Network](#network-type)
-  - ★★★★★
-  - Enable learning of high-level features
-  - Overall improvement
-- [Dropout](#regularization) 
-  - ★★★★✰
-  - Add robustness
-  - Reduce overfitting
-- [Data Augmentation](#data-augmentation)
-  - ★★★★✰
-  - Generate more training data
-  - Reduce overfitting
-- [Batch Normalization](#batch-normalization)
-  - ★★★★✰
-  - Make learning of each layer independently 
-  - Overall improvement
-- [Global Average Pooling](#global-average-pooling)
-  - ★★★✰✰
-  - Reduce network parameters
-  - Reduce overfitting
-- [L2 Regularization](#regularization)
-  - ★★✰✰✰
-  - Add penalty loss
-  - Reduce overfitting
-- [Data Normalization](#data-normalization)
-  - ★✰✰✰✰
-  - Redistribute input data
-  - Almost no impact (when batch normalization has been applied)
-- [Optimizer](#optimizer)
-  - ★✰✰✰✰
-  - Different optimization methods
-  - Almost no impact
+In this blog I showed you how different techniques can influence the performance of a neural network. However, those experiments are only tested under the CIFAR-10 dataset, so some of those results may not hold true for other tasks. 
+
+Besides, I only used very small networks in my experiments because training deep neural networks will comsume a lot of resources. Therefore, some interesting experiments (e.g. comparison between plain neural networks and residual networks with more layers) are not shown in this blog.
+
+## Resources
+- Source code for this experiment:
+  - [Code Repository](https://github.com/ZhenkaiShou/project/tree/master/stand%20alone%20implementation/ResNet)
+- Further reference:
+  - [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
+
