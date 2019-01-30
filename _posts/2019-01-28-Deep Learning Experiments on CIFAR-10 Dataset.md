@@ -205,6 +205,6 @@ This result implies that
 - There is no universal answer to which optimizer is better.
 
 <a name="fig-8"></a>
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Momentum%20vs%20Adam%20Comparison.png" caption="<b>Fig. 8:</b> Comparison of different optimizers." width="100%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Momentum%20vs%20Adam%20Optimizer.png" caption="<b>Fig. 8:</b> Comparison of different optimizers." width="100%" %}
 
 ## Conclusion
