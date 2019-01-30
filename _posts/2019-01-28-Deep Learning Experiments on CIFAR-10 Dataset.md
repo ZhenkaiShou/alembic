@@ -201,10 +201,43 @@ From [**Fig. 8**](#fig-8) we can see that
 - Adam optimizer achieves slightly lower test loss (and error).
 
 This result implies that
-- The choice of optimizer may influence the final performance to some degree.
+- The choice of optimizer may influence the final performance to some degree;
 - There is no universal answer to which optimizer is better.
 
 <a name="fig-8"></a>
 {% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Momentum%20vs%20Adam%20Optimizer.png" caption="<b>Fig. 8:</b> Comparison of different optimizers." width="100%" %}
 
 ## Conclusion
+In this blog I showed you how different techniques can influence the performance of a neural network. Below I will sort those techniques according to their impact on the performance:
+- [Deeper Network](#network-type)
+  - ★★★★★
+  - Enable learning of high-level features
+  - Overall improvement
+- [Dropout](#regularization) 
+  - ★★★★✰
+  - Add robustness
+  - Reduce overfitting
+- [Data Augmentation](#data-augmentation)
+  - ★★★★✰
+  - Generate more training data
+  - Reduce overfitting
+- [Batch Normalization](#batch-normalization)
+  - ★★★★✰
+  - Make learning of each layer independently 
+  - Overall improvement
+- [Global Average Pooling](#global-average-pooling)
+  - ★★★✰✰
+  - Reduce network parameters
+  - Reduce overfitting
+- [L2 Regularization](#regularization)
+  - ★★✰✰✰
+  - Add penalty loss
+  - Reduce overfitting
+- [Data Normalization](#data-normalization)
+  - ★✰✰✰✰
+  - Redistribute input data
+  - Almost no impact (when batch normalization has been applied)
+- [Optimizer](#optimizer)
+  - ★✰✰✰✰
+  - Different optimization methods
+  - Almost no impact
