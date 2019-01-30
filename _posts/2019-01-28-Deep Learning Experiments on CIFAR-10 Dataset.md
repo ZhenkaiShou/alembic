@@ -19,6 +19,7 @@ In this blog I will share my experience of playing with [CIFAR-10](https://en.wi
   - [Data Normalization](#data-normalization)
   - [Data Augmentation](#data-augmentation)
   - [Optimizer](#optimizer)
+- [Conclusion](#conclusion)
 
 ## Motivation
 I have been studying deep learning and reinforcement learning for quite some time now. I have always been eager to know how each component can influence the performance of a neural network. However, I never get the chance to have a systematic study of this topic. That is why this time I decide to spend some time (and money) to run these experiments and write this blog.
@@ -204,4 +205,6 @@ This result implies that
 - There is no universal answer to which optimizer is better.
 
 <a name="fig-8"></a>
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Optimizer%20Comparison.png" caption="<b>Fig. 8:</b> Comparison of different optimizers." width="100%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Deep%20Learning%20Experiments%20on%20CIFAR-10%20Dataset/Momentum%20vs%20Adam%20Comparison.png" caption="<b>Fig. 8:</b> Comparison of different optimizers." width="100%" %}
+
+## Conclusion
