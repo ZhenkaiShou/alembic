@@ -13,6 +13,7 @@ This post serves as a code collection of my personal implementations for differe
   - [Deep Deterministic Policy Gradient](#deep-deterministic-policy-gradient)
   - [Mixture Density Networks](#mixture-density-networks)
   - [Neural Machine Translation](#neural-machine-translation)
+  - [Residual Networks](#residual-networks)
   - [Variational Autoencoder](#variational-autoencoder)
 - [Paper Algorithms](#paper-algorithms)
   - [Large-Scale Study of Curiosity-Driven Learning](#large-scale-study-of-curiosity-driven-learning)
@@ -35,6 +36,11 @@ This category contains stand alone implementation of general machine learning al
 - Neural network architecture.
 - Sequence to sequence model that transforms an input sequence into an output sequence.
 - Repository: [NMT](https://github.com/ZhenkaiShou/project/tree/master/stand%20alone%20implementation/NMT)
+
+###### Residual Networks
+- Neural network architecture.
+- Network model that uses residual connection to resolve vanishing gradient problem of deep neural networks.
+- Repository: [ResNet](https://github.com/ZhenkaiShou/project/tree/master/stand%20alone%20implementation/ResNet)
 
 ###### Variational Autoencoder
 - Neural network architecture.
