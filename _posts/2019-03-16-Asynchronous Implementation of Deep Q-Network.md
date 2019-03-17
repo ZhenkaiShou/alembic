@@ -14,6 +14,7 @@ In this blog I will share my personal experience of implementing some basic deep
 - [Asynchronous Implementation in TensorFlow](#asynchronous-implementation-in-tensorflow)
   - [Parameter Server Hanging](#parameter-server-hanging)
   - [Memory Allocation of GPU](#memory-allocation-of-gpu)
+  - [Releasing GPU Memory](#releasing-gpu-memory)
   
 ## Deep Q-Network
 [Deep Q-Network](https://deepmind.com/research/dqn/) (DQN) is a basic reinforcement learning algorithm that is able to play Atari games with visual input. Its training pipeline is shown below:
@@ -132,3 +133,18 @@ elif job_name == "worker":
       ...
 ```
 
+###### Releasing GPU Memory
+When a `worker` finishes its task, it will not release the allocated GPU memory by default. To make a `worker` release GPU memory automatically, we need to make small modifications in the code:
+```python
+if job_name == "ps":
+  # Parameter server.
+  ...
+elif job_name == "worker":
+  # Worker.
+  ...
+  
+  # Release memory when a worker is finished.
+  tf.contrib.keras.backend.clear_session()
+```
+
+All we need is to add `tf.contrib.keras.backend.clear_session()` at the end so that the `worker` can release GPU memory.
