@@ -52,7 +52,7 @@ This is probably the first problem one will encounter by following the [tutorial
 if FLAGS.job_name == "ps":
   server.join()
 ````
-When `server.join()` is executed, `ps` will be blocked **permanently**. To solve this problem, `ps` should be notified whenever a `worker` has finished its task, and `ps` should end when all `worker` have finished their tasks. We can modify the codes accrodingly:
+When `server.join()` is executed, `ps` will be blocked **permanently**. To solve this problem, `ps` should be notified whenever a `worker` has finished its task, and `ps` should end when all `worker` have finished their tasks. According to [this question](https://stackoverflow.com/questions/39810356/shut-down-server-in-tensorflow), we can modify the codes accrodingly:
 ```python
 if job_name == "ps":
   # Parameter server.
@@ -79,11 +79,10 @@ elif job_name == "worker":
       sess.run(queues[i].enqueue(task_index))
 ```
 
-See [this question](https://stackoverflow.com/questions/39810356/shut-down-server-in-tensorflow) for more information.
-
 ###### Memory Allocation of GPU
 When I run my initial codes on a GPU server, the server tells me that it cannot allocate extra memory to other `worker` processes. My original code looks like this:
 ```python
+# Note: this version DOES NOT work.
 cluster = tf.train.ClusterSpec(cluster_dict)
 server = tf.train.Server(cluster, job_name = job_name, task_index = task_index)
 if job_name == "ps":
@@ -103,6 +102,31 @@ elif job_name == "worker":
     master = server.target,
     is_chief = (task_index == 0),
     config = config
+    ) as sess:
+      # Logic part of the worker.
+      ...
+```
+
+[It](https://github.com/tensorflow/tensorflow/issues/12381#issuecomment-323378203) turns out that the GPU configuration should be defined in the `tf.train.Server()`. So the correct version should be:
+```python
+# GPU configuration.
+gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction = PER_PROCESS_GPU_MEMORY_FRACTION)
+config = tf.ConfigProto(gpu_options = gpu_options)
+
+cluster = tf.train.ClusterSpec(cluster_dict)
+server = tf.train.Server(cluster, job_name = job_name, task_index = task_index, config = config)
+if job_name == "ps":
+  # Do something for parameter server.
+  ...
+elif job_name == "worker":
+  # Worker.
+  with tf.device(tf.train.replica_device_setter(worker_device = "/job:worker/task:" + str(task_index), cluster = cluster)):
+    # Build your network model here.
+    ...
+  
+  with tf.train.MonitoredTrainingSession(
+    master = server.target,
+    is_chief = (task_index == 0)
     ) as sess:
       # Logic part of the worker.
       ...
