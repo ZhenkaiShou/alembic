@@ -50,7 +50,7 @@ In TensorFlow, asynchronous implementation can be achieved by [Distributed Tenso
 ###### Parameter Server Hanging
 This is probably the first problem one will encounter by following the [tutorial example](https://github.com/tensorflow/examples/blob/master/community/en/docs/deploy/distributed.md#putting-it-all-together-example-trainer-program). That is, the parameter server process `ps` will never end even if all the worker processes `worker` have finished their tasks. The cause of this problem is 
 ```python
-if FLAGS.job_name == "ps":
+if job_name == "ps":
   server.join()
 ````
 When `server.join()` is executed, `ps` will be blocked **permanently**. To solve this problem, `ps` should be notified whenever a `worker` has finished its task, and `ps` should end when all `worker` have finished their tasks. According to [this question](https://stackoverflow.com/questions/39810356/shut-down-server-in-tensorflow), we can modify the codes accrodingly:
@@ -134,7 +134,7 @@ elif job_name == "worker":
 ```
 
 ###### Releasing GPU Memory
-When a `worker` finishes its task, it will not release the allocated GPU memory by default. To make a `worker` release GPU memory automatically, we need to make small modifications in the code:
+When a `worker` finishes its task, it will not release the allocated GPU memory by default. To solve this problem, we need to make small modifications in the code:
 ```python
 if job_name == "ps":
   # Parameter server.
