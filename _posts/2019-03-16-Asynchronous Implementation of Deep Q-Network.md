@@ -12,7 +12,8 @@ In this blog I will share my personal experience of implementing some basic deep
 - [Deep Q-Network](#deep-q-network)
 - [Asynchronous DQN](#asynchronous-dqn)
 - [Asynchronous Implementation in TensorFlow](#asynchronous-implementation-in-tensorflow)
-  - [Parameter Server Hanging](parameter-server-hanging)
+  - [Parameter Server Hanging](#parameter-server-hanging)
+  - [Memory Allocation of GPU](#memory-allocation-of-gpu)
   
 ## Deep Q-Network
 [Deep Q-Network](https://deepmind.com/research/dqn/) (DQN) is a basic reinforcement learning algorithm that is able to play Atari games with visual input. Its training pipeline is shown below:
@@ -62,7 +63,7 @@ if job_name == "ps":
     for i in range(cluster.num_tasks("worker")):
       sess.run(queue.dequeue())
 elif job_name == "worker":
-  Insert codes that specifies the task of a worker.
+  # The logic part of a worker.
   ...
   
   # Execute the following code when a worker finished its job.
@@ -80,5 +81,30 @@ elif job_name == "worker":
 
 See [this question](https://stackoverflow.com/questions/39810356/shut-down-server-in-tensorflow) for more information.
 
-
+###### Memory Allocation of GPU
+When I run my initial codes on a GPU server, the server tells me that it cannot allocate extra memory to other `worker` processes. My original code looks like this:
+```python
+cluster = tf.train.ClusterSpec(cluster_dict)
+server = tf.train.Server(cluster, job_name = job_name, task_index = task_index)
+if job_name == "ps":
+  # Do something for parameter server.
+  ...
+elif job_name == "worker":
+  # Worker.
+  with tf.device(tf.train.replica_device_setter(worker_device = "/job:worker/task:" + str(task_index), cluster = cluster)):
+    # Build your network model here.
+    ...
+  
+  # GPU configuration.
+  gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction = PER_PROCESS_GPU_MEMORY_FRACTION)
+  config = tf.ConfigProto(gpu_options = gpu_options)
+  
+  with tf.train.MonitoredTrainingSession(
+    master = server.target,
+    is_chief = (task_index == 0),
+    config = config
+    ) as sess:
+      # Logic part of the worker.
+      ...
+```
 
