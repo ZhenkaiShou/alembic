@@ -16,6 +16,7 @@ In this blog I will share my personal experience of implementing some basic deep
   - [Memory Allocation of GPU](#memory-allocation-of-gpu)
   - [Releasing GPU Memory](#releasing-gpu-memory)
   - [Saving with Monitored Session](#saving-with-monitored-session)
+
 ## Deep Q-Network
 [Deep Q-Network](https://deepmind.com/research/dqn/) (DQN) is a basic reinforcement learning algorithm that is able to play Atari games with visual input. Its training pipeline is shown below:
 - Initialize network variables;
@@ -84,7 +85,7 @@ elif job_name == "worker":
 When I run my initial codes on a GPU server, the server tells me that it cannot allocate extra memory to other `worker` processes. My original code looks like this:
 ```python
 # Note: this version DOES NOT work.
-cluster = tf.train.ClusterSpec(cluster_dict)
+cluster = tf.train.ClusterSpec(...)
 server = tf.train.Server(cluster, job_name = job_name, task_index = task_index)
 if job_name == "ps":
   # Do something for parameter server.
@@ -150,3 +151,25 @@ elif job_name == "worker":
 All we need is to add `tf.contrib.keras.backend.clear_session()` at the end so that the `worker` can release GPU memory.
 
 ###### Saving with Monitored Session
+I encountered the saving issue when I try to save the model parameters as usual:
+```python
+# Note: this version DOES NOT work.
+with tf.train.MonitoredTrainingSession(...) as sess:
+  # Logic part of the worker.
+  ...
+  
+  # Save the network parameters.
+  saver = tf.train.Saver(var_list = ...)
+  saver.save(sess, file_name)
+```
+
+[It](https://github.com/tensorflow/tensorflow/issues/8425#issuecomment-286686851) turns out that in `tf.train.MonitoredTrainingSession()` you can only save models using `sess._sess._sess._sess._sess`:
+```python
+with tf.train.MonitoredTrainingSession(...) as sess:
+  # Logic part of the worker.
+  ...
+  
+  # Save the network parameters.
+  saver = tf.train.Saver(var_list = ...)
+  saver.save(sess._sess._sess._sess._sess, file_name)
+```
