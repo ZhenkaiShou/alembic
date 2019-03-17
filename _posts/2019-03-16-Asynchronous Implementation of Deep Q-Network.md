@@ -12,7 +12,7 @@ In this blog I will share my personal experience of implementing some basic deep
 - [Deep Q-Network](#deep-q-network)
 - [Asynchronous DQN](#asynchronous-dqn)
 - [Asynchronous Implementation in TensorFlow](#asynchronous-implementation-in-tensorflow)
-  - [Parameter Server Hanging]()
+  - [Parameter Server Hanging](parameter-server-hanging)
   
 ## Deep Q-Network
 [Deep Q-Network](https://deepmind.com/research/dqn/) (DQN) is a basic reinforcement learning algorithm that is able to play Atari games with visual input. Its training pipeline is shown below:
@@ -46,11 +46,39 @@ Sometimes we want to accelerate the training progress via asynchronous training.
 In TensorFlow, asynchronous implementation can be achieved by [Distributed TensorFlow](https://github.com/tensorflow/examples/blob/master/community/en/docs/deploy/distributed.md). In this blog, I will not go into details as the above link has covered all the basics. Instead, I would like to talk about some common problems I have encountered.
 
 ###### Parameter Server Hanging
-This is probably the first problem one will encounter by following the [tutorial example](https://github.com/tensorflow/examples/blob/master/community/en/docs/deploy/distributed.md#putting-it-all-together-example-trainer-program). That is, the parameter server process `ps` will never end even if all the worker processes `worker` have finished their jobs. The cause of this problem is 
+This is probably the first problem one will encounter by following the [tutorial example](https://github.com/tensorflow/examples/blob/master/community/en/docs/deploy/distributed.md#putting-it-all-together-example-trainer-program). That is, the parameter server process `ps` will never end even if all the worker processes `worker` have finished their tasks. The cause of this problem is 
 ```python
 if FLAGS.job_name == "ps":
-    server.join()
+  server.join()
 ````
+When `server.join()` is executed, `ps` will be blocked **permanently**. To solve this problem, `ps` should be notified whenever a `worker` has finished its task, and `ps` should end when all `worker` have finished their tasks. We can modify the codes accrodingly:
+```python
+if job_name == "ps":
+  # Parameter server.
+  with tf.device("/job:ps/task:" + str(task_index)):
+    queue = tf.FIFOQueue(cluster.num_tasks("worker"), tf.int32, shared_name = "done_queue" + str(task_index))
+  # Close the parameter server when all queues from workers have been filled.
+  with tf.Session(server.target) as sess:
+    for i in range(cluster.num_tasks("worker")):
+      sess.run(queue.dequeue())
+elif job_name == "worker":
+  Insert codes that specifies the task of a worker.
+  ...
+  
+  # Execute the following code when a worker finished its job.
+  queues = []
+  # Create a shared queue on the worker which is visible on the parameter server.
+  for i in range(cluster.num_tasks("ps")):
+    with tf.device("/job:ps/task:" + str(i)):
+      queue = tf.FIFOQueue(cluster.num_tasks("worker"), tf.int32, shared_name = "done_queue" + str(i))
+      queues.append(queue)
+  # Notify all parameter servers that the current worker has finished the task.
+  with tf.Session(server.target) as sess:
+    for i in range(cluster.num_tasks("ps")):
+      sess.run(queues[i].enqueue(task_index))
+```
+
+See [this question](https://stackoverflow.com/questions/39810356/shut-down-server-in-tensorflow) for more information.
 
 
 
