@@ -197,4 +197,5 @@ Both experiments are conducted under a g3.4xlarge instance (by using Amazon Web 
 |   Standard   |  12812  |
 | Asynchronous |   5523  |
 
-This shows that asynchronous implementation gains a huge speed boost in exchange of some performance loss.
+<br>
+This shows that asynchronous implementation gets a huge speed boost in exchange of some performance loss.
