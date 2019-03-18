@@ -182,8 +182,19 @@ Next I will compare the performance of standard and asynchronous implementation 
 
 ###### Learning Curves
 <a name="fig-1"></a>
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Asynchronous%20Implementation%20of%20Deep%20Q-Network/dqn.png" caption="<b>Fig. 1:</b> Learning curve of standard DQN." width="50%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Asynchronous%20Implementation%20of%20Deep%20Q-Network/dqn.png" caption="<b>Fig. 1:</b> Learning curve of standard DQN in the game Pong." width="30%" %}
 
 <a name="fig-2"></a>
-{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Asynchronous%20Implementation%20of%20Deep%20Q-Network/async_dqn.png" caption="<b>Fig. 1:</b> Learning curve of asynchronous DQN." width="50%" %}
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Asynchronous%20Implementation%20of%20Deep%20Q-Network/async_dqn.png" caption="<b>Fig. 2:</b> Learning curve of asynchronous DQN in the game Pong." width="30%" %}
 
+[**Fig. 1**](#fig-1) and [**Fig. 2**](#fig-2) show the learning curves with respect to the episodic reward during training. Higher is better. We can see that the agent is able to learn slightly faster with standard implementation. This is probably because in standard implementation the gradients are always up-to-date while in asynchronous implementation there is some delay for gradients updating.
+
+###### Training Time
+Both experiments are conducted under a g3.4xlarge instance (by using Amazon Web Service). 10 `worker` processes are created for the asynchronous implementation. The training time is shown in the following table. Lower is faster.
+
+|    Variant   | Time(s) |
+|:------------:|:-------:|
+|   Standard   |  12812  |
+| Asynchronous |   5523  |
+
+This shows that asynchronous implementation gains a huge speed boost in exchange of some performance loss.
