@@ -16,6 +16,9 @@ In this blog I will share my personal experience of implementing some basic deep
   - [Memory Allocation of GPU](#memory-allocation-of-gpu)
   - [Releasing GPU Memory](#releasing-gpu-memory)
   - [Saving with Monitored Session](#saving-with-monitored-session)
+- [Performance](#performance)
+  - [Learning Curves](#learning-curves)
+  - [Training Time](#training-time)
 
 ## Deep Q-Network
 [Deep Q-Network](https://deepmind.com/research/dqn/) (DQN) is a basic reinforcement learning algorithm that is able to play Atari games with visual input. Its training pipeline is shown below:
@@ -173,3 +176,14 @@ with tf.train.MonitoredTrainingSession(...) as sess:
   saver = tf.train.Saver(var_list = ...)
   saver.save(sess._sess._sess._sess._sess, file_name)
 ```
+
+## Performance
+Next I will compare the performance of standard and asynchronous implementation of DQN. In both experiments, the agent is trained to play the Atari game "Pong" since this is a simple environment which can be easily solved by exploiting the weakness of the computer-controlled opponent.
+
+###### Learning Curves
+<a name="fig-1"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Asynchronous%20Implementation%20of%20Deep%20Q-Network/dqn.png" caption="<b>Fig. 1:</b> Learning curve of standard DQN." width="50%" %}
+
+<a name="fig-2"></a>
+{% include figure.html image="https://zhenkaishou.github.io/my-site/assets/Asynchronous%20Implementation%20of%20Deep%20Q-Network/async_dqn.png" caption="<b>Fig. 1:</b> Learning curve of asynchronous DQN." width="50%" %}
+
