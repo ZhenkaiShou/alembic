@@ -19,6 +19,8 @@ In this blog I will share my personal experience of implementing some basic deep
 - [Performance](#performance)
   - [Learning Curves](#learning-curves)
   - [Training Time](#training-time)
+- [Conclusion](#conclusion)
+- [Resources](#resources)
 
 ## Deep Q-Network
 [Deep Q-Network](https://deepmind.com/research/dqn/) (DQN) is a basic reinforcement learning algorithm that is able to play Atari games with visual input. Its training pipeline is shown below:
@@ -198,4 +200,14 @@ Both experiments are conducted under a g3.4xlarge instance (by using Amazon Web 
 | Asynchronous |   5523  |
 
 <br>
-This shows that asynchronous implementation gets a huge speed boost in exchange of some performance loss.
+This shows that asynchronous implementation gets a huge speed boost.
+
+## Conclusion
+In this blog I shared my personal experience of asynchronous implementation using distributed TensorFlow. Even though the experiments are conducted under some reinforcement learning task (DQN), I believe that similar experiment results should still apply to other deep learning tasks, that is, **asynchronous implementation gets a huge speed boost in exchange of some convergence speed loss**.
+
+## Resources
+- Source code for this experiment:
+  - [Standard DQN](https://github.com/ZhenkaiShou/project/tree/master/stand%20alone%20implementation/DQN/Standard)
+  - [Asynchronous DQN](https://github.com/ZhenkaiShou/project/tree/master/stand%20alone%20implementation/DQN/Asynchronous)
+- Further reference:
+  - [Distributed TensorFlow](https://github.com/tensorflow/examples/blob/master/community/en/docs/deploy/distributed.md)
