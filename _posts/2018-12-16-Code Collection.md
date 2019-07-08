@@ -16,7 +16,9 @@ This post serves as a code collection of my personal implementations for differe
   - [Residual Networks](#residual-networks)
   - [Variational Autoencoder](#variational-autoencoder)
 - [Paper Algorithms](#paper-algorithms)
+  - [Deep Q-Network](#deep-q-network)
   - [Large-Scale Study of Curiosity-Driven Learning](#large-scale-study-of-curiosity-driven-learning)
+  - [Prioritized Experience Replay](#prioritized-experience-replay)
   - [World Models](#world-models)
 
 ## General Algorithms
@@ -50,10 +52,20 @@ This category contains stand alone implementation of general machine learning al
 ## Paper Algorithms
 This category contains implementation of specific algorithms proposed in some papers.
 
+###### Deep Q-Network
+- Reinforcement learning algorithm.
+- The first algorithm that achieves human-level performance on Atari games with raw-pixel input.
+- Repository: [Deep Q-Network](https://github.com/ZhenkaiShou/project/tree/master/paper%20reproduction/DQN)
+
 ###### Large-Scale Study of Curiosity-Driven Learning
 - Reinforcement learning algorithm.
 - Explore what will happen if an agent is trained purely by its own curiosity.
 - Repository: [Large-Scale Study of Curiosity-Driven Learning](https://github.com/ZhenkaiShou/project/tree/master/paper%20reproduction/Large-Scale%20Study%20of%20Curiosity-Driven%20Learning)
+
+###### Prioritized Experience Replay
+- Reinforcement learning algorithm.
+- An extension to Deep Q-Network (DQN). Samples with higher training error is more likely to be sampled for training.
+- Repository: [PER](https://github.com/ZhenkaiShou/project/tree/master/paper%20reproduction/PER)
 
 ###### World Models
 - Reinforcement learning algorithm.
